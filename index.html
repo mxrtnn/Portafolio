@@ -1,0 +1,62 @@
+<!-- ================= INDEX.HTML ================= -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Pro</title>
+
+  <!-- GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- TAILWIND CONFIG -->
+  <script src="tailwind.config.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-[Poppins] text-white bg-lines">
+
+<nav class="flex justify-between items-center px-10 py-6">
+  <h1 class="text-xl font-bold text-teal-400">▲ Portfolio</h1>
+
+  <div class="hidden md:flex gap-8 text-gray-300">
+    <a href="#">Home</a>
+    <a href="#proyectos">Projects</a>
+    <a href="#">Resume</a>
+  </div>
+
+  <div class="flex items-center gap-4">
+    <i data-lucide="linkedin"></i>
+    <i data-lucide="mail"></i>
+    <a href="cv.pdf" download class="bg-teal-500 px-4 py-2 rounded-lg">CV</a>
+  </div>
+</nav>
+
+<section class="min-h-screen flex items-center px-10">
+  <div class="grid md:grid-cols-2 gap-10 items-center w-full">
+
+    <div>
+      <p class="text-gray-400">Hello, I'm</p>
+      <h1 class="text-5xl font-bold text-teal-400">Tu Nombre</h1>
+      <p class="mt-2 text-gray-300">UI/UX Designer And Graphic Designer</p>
+      <button class="mt-6 bg-teal-500 px-6 py-3 rounded-xl">Let's Talk</button>
+    </div>
+
+    <div class="flex justify-center">
+      <div class="relative">
+        <div class="glow"></div>
+        <div class="hex">
+          <img src="https://via.placeholder.com/300" class="hex object-cover">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="script.js"></script>
+</body>
+</html>
