@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio Profesional</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -12,8 +15,8 @@
                     colors: {
                         darkBg: '#0b1325', // Color de fondo oscuro
                         accentBlue: '#2563eb', // Azul brillante para botones
-                        accentLight: '#60a5fa', // Azul más claro (Agregado para arreglar tu código)
-                        textSub: '#9ca3af', // Gris para textos secundarios (Agregado para arreglar tu código)
+                        accentLight: '#60a5fa', // Azul más claro
+                        textSub: '#9ca3af', // Gris para textos secundarios
                     }
                 }
             }
@@ -82,10 +85,19 @@
                 <button class="bg-accentBlue hover:bg-blue-700 text-white px-6 py-3 rounded-full text-sm font-semibold flex items-center gap-2 transition">
                     CONTACTO &rarr;
                 </button>
-                <div class="flex gap-3">
-                    <a href="#" aria-label="Facebook" class="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center hover:bg-gray-800 transition"><span class="text-sm">f</span></a>
-                    <a href="#" aria-label="Instagram" class="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center hover:bg-gray-800 transition text-pink-500"><span class="text-sm">ig</span></a>
-                    <a href="#" aria-label="LinkedIn" class="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center hover:bg-gray-800 transition"><span class="text-sm">in</span></a>
+                
+                <div class="flex gap-4">
+                    <a href="#" target="_blank" aria-label="Github" class="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center text-white hover:bg-gray-800 transition">
+                        <i class="fa-brands fa-github text-lg"></i>
+                    </a>
+                    
+                    <a href="#" target="_blank" aria-label="LinkedIn" class="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center text-white hover:bg-[#0077b5] transition hover:border-[#0077b5]">
+                        <i class="fa-brands fa-linkedin-in text-lg"></i>
+                    </a>
+                    
+                    <a href="mailto:tu.email@gmail.com" aria-label="Enviar correo" class="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center text-white hover:bg-[#ea4335] transition hover:border-[#ea4335]">
+                        <i class="fa-solid fa-envelope text-lg"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -161,7 +173,8 @@
         </div>
     </section>
 
-    <section class="bg-[#0b162c] py-24 border-y border-gray-800"> <div class="max-w-7xl mx-auto px-10">
+    <section class="bg-[#0b162c] py-24 border-y border-gray-800"> 
+        <div class="max-w-7xl mx-auto px-10">
             <p class="text-accentLight tracking-widest text-xs font-semibold mb-3">MI TRABAJO</p>
             <h2 class="text-4xl font-extrabold mb-12">PROYECTOS RECIENTES</h2>
 
