@@ -1,4 +1,1 @@
-// Inicializar iconos
-lucide.createIcons();
-
-// (futuro) aquí puedes meter animaciones
+console.log("Portfolio listo 🚀");

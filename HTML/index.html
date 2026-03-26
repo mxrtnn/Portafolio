@@ -5,64 +5,145 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio Pro</title>
 
-  <!-- GOOGLE FONT -->
+  <!-- FONT -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- TAILWIND CONFIG -->
-  <script src="JS/tailwind.config.js"></script>
+  <!-- TAILWIND -->
+  <script src="../JS/tailwind.config.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="CSS/styles.css">
+  <link rel="stylesheet" href="../CSS/styles.css">
 </head>
 
-<body class="font-[Poppins] text-white bg-lines">
+<body class="bg-main text-white font-[Poppins]">
 
 <!-- NAVBAR -->
-<nav class="flex justify-between items-center px-10 py-6">
-  <h1 class="text-xl font-bold text-teal-400">▲ Portfolio</h1>
+<nav class="flex justify-between items-center px-16 py-6">
+  <h1 class="text-xl font-bold text-blue-400">JENNA</h1>
 
-  <div class="hidden md:flex gap-8 text-gray-300">
-    <a href="#">Home</a>
-    <a href="#proyectos">Projects</a>
-    <a href="#">Resume</a>
+  <div class="flex gap-10 text-gray-300">
+    <a href="#" class="hover:text-blue-400">Home</a>
+    <a href="#">About</a>
+    <a href="#">Projects</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
   </div>
 
-  <div class="flex items-center gap-4">
-    <i data-lucide="linkedin"></i>
-    <i data-lucide="mail"></i>
-    <a href="assets/cv/cv.pdf" download class="bg-teal-500 px-4 py-2 rounded-lg">CV</a>
-  </div>
+  <button class="bg-blue-500 px-5 py-2 rounded-full">Let's Talk</button>
 </nav>
 
 <!-- HERO -->
-<section class="min-h-screen flex items-center px-10">
-  <div class="grid md:grid-cols-2 gap-10 items-center w-full">
+<section class="px-16 py-20 grid grid-cols-2 items-center">
 
-    <div>
-      <p class="text-gray-400">Hello, I'm</p>
-      <h1 class="text-5xl font-bold text-teal-400">Tu Nombre</h1>
-      <p class="mt-2 text-gray-300">UI/UX Designer And Graphic Designer</p>
-      <button class="mt-6 bg-teal-500 px-6 py-3 rounded-xl">Let's Talk</button>
+  <!-- TEXTO -->
+  <div>
+    <p class="text-gray-400 uppercase text-sm">Jenna Ortega</p>
+
+    <h1 class="text-5xl font-bold mt-4">
+      HAY! I'M JENNA <br>
+      <span class="text-blue-400">I'M A DESIGNER</span>
+    </h1>
+
+    <p class="text-gray-400 mt-6 w-[80%]">
+      Yet bed any for travelling assistance indulgence unpleasant...
+    </p>
+
+    <div class="mt-6 flex items-center gap-4">
+      <button class="bg-blue-500 px-6 py-3 rounded-full">
+        Get in Touch →
+      </button>
+
+      <div class="flex gap-3">
+        <div class="social">F</div>
+        <div class="social">T</div>
+        <div class="social">In</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IMAGEN -->
+  <div class="relative flex justify-center">
+    <img src="../assets/img/profile.png" class="hero-img">
+  </div>
+
+</section>
+
+<!-- LOGOS -->
+<section class="bg-dark py-6 flex justify-around opacity-70">
+  <span>logoipsum</span>
+  <span>logoipsum</span>
+  <span>logoipsum</span>
+  <span>logoipsum</span>
+</section>
+
+<!-- ABOUT -->
+<section class="px-16 py-20 grid grid-cols-2 gap-10 items-center">
+
+  <img src="../assets/img/profile.png" class="rounded-xl w-[350px]">
+
+  <div>
+    <p class="text-blue-400 text-sm">ABOUT US</p>
+
+    <h2 class="text-3xl font-bold mt-3">
+      I AM AVAILABLE FOR UI UX DESIGN PROJECT
+    </h2>
+
+    <p class="text-gray-400 mt-4">
+      Lorem ipsum dolor sit amet consectetur...
+    </p>
+
+    <div class="flex gap-10 mt-6">
+      <div>
+        <h3 class="text-xl font-bold">280+</h3>
+        <p class="text-gray-400 text-sm">Google Review</p>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold">15+</h3>
+        <p class="text-gray-400 text-sm">Experience</p>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold">49+</h3>
+        <p class="text-gray-400 text-sm">Awards</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- PROJECTS -->
+<section class="px-16 py-20">
+  <h2 class="text-3xl font-bold mb-10">Recent Projects</h2>
+
+  <div class="grid grid-cols-3 gap-6">
+
+    <div class="card">
+      <img src="../assets/img/p1.jpg">
+      <div class="p-4">
+        <h3>Website Design</h3>
+        <p class="text-gray-400 text-sm">Web Design</p>
+      </div>
     </div>
 
-    <div class="flex justify-center">
-      <div class="relative">
-        <div class="glow"></div>
-        <div class="hex">
-          <img src="assets/img/tu-foto.png" class="hex object-cover">
-        </div>
+    <div class="card">
+      <img src="../assets/img/p2.jpg">
+      <div class="p-4">
+        <h3>Website Design</h3>
+        <p class="text-gray-400 text-sm">Web Design</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="../assets/img/p3.jpg">
+      <div class="p-4">
+        <h3>Website Design</h3>
+        <p class="text-gray-400 text-sm">Web Design</p>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ICONS -->
-<script src="https://unpkg.com/lucide@latest"></script>
-
-<!-- JS -->
-<script src="JS/script.js"></script>
-
+<script src="../JS/script.js"></script>
 </body>
 </html>
