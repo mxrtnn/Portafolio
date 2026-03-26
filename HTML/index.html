@@ -1,149 +1,122 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio Pro</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Profesional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0b1325', // Color de fondo oscuro similar a la imagen
+                        accentBlue: '#2563eb', // Azul brillante para botones y texto
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0b1325;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        /* Animación del cursor parpadeante */
+        .cursor {
+            display: inline-block;
+            width: 4px;
+            height: 1em;
+            background-color: #2563eb;
+            animation: blink 1s step-end infinite;
+            vertical-align: middle;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
 
-  <!-- FONT -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <!-- TAILWIND -->
-  <script src="../JS/tailwind.config.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="../CSS/styles.css">
+        /* Animación de elementos flotantes (para las esferas de la foto) */
+        .float-anim {
+            animation: floating 4s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
 </head>
+<body class="antialiased">
 
-<body class="bg-main text-white font-[Poppins]">
+    <nav class="flex justify-between items-center px-10 py-6 max-w-7xl mx-auto">
+        <div class="text-xl font-bold flex items-center gap-2">
+            <span class="bg-accentBlue text-white p-1 rounded">J</span> Martin Jara
+        </div>
+        <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-300">
+            <a href="#" class="hover:text-white border-b-2 border-accentBlue pb-1">Inicio</a>
+            <a href="#" class="hover:text-white">Perfil</a>
+            <a href="#" class="hover:text-white">Proyectos</a>
+            <a href="#" class="hover:text-white">Servicios</a>
+        </div>
+        <button class="bg-accentBlue hover:bg-blue-700 text-white px-6 py-2 rounded-full text-sm font-semibold transition">
+            Trabajemos Juntos
+        </button>
+    </nav>
 
-<!-- NAVBAR -->
-<nav class="flex justify-between items-center px-16 py-6">
-  <h1 class="text-xl font-bold text-blue-400">JENNA</h1>
+    <header class="max-w-7xl mx-auto px-10 pt-16 pb-24 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        
+        <div>
+            <p class="text-accentBlue tracking-widest text-sm font-semibold mb-2">Portafolio Web</p>
+            <h1 class="text-5xl font-extrabold mb-2 leading-tight">
+                Martín Jara <br>
+                <span class="text-accentBlue" id="typewriter"></span><span class="cursor"></span>
+            </h1>
+            <p class="text-gray-400 mt-6 mb-8 text-sm leading-relaxed max-w-md">
+                Yet bed any for travelling assistance indulgence unpleasing. Not thoughts all exercise blessing. Indulgence way everything joy alteration boisterous the attachment.
+            </p>
+            <div class="flex items-center gap-4">
+                <button class="bg-accentBlue hover:bg-blue-700 text-white px-6 py-3 rounded-full text-sm font-semibold flex items-center gap-2 transition">
+                    CONTACTO &rarr;
+                </button>
+                <div class="flex gap-3">
+                    <a href="#" class="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center hover:bg-gray-800 transition"><span class="text-sm">f</span></a>
+                    <a href="#" class="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center hover:bg-gray-800 transition text-pink-500"><span class="text-sm">ig</span></a>
+                    <a href="#" class="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center hover:bg-gray-800 transition"><span class="text-sm">in</span></a>
+                </div>
+            </div>
+        </div>
 
-  <div class="flex gap-10 text-gray-300">
-    <a href="#" class="hover:text-blue-400">Home</a>
-    <a href="#">About</a>
-    <a href="#">Projects</a>
-    <a href="#">Services</a>
-    <a href="#">Contact</a>
-  </div>
+        <div class="relative flex justify-center">
+            <div class="absolute inset-0 flex items-center justify-center opacity-20 -z-10">
+                <div class="w-80 h-80 border-[1px] border-white rounded-full"></div>
+                <div class="absolute w-72 h-72 border-[1px] border-white rounded-full"></div>
+                <div class="absolute w-64 h-64 border-[1px] border-white rounded-full"></div>
+            </div>
+            
+            <img src="https://via.placeholder.com/400x500/1a202c/ffffff?text=Tu+Foto+Aqui" alt="Foto" class="z-10 object-cover rounded-b-full">
+            
+            <div class="absolute top-10 left-10 w-12 h-12 bg-gradient-to-br from-gray-700 to-black rounded-full shadow-lg float-anim"></div>
+            <div class="absolute bottom-20 right-0 w-16 h-16 bg-gradient-to-br from-blue-700 to-black rounded-full shadow-lg float-anim" style="animation-delay: 1s;"></div>
+        </div>
+    </header>
 
-  <button class="bg-blue-500 px-5 py-2 rounded-full">Let's Talk</button>
-</nav>
+    <script>
+        const textToType = "Desarrollador Full-Stack";
+        const typingSpeed = 150; 
+        let charIndex = 0;
 
-<!-- HERO -->
-<section class="px-16 py-20 grid grid-cols-2 items-center">
+        function typeWriter() {
+            if (charIndex < textToType.length) {
+                document.getElementById("typewriter").innerHTML += textToType.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeWriter, typingSpeed);
+            }
+        }
 
-  <!-- TEXTO -->
-  <div>
-    <p class="text-gray-400 uppercase text-sm">Jenna Ortega</p>
+        // Iniciar la animación cuando cargue la página
+        window.onload = typeWriter;
+    </script>
 
-    <h1 class="text-5xl font-bold mt-4">
-      HAY! I'M JENNA <br>
-      <span class="text-blue-400">I'M A DESIGNER</span>
-    </h1>
-
-    <p class="text-gray-400 mt-6 w-[80%]">
-      Yet bed any for travelling assistance indulgence unpleasant...
-    </p>
-
-    <div class="mt-6 flex items-center gap-4">
-      <button class="bg-blue-500 px-6 py-3 rounded-full">
-        Get in Touch →
-      </button>
-
-      <div class="flex gap-3">
-        <div class="social">F</div>
-        <div class="social">T</div>
-        <div class="social">In</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- IMAGEN -->
-  <div class="relative flex justify-center">
-    <img src="../assets/img/profile.png" class="hero-img">
-  </div>
-
-</section>
-
-<!-- LOGOS -->
-<section class="bg-dark py-6 flex justify-around opacity-70">
-  <span>logoipsum</span>
-  <span>logoipsum</span>
-  <span>logoipsum</span>
-  <span>logoipsum</span>
-</section>
-
-<!-- ABOUT -->
-<section class="px-16 py-20 grid grid-cols-2 gap-10 items-center">
-
-  <img src="../assets/img/profile.png" class="rounded-xl w-[350px]">
-
-  <div>
-    <p class="text-blue-400 text-sm">ABOUT US</p>
-
-    <h2 class="text-3xl font-bold mt-3">
-      I AM AVAILABLE FOR UI UX DESIGN PROJECT
-    </h2>
-
-    <p class="text-gray-400 mt-4">
-      Lorem ipsum dolor sit amet consectetur...
-    </p>
-
-    <div class="flex gap-10 mt-6">
-      <div>
-        <h3 class="text-xl font-bold">280+</h3>
-        <p class="text-gray-400 text-sm">Google Review</p>
-      </div>
-      <div>
-        <h3 class="text-xl font-bold">15+</h3>
-        <p class="text-gray-400 text-sm">Experience</p>
-      </div>
-      <div>
-        <h3 class="text-xl font-bold">49+</h3>
-        <p class="text-gray-400 text-sm">Awards</p>
-      </div>
-    </div>
-  </div>
-
-</section>
-
-<!-- PROJECTS -->
-<section class="px-16 py-20">
-  <h2 class="text-3xl font-bold mb-10">Recent Projects</h2>
-
-  <div class="grid grid-cols-3 gap-6">
-
-    <div class="card">
-      <img src="../assets/img/p1.jpg">
-      <div class="p-4">
-        <h3>Website Design</h3>
-        <p class="text-gray-400 text-sm">Web Design</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="../assets/img/p2.jpg">
-      <div class="p-4">
-        <h3>Website Design</h3>
-        <p class="text-gray-400 text-sm">Web Design</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="../assets/img/p3.jpg">
-      <div class="p-4">
-        <h3>Website Design</h3>
-        <p class="text-gray-400 text-sm">Web Design</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<script src="../JS/script.js"></script>
 </body>
 </html>

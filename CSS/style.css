@@ -1,43 +1,29 @@
 body {
-  background: linear-gradient(90deg, #071426, #0b1f3a);
+    background-color: #0b1325;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* fondo oscuro secciones */
-.bg-dark {
-  background: #0a1c33;
+/* Animación del cursor parpadeante */
+.cursor {
+    display: inline-block;
+    width: 4px;
+    height: 1em;
+    background-color: #2563eb;
+    animation: blink 1s step-end infinite;
+    vertical-align: middle;
 }
 
-/* imagen principal */
-.hero-img {
-  width: 350px;
-  border-radius: 20px;
-  box-shadow: 0 0 80px rgba(0, 153, 255, 0.3);
+@keyframes blink {
+    50% { opacity: 0; }
 }
 
-/* iconos sociales */
-.social {
-  width: 35px;
-  height: 35px;
-  background: #0a1c33;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  cursor: pointer;
+/* Animación de elementos flotantes (para las esferas de la foto) */
+.float-anim {
+    animation: floating 4s ease-in-out infinite;
 }
 
-/* cards */
-.card {
-  background: #0a1c33;
-  border-radius: 15px;
-  overflow: hidden;
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-}
-
-.card img {
-  width: 100%;
+@keyframes floating {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
 }
