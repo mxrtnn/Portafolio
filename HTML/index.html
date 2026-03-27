@@ -10,12 +10,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            darkMode: 'class', // Habilita el modo oscuro por clases
+            darkMode: 'class', 
             theme: {
                 extend: {
                     colors: {
-                        darkBg: '#0b1325', // Azul marino oscuro
-                        lightBg: '#e0f2fe', // Celeste claro suave para el modo claro
+                        darkBg: '#0b1325', 
+                        lightBg: '#e0f2fe', 
                         cardDark: '#121b2e',
                         cardLight: '#ffffff',
                         accentBlue: '#2563eb', 
@@ -29,26 +29,15 @@
     </script>
 
     <style>
-        /* Quitamos el background de body de aquí para que Tailwind lo controle con el modo oscuro */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         
         .cursor {
-            display: inline-block;
-            width: 4px;
-            height: 1em;
-            background-color: #2563eb;
-            animation: blink 1s step-end infinite;
-            vertical-align: middle;
+            display: inline-block; width: 4px; height: 1em; background-color: #2563eb;
+            animation: blink 1s step-end infinite; vertical-align: middle;
         }
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
+        @keyframes blink { 50% { opacity: 0; } }
 
-        .float-anim {
-            animation: floating 4s ease-in-out infinite;
-        }
+        .float-anim { animation: floating 4s ease-in-out infinite; }
         @keyframes floating {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-20px); }
@@ -58,14 +47,8 @@
         .animate-spin-medium { animation: spin-forward 15s linear infinite; }
         .animate-counter-spin-slow { animation: spin-backward 25s linear infinite; }
 
-        @keyframes spin-forward {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        @keyframes spin-backward {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(-360deg); }
-        }
+        @keyframes spin-forward { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes spin-backward { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
     </style>
 </head>
 <body class="antialiased overflow-x-hidden bg-lightBg dark:bg-darkBg text-slate-800 dark:text-white transition-colors duration-500">
@@ -76,30 +59,27 @@
         </div>
         
         <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600 dark:text-gray-300">
-            <a href="#" class="hover:text-accentBlue dark:hover:text-white border-b-2 border-accentBlue pb-1 transition" data-lang="nav_home">Inicio</a>
-            <a href="#" class="hover:text-accentBlue dark:hover:text-white transition" data-lang="nav_profile">Perfil</a>
-            <a href="#" class="hover:text-accentBlue dark:hover:text-white transition" data-lang="nav_projects">Proyectos</a>
-            <a href="#" class="hover:text-accentBlue dark:hover:text-white transition" data-lang="nav_services">Servicios</a>
+            <a href="#inicio" class="hover:text-accentBlue dark:hover:text-white transition" data-lang="nav_home">Inicio</a>
+            <a href="#perfil" class="hover:text-accentBlue dark:hover:text-white transition" data-lang="nav_profile">Perfil</a>
+            <a href="#experiencia" class="hover:text-accentBlue dark:hover:text-white transition" data-lang="nav_exp">Experiencia</a>
+            <a href="#proyectos" class="hover:text-accentBlue dark:hover:text-white transition" data-lang="nav_projects">Proyectos</a>
         </div>
         
         <div class="flex items-center gap-4 md:gap-6">
             <button onclick="toggleTheme()" class="text-slate-600 dark:text-gray-300 hover:text-accentBlue dark:hover:text-white transition" aria-label="Cambiar tema">
                 <i id="theme-icon" class="fa-solid fa-sun text-xl"></i>
             </button>
-
             <button onclick="toggleLanguage()" class="flex items-center gap-2 text-slate-600 dark:text-gray-300 hover:text-accentBlue dark:hover:text-white transition" aria-label="Cambiar idioma">
                 <i class="fa-solid fa-globe text-xl"></i>
                 <span id="lang-text" class="text-xs font-bold tracking-widest hidden sm:inline-block">EN</span>
             </button>
-
-            <button class="bg-accentBlue hover:bg-blue-700 text-white px-6 py-2 rounded-full text-sm font-semibold transition hidden md:block" data-lang="nav_contact">
+            <a href="#contacto" class="bg-accentBlue hover:bg-blue-700 text-white px-6 py-2 rounded-full text-sm font-semibold transition hidden md:block" data-lang="nav_contact">
                 Trabajemos Juntos
-            </button>
+            </a>
         </div>
     </nav>
 
-    <header class="max-w-7xl mx-auto px-6 md:px-10 pt-10 md:pt-16 pb-16 md:pb-24 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center text-center lg:text-left">
-        
+    <header id="inicio" class="max-w-7xl mx-auto px-6 md:px-10 pt-10 md:pt-16 pb-16 md:pb-24 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center text-center lg:text-left">
         <div class="order-2 lg:order-1">
             <p class="text-accentBlue tracking-widest text-sm font-semibold mb-2" data-lang="header_sub">Portafolio Web</p>
             <h1 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
@@ -110,18 +90,22 @@
                 Transformo ideas complejas en soluciones digitales escalables y eficientes. Especializado en crear experiencias web modernas y modelos de Inteligencia Artificial para potenciar negocios.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                <button class="bg-accentBlue hover:bg-blue-700 text-white px-6 py-3 rounded-full text-sm font-semibold flex items-center gap-2 transition w-full sm:w-auto justify-center" data-lang="header_btn">
+                <a href="#contacto" class="bg-accentBlue hover:bg-blue-700 text-white px-6 py-3 rounded-full text-sm font-semibold flex items-center gap-2 transition w-full sm:w-auto justify-center" data-lang="header_btn">
                     Mis Redes &rarr;
-                </button>
-                
+                </a>
                 <div class="flex gap-4">
-                    <a href="#" target="_blank" aria-label="Github" class="w-10 h-10 rounded-full border border-slate-400 dark:border-gray-600 flex items-center justify-center text-slate-700 dark:text-white hover:bg-slate-200 dark:hover:bg-gray-800 transition">
+                    <a href="#" target="_blank" aria-label="Github"
+                        class="w-10 h-10 rounded-full border border-slate-400 dark:border-gray-600 flex items-center justify-center text-slate-700 dark:text-white hover:bg-slate-200 dark:hover:bg-gray-800 transition">
                         <i class="fa-brands fa-github text-lg"></i>
                     </a>
-                    <a href="#" target="_blank" aria-label="LinkedIn" class="w-10 h-10 rounded-full border border-slate-400 dark:border-gray-600 flex items-center justify-center text-slate-700 dark:text-white hover:bg-[#0077b5] hover:text-white dark:hover:bg-[#0077b5] transition hover:border-[#0077b5]">
+                
+                    <a href="#" target="_blank" aria-label="LinkedIn"
+                        class="w-10 h-10 rounded-full border border-slate-400 dark:border-gray-600 flex items-center justify-center text-slate-700 dark:text-white hover:bg-[#0077b5] hover:text-white dark:hover:bg-[#0077b5] transition hover:border-[#0077b5]">
                         <i class="fa-brands fa-linkedin-in text-lg"></i>
                     </a>
-                    <a href="mailto:tu.email@gmail.com" aria-label="Enviar correo" class="w-10 h-10 rounded-full border border-slate-400 dark:border-gray-600 flex items-center justify-center text-slate-700 dark:text-white hover:bg-[#ea4335] hover:text-white dark:hover:bg-[#ea4335] transition hover:border-[#ea4335]">
+                
+                    <a href="mailto:tu.correo@gmail.com" aria-label="Enviar correo"
+                        class="w-10 h-10 rounded-full border border-slate-400 dark:border-gray-600 flex items-center justify-center text-slate-700 dark:text-white hover:bg-[#ea4335] hover:text-white dark:hover:bg-[#ea4335] transition hover:border-[#ea4335]">
                         <i class="fa-solid fa-envelope text-lg"></i>
                     </a>
                 </div>
@@ -129,43 +113,30 @@
         </div>
 
         <div class="order-1 lg:order-2 relative flex justify-center items-center w-full min-h-[350px] md:min-h-[450px]">
-            
             <div class="relative flex justify-center items-center transform scale-[0.70] sm:scale-90 md:scale-100 origin-center">
-                
                 <div class="absolute inset-0 flex items-center justify-center opacity-40 dark:opacity-30 -z-10">
                     <div class="absolute w-[450px] h-[450px] border-[1px] border-blue-400 dark:border-white/30 rounded-full animate-spin-slow"></div>
                     <div class="absolute w-[350px] h-[350px] border-[1px] border-accentBlue/40 dark:border-accentLight/30 rounded-full animate-spin-medium"></div>
                 </div>
-
                 <div class="absolute w-[450px] h-[450px] flex items-center justify-center animate-spin-slow -z-10">
                     <div class="absolute -top-4 text-3xl text-accentBlue dark:text-accentLight font-bold animate-counter-spin-slow">&sum;</div>
                     <div class="absolute bottom-6 -right-2 text-2xl text-slate-600 dark:text-white font-mono animate-counter-spin-slow">&int;</div>
-                    
-                    <div class="absolute -left-4 top-[35%] text-2xl text-accentBlue animate-counter-spin-slow">
-                        <i class="fa-solid fa-code"></i>
-                    </div>
-                    <div class="absolute -bottom-4 left-[30%] text-3xl text-slate-500 dark:text-gray-300 animate-counter-spin-slow">
-                        <i class="fa-solid fa-microchip"></i>
-                    </div>
-                    <div class="absolute top-12 -right-4 text-2xl text-accentBlue dark:text-accentLight animate-counter-spin-slow">
-                        <i class="fa-solid fa-network-wired"></i>
-                    </div>
+                    <div class="absolute -left-4 top-[35%] text-2xl text-accentBlue animate-counter-spin-slow"><i class="fa-solid fa-code"></i></div>
+                    <div class="absolute -bottom-4 left-[30%] text-3xl text-slate-500 dark:text-gray-300 animate-counter-spin-slow"><i class="fa-solid fa-microchip"></i></div>
+                    <div class="absolute top-12 -right-4 text-2xl text-accentBlue dark:text-accentLight animate-counter-spin-slow"><i class="fa-solid fa-network-wired"></i></div>
                 </div>
-
                 <div class="relative w-80 h-80 rounded-full overflow-hidden border-[12px] border-lightBg dark:border-darkBg shadow-2xl z-10 flex-shrink-0 bg-slate-200 dark:bg-gray-800 transition-colors duration-500">
                     <img src="/assets/img/perfil.jpg" alt="Martín Jara" class="object-cover w-full h-full scale-105">
                 </div>
-
                 <div class="absolute top-10 left-10 w-8 h-8 bg-gradient-to-br from-blue-400 dark:from-gray-700 to-blue-800 dark:to-black rounded-full shadow-lg float-anim z-0"></div>
                 <div class="absolute bottom-10 right-10 w-12 h-12 bg-gradient-to-br from-accentBlue to-blue-900 dark:to-black rounded-full shadow-lg float-anim z-0" style="animation-delay: 1s;"></div>
             </div>
         </div>
     </header>
 
-    <section class="max-w-7xl mx-auto px-6 md:px-10 py-16 md:py-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <section id="perfil" class="max-w-7xl mx-auto px-6 md:px-10 py-16 md:py-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div class="relative flex justify-center order-2 lg:order-1">
             <div class="absolute -left-5 md:-left-10 bottom-10 w-32 md:w-48 h-32 md:h-48 border-[2px] border-accentBlue/30 dark:border-accentLight/20 rounded-full border-dashed animate-[spin_20s_linear_infinite] z-0"></div>
-            
             <div class="relative z-10 bg-gradient-to-tr from-accentBlue to-blue-200 dark:to-darkBg rounded-3xl p-1 shadow-2xl w-64 md:w-72">
                 <img src="assets/perfil.jpg" alt="Martin Jara Trabajando" class="rounded-3xl w-full h-auto object-cover bg-gray-200 dark:bg-gray-800">
             </div>
@@ -191,7 +162,7 @@
                 </div>
                 <div class="bg-cardLight dark:bg-cardDark p-3 md:p-5 rounded-xl border border-blue-100 dark:border-gray-700/50 text-center hover:border-accentBlue transition shadow-sm">
                     <h3 class="text-2xl md:text-3xl font-bold text-slate-800 dark:text-white mb-1">20+</h3>
-                    <p class="text-[9px] md:text-[10px] uppercase tracking-wider text-slate-500 dark:text-textSubDark" data-lang="stats_tech">Tecnologías Dominadas</p>
+                    <p class="text-[9px] md:text-[10px] uppercase tracking-wider text-slate-500 dark:text-textSubDark" data-lang="stats_tech">Tecnologías</p>
                 </div>
             </div>
             
@@ -201,7 +172,31 @@
         </div>
     </section>
 
-    <section class="bg-blue-50 dark:bg-[#0b162c] py-16 md:py-24 border-y border-blue-100 dark:border-gray-800 transition-colors duration-500"> 
+    <section id="experiencia" class="bg-blue-50 dark:bg-[#0b162c] py-16 md:py-24 border-y border-blue-100 dark:border-gray-800 transition-colors duration-500">
+        <div class="max-w-4xl mx-auto px-6 md:px-10">
+            <div class="text-center mb-12">
+                <p class="text-accentBlue dark:text-accentLight tracking-widest text-xs font-semibold mb-3" data-lang="exp_sub">TRAYECTORIA</p>
+                <h2 class="text-3xl md:text-4xl font-extrabold" data-lang="exp_heading">EXPERIENCIA & EDUCACIÓN</h2>
+            </div>
+
+            <div class="relative border-l-2 border-accentBlue/30 dark:border-gray-700 ml-3 md:ml-6 space-y-10">
+                <div class="relative pl-8 md:pl-10">
+                    <div class="absolute -left-[9px] top-1 w-4 h-4 bg-accentBlue rounded-full border-4 border-blue-50 dark:border-[#0b162c]"></div>
+                    <span class="text-xs font-bold text-accentBlue dark:text-accentLight tracking-wider" data-lang="exp_date1">2023 - PRESENTE</span>
+                    <h3 class="text-xl font-bold text-slate-800 dark:text-white mt-1" data-lang="exp_title1">Scrum Master & Data Scientist</h3>
+                    <p class="text-sm text-slate-600 dark:text-textSubDark mt-2 leading-relaxed" data-lang="exp_desc1">Liderazgo de equipos ágiles para el desarrollo de software y creación de modelos predictivos de IA para la toma de decisiones estratégicas.</p>
+                </div>
+                <div class="relative pl-8 md:pl-10">
+                    <div class="absolute -left-[9px] top-1 w-4 h-4 bg-gray-400 dark:bg-gray-600 rounded-full border-4 border-blue-50 dark:border-[#0b162c]"></div>
+                    <span class="text-xs font-bold text-slate-500 dark:text-gray-400 tracking-wider" data-lang="exp_date2">2021 - 2023</span>
+                    <h3 class="text-xl font-bold text-slate-800 dark:text-white mt-1" data-lang="exp_title2">Desarrollador Full-Stack</h3>
+                    <p class="text-sm text-slate-600 dark:text-textSubDark mt-2 leading-relaxed" data-lang="exp_desc2">Diseño y desarrollo de aplicaciones web escalables utilizando React, Django y bases de datos relacionales, optimizando la experiencia del usuario.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="proyectos" class="py-16 md:py-24 transition-colors duration-500"> 
         <div class="max-w-7xl mx-auto px-6 md:px-10">
             <div class="text-center lg:text-left mb-12">
                 <p class="text-accentBlue dark:text-accentLight tracking-widest text-xs font-semibold mb-3" data-lang="work_sub">MI TRABAJO</p>
@@ -209,78 +204,171 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <div class="bg-cardLight dark:bg-cardDark rounded-xl overflow-hidden border border-blue-100 dark:border-gray-700 shadow-xl hover:-translate-y-2 transition duration-300 flex flex-col">
-                    <div class="bg-slate-100 dark:bg-gray-900 px-4 py-3 flex items-center gap-2 border-b border-blue-100 dark:border-gray-800 transition-colors duration-500">
+                <div onclick="openModal('modal1')" class="cursor-pointer bg-cardLight dark:bg-cardDark rounded-xl overflow-hidden border border-blue-100 dark:border-gray-700 shadow-xl hover:-translate-y-2 transition duration-300 flex flex-col group">
+                    <div class="bg-slate-100 dark:bg-gray-900 px-4 py-3 flex items-center gap-2 border-b border-blue-100 dark:border-gray-800">
                         <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div> <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div> <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div> 
                         <div class="ml-4 text-xs text-slate-500 dark:text-gray-500 font-mono">duoc-desk-dara.exe</div>
                     </div>
                     <div class="h-48 bg-slate-200 dark:bg-gray-800 overflow-hidden relative border-b border-blue-100 dark:border-gray-800">
-                        <img src="../assets/tu-gif-animado.gif" alt="Duoc Desk Dara Funcionado" class="w-full h-full object-cover opacity-90 dark:opacity-80 hover:opacity-100 transition">
+                        <img src="../assets/tu-gif-animado.gif" alt="Duoc Desk Dara Funcionado" class="w-full h-full object-cover opacity-90 dark:opacity-80 group-hover:opacity-100 transition group-hover:scale-105">
+                        <div class="absolute inset-0 bg-accentBlue/0 group-hover:bg-accentBlue/20 transition duration-300 flex items-center justify-center">
+                            <i class="fa-solid fa-expand text-white text-3xl opacity-0 group-hover:opacity-100 transition transform scale-50 group-hover:scale-100"></i>
+                        </div>
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-xl font-bold mb-3 text-slate-800 dark:text-white">DUOC DESK DARA</h3>
-                        <p class="text-sm text-slate-600 dark:text-textSubDark mb-6 flex-grow" data-lang="proj1_desc">
+                        <p class="text-sm text-slate-600 dark:text-textSubDark mb-6 flex-grow line-clamp-3" data-lang="proj1_desc">
                             Duoc Desk Dara fue un proyecto realizado para optimizar la gestión de requerimientos y mesas de ayuda, implementando metodologías ágiles (Scrum) y un dashboard interactivo para el análisis de datos de los usuarios.
                         </p>
                         <div class="flex flex-wrap gap-2 mt-auto">
                             <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 text-xs font-semibold rounded-md border border-orange-200 dark:border-orange-800/50">HTML5</span>
-                            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-semibold rounded-md border border-blue-200 dark:border-blue-800/50">CSS3</span>
-                            <span class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 text-xs font-semibold rounded-md border border-yellow-200 dark:border-yellow-800/50">JavaScript</span>
                             <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs font-semibold rounded-md border border-green-200 dark:border-green-800/50">Django</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-cardLight dark:bg-cardDark rounded-xl overflow-hidden border border-blue-100 dark:border-gray-700 shadow-xl hover:-translate-y-2 transition duration-300 flex flex-col">
-                    <div class="bg-slate-100 dark:bg-gray-900 px-4 py-3 flex items-center gap-2 border-b border-blue-100 dark:border-gray-800 transition-colors duration-500">
+                <div onclick="openModal('modal2')" class="cursor-pointer bg-cardLight dark:bg-cardDark rounded-xl overflow-hidden border border-blue-100 dark:border-gray-700 shadow-xl hover:-translate-y-2 transition duration-300 flex flex-col group">
+                    <div class="bg-slate-100 dark:bg-gray-900 px-4 py-3 flex items-center gap-2 border-b border-blue-100 dark:border-gray-800">
                         <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div> <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div> <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div> 
                         <div class="ml-4 text-xs text-slate-500 dark:text-gray-500 font-mono">modelo-predictivo.py</div>
                     </div>
                     <div class="h-48 bg-slate-200 dark:bg-gray-800 overflow-hidden relative border-b border-blue-100 dark:border-gray-800">
-                        <img src="../assets/placeholder.jpg" alt="Proyecto 2" class="w-full h-full object-cover opacity-90 dark:opacity-80 hover:opacity-100 transition">
+                        <img src="../assets/placeholder.jpg" alt="Proyecto 2" class="w-full h-full object-cover opacity-90 dark:opacity-80 group-hover:opacity-100 transition group-hover:scale-105">
+                        <div class="absolute inset-0 bg-accentBlue/0 group-hover:bg-accentBlue/20 transition duration-300 flex items-center justify-center">
+                            <i class="fa-solid fa-expand text-white text-3xl opacity-0 group-hover:opacity-100 transition transform scale-50 group-hover:scale-100"></i>
+                        </div>
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-xl font-bold mb-3 text-slate-800 dark:text-white" data-lang="proj2_title">MODELO PREDICTIVO IA</h3>
-                        <p class="text-sm text-slate-600 dark:text-textSubDark mb-6 flex-grow" data-lang="proj2_desc">
+                        <p class="text-sm text-slate-600 dark:text-textSubDark mb-6 flex-grow line-clamp-3" data-lang="proj2_desc">
                             Desarrollo de un modelo de Machine Learning utilizando redes neuronales para la predicción de fuga de clientes basado en análisis de datos históricos.
                         </p>
                         <div class="flex flex-wrap gap-2 mt-auto">
                             <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-semibold rounded-md border border-blue-200 dark:border-blue-800/50">Python</span>
                             <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 text-xs font-semibold rounded-md border border-orange-200 dark:border-orange-800/50">TensorFlow</span>
-                            <span class="px-3 py-1 bg-slate-200 dark:bg-gray-700/30 text-slate-700 dark:text-gray-300 text-xs font-semibold rounded-md border border-slate-300 dark:border-gray-600/50">Pandas</span>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
+    <section id="contacto" class="bg-blue-50 dark:bg-[#0b162c] py-16 md:py-24 border-t border-blue-100 dark:border-gray-800 transition-colors duration-500">
+        <div class="max-w-4xl mx-auto px-6 md:px-10 text-center">
+            <p class="text-accentBlue dark:text-accentLight tracking-widest text-xs font-semibold mb-3" data-lang="contact_sub">HABLEMOS</p>
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-10" data-lang="contact_heading">CONTÁCTAME</h2>
+            
+            <form class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+                <div class="flex flex-col">
+                    <label class="text-xs font-bold text-slate-500 dark:text-gray-400 mb-2" data-lang="contact_name">NOMBRE</label>
+                    <input type="text" class="bg-cardLight dark:bg-cardDark border border-blue-100 dark:border-gray-700 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-accentBlue dark:focus:border-accentLight transition" placeholder="Tu nombre">
+                </div>
+                <div class="flex flex-col">
+                    <label class="text-xs font-bold text-slate-500 dark:text-gray-400 mb-2" data-lang="contact_email">CORREO ELECTRÓNICO</label>
+                    <input type="email" class="bg-cardLight dark:bg-cardDark border border-blue-100 dark:border-gray-700 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-accentBlue dark:focus:border-accentLight transition" placeholder="tu@email.com">
+                </div>
+                <div class="flex flex-col md:col-span-2">
+                    <label class="text-xs font-bold text-slate-500 dark:text-gray-400 mb-2" data-lang="contact_msg">MENSAJE</label>
+                    <textarea rows="4" class="bg-cardLight dark:bg-cardDark border border-blue-100 dark:border-gray-700 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-accentBlue dark:focus:border-accentLight transition" placeholder="Cuéntame sobre tu proyecto..."></textarea>
+                </div>
+                <div class="md:col-span-2 text-center mt-4">
+                    <button type="submit" class="bg-accentBlue hover:bg-blue-700 text-white px-10 py-3 rounded-full text-sm font-bold shadow-lg transition w-full sm:w-auto" data-lang="contact_send">
+                        ENVIAR MENSAJE
+                    </button>
+                </div>
+            </form>
+
+            <div class="mt-16 pt-8 border-t border-blue-200 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-slate-500 dark:text-gray-500 text-sm">© 2026 Martín Jara. <span data-lang="footer_rights">Todos los derechos reservados.</span></p>
+                <div class="flex gap-4">
+                    <a href="#" class="text-slate-400 hover:text-accentBlue dark:hover:text-white transition"><i class="fa-brands fa-github text-xl"></i></a>
+                    <a href="#" class="text-slate-400 hover:text-accentBlue dark:hover:text-white transition"><i class="fa-brands fa-linkedin text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="modal1" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 px-4">
+        <div class="bg-cardLight dark:bg-cardDark w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300" id="modal-content-1">
+            <div class="relative h-64 bg-slate-200 dark:bg-gray-800">
+                <img src="../assets/tu-gif-animado.gif" class="w-full h-full object-cover opacity-90">
+                <button onclick="closeModal('modal1')" class="absolute top-4 right-4 w-10 h-10 bg-black/50 hover:bg-black/80 text-white rounded-full flex items-center justify-center transition">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+            <div class="p-8">
+                <h3 class="text-2xl font-bold mb-2 text-slate-800 dark:text-white">DUOC DESK DARA</h3>
+                <p class="text-sm text-slate-600 dark:text-textSubDark mb-6 leading-relaxed" data-lang="modal1_full">
+                    Duoc Desk Dara fue un proyecto integral realizado para optimizar la gestión de requerimientos y mesas de ayuda de la institución. Implementamos metodologías ágiles (Scrum) logrando entregar valor en sprints de 2 semanas. El sistema incluye un dashboard interactivo para análisis de métricas de tickets resueltos, roles de usuario jerárquicos y notificaciones automáticas por correo electrónico.
+                </p>
+                <div class="flex flex-wrap gap-4 mt-8">
+                    <a href="#" target="_blank" class="bg-slate-800 dark:bg-gray-700 hover:bg-black dark:hover:bg-gray-600 text-white px-5 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition">
+                        <i class="fa-brands fa-github"></i> <span data-lang="modal_repo">Ver Repositorio</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal2" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 px-4">
+        <div class="bg-cardLight dark:bg-cardDark w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300" id="modal-content-2">
+            <div class="relative h-64 bg-slate-200 dark:bg-gray-800">
+                <img src="../assets/placeholder.jpg" class="w-full h-full object-cover opacity-90">
+                <button onclick="closeModal('modal2')" class="absolute top-4 right-4 w-10 h-10 bg-black/50 hover:bg-black/80 text-white rounded-full flex items-center justify-center transition">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+            <div class="p-8">
+                <h3 class="text-2xl font-bold mb-2 text-slate-800 dark:text-white" data-lang="proj2_title">MODELO PREDICTIVO IA</h3>
+                <p class="text-sm text-slate-600 dark:text-textSubDark mb-6 leading-relaxed" data-lang="modal2_full">
+                    Este proyecto consistió en el desarrollo y entrenamiento de un modelo de Machine Learning (redes neuronales) diseñado para predecir la fuga de clientes (Churn Rate). Utilizamos un dataset histórico de más de 50,000 registros, aplicando limpieza de datos con Pandas y entrenamiento con TensorFlow. El modelo final logró una precisión del 89%, permitiendo al equipo de retención actuar proactivamente.
+                </p>
+                <div class="flex flex-wrap gap-4 mt-8">
+                    <a href="#" target="_blank" class="bg-slate-800 dark:bg-gray-700 hover:bg-black dark:hover:bg-gray-600 text-white px-5 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition">
+                        <i class="fa-brands fa-github"></i> <span data-lang="modal_repo">Ver Repositorio</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // --- 1. DICCIONARIO DE IDIOMAS (Sin cambios) ---
+        // --- DICCIONARIO BILINGÜE ACTUALIZADO ---
         const translations = {
             es: {
-                nav_home: "Inicio", nav_profile: "Perfil", nav_projects: "Proyectos", nav_services: "Servicios", nav_contact: "Trabajemos Juntos",
+                nav_home: "Inicio", nav_profile: "Perfil", nav_exp: "Experiencia", nav_projects: "Proyectos", nav_contact: "Trabajemos Juntos",
                 header_sub: "Portafolio Web", header_desc: "Transformo ideas complejas en soluciones digitales escalables y eficientes. Especializado en crear experiencias web modernas y modelos de Inteligencia Artificial para potenciar negocios.", header_btn: "Mis Redes &rarr;",
                 about_sub: "SOBRE MÍ", about_heading: 'DISPONIBLE PARA PROYECTOS DE <span class="text-accentBlue">IA Y DESARROLLO WEB</span>', about_desc: "Soy un Desarrollador Full-Stack, Data Scientist y Scrum Master apasionado por resolver problemas complejos mediante tecnología. Me enfoco en crear soluciones escalables, modelos predictivos y liderar equipos ágiles para asegurar la entrega de valor constante.",
-                stats_proj: "Proyectos Exitosos", stats_exp: "Años de Experiencia", stats_tech: "Tecnologías Dominadas", cv_btn: "DESCARGAR CV",
+                stats_proj: "Proyectos Exitosos", stats_exp: "Años de Experiencia", stats_tech: "Tecnologías", cv_btn: "DESCARGAR CV",
+                exp_sub: "TRAYECTORIA", exp_heading: "EXPERIENCIA & EDUCACIÓN",
+                exp_date1: "2023 - PRESENTE", exp_title1: "Scrum Master & Data Scientist", exp_desc1: "Liderazgo de equipos ágiles para el desarrollo de software y creación de modelos predictivos de IA para la toma de decisiones estratégicas.",
+                exp_date2: "2021 - 2023", exp_title2: "Desarrollador Full-Stack", exp_desc2: "Diseño y desarrollo de aplicaciones web escalables utilizando React, Django y bases de datos relacionales, optimizando la experiencia del usuario.",
                 work_sub: "MI TRABAJO", work_heading: "PROYECTOS RECIENTES",
-                proj1_desc: "Duoc Desk Dara fue un proyecto realizado para optimizar la gestión de requerimientos y mesas de ayuda, implementando metodologías ágiles (Scrum) y un dashboard interactivo para el análisis de datos de los usuarios.",
-                proj2_title: "MODELO PREDICTIVO IA", proj2_desc: "Desarrollo de un modelo de Machine Learning utilizando redes neuronales para la predicción de fuga de clientes basado en análisis de datos históricos."
+                proj1_desc: "Duoc Desk Dara fue un proyecto realizado para optimizar la gestión de requerimientos y mesas de ayuda, implementando metodologías ágiles (Scrum)...",
+                proj2_title: "MODELO PREDICTIVO IA", proj2_desc: "Desarrollo de un modelo de Machine Learning utilizando redes neuronales para la predicción de fuga de clientes basado en análisis de datos...",
+                modal1_full: "Duoc Desk Dara fue un proyecto integral realizado para optimizar la gestión de requerimientos y mesas de ayuda de la institución. Implementamos metodologías ágiles (Scrum) logrando entregar valor en sprints de 2 semanas. El sistema incluye un dashboard interactivo para análisis de métricas de tickets resueltos, roles de usuario jerárquicos y notificaciones automáticas por correo electrónico.",
+                modal2_full: "Este proyecto consistió en el desarrollo y entrenamiento de un modelo de Machine Learning (redes neuronales) diseñado para predecir la fuga de clientes (Churn Rate). Utilizamos un dataset histórico de más de 50,000 registros, aplicando limpieza de datos con Pandas y entrenamiento con TensorFlow. El modelo final logró una precisión del 89%, permitiendo al equipo de retención actuar proactivamente.",
+                modal_repo: "Ver Repositorio",
+                contact_sub: "HABLEMOS", contact_heading: "CONTÁCTAME", contact_name: "NOMBRE", contact_email: "CORREO ELECTRÓNICO", contact_msg: "MENSAJE", contact_send: "ENVIAR MENSAJE", footer_rights: "Todos los derechos reservados."
             },
             en: {
-                nav_home: "Home", nav_profile: "Profile", nav_projects: "Projects", nav_services: "Services", nav_contact: "Let's Work Together",
+                nav_home: "Home", nav_profile: "Profile", nav_exp: "Experience", nav_projects: "Projects", nav_contact: "Let's Work",
                 header_sub: "Web Portfolio", header_desc: "I transform complex ideas into scalable and efficient digital solutions. Specialized in creating modern web experiences and Artificial Intelligence models to boost businesses.", header_btn: "My Networks &rarr;",
                 about_sub: "ABOUT ME", about_heading: 'AVAILABLE FOR <span class="text-accentBlue">AI & WEB DEV</span> PROJECTS', about_desc: "I am a Full-Stack Developer, Data Scientist, and Scrum Master passionate about solving complex problems through technology. I focus on creating scalable solutions, predictive models, and leading agile teams to ensure constant value delivery.",
-                stats_proj: "Successful Projects", stats_exp: "Years of Experience", stats_tech: "Technologies Mastered", cv_btn: "DOWNLOAD CV",
+                stats_proj: "Successful Projects", stats_exp: "Years of Experience", stats_tech: "Technologies", cv_btn: "DOWNLOAD CV",
+                exp_sub: "CAREER PATH", exp_heading: "EXPERIENCE & EDUCATION",
+                exp_date1: "2023 - PRESENT", exp_title1: "Scrum Master & Data Scientist", exp_desc1: "Leadership of agile teams for software development and creation of AI predictive models for strategic decision-making.",
+                exp_date2: "2021 - 2023", exp_title2: "Full-Stack Developer", exp_desc2: "Design and development of scalable web applications using React, Django, and relational databases, optimizing user experience.",
                 work_sub: "MY WORK", work_heading: "RECENT PROJECTS",
-                proj1_desc: "Duoc Desk Dara was a project created to optimize the management of requirements and help desks, implementing agile methodologies (Scrum) and an interactive dashboard for user data analysis.",
-                proj2_title: "AI PREDICTIVE MODEL", proj2_desc: "Development of a Machine Learning model using neural networks to predict customer churn based on historical data analysis."
+                proj1_desc: "Duoc Desk Dara was a project created to optimize the management of requirements and help desks, implementing agile methodologies (Scrum)...",
+                proj2_title: "AI PREDICTIVE MODEL", proj2_desc: "Development of a Machine Learning model using neural networks to predict customer churn based on historical data analysis...",
+                modal1_full: "Duoc Desk Dara was a comprehensive project carried out to optimize the management of requirements and help desks. We implemented agile methodologies (Scrum) delivering value in 2-week sprints. The system includes an interactive dashboard for analyzing resolved ticket metrics, hierarchical user roles, and automatic email notifications.",
+                modal2_full: "This project consisted of the development and training of a Machine Learning model (neural networks) designed to predict customer churn. We used a historical dataset of over 50,000 records, applying data cleaning with Pandas and training with TensorFlow. The final model achieved 89% accuracy, allowing the retention team to act proactively.",
+                modal_repo: "View Repository",
+                contact_sub: "LET'S TALK", contact_heading: "CONTACT ME", contact_name: "NAME", contact_email: "EMAIL", contact_msg: "MESSAGE", contact_send: "SEND MESSAGE", footer_rights: "All rights reserved."
             }
         };
 
-        // --- 2. LÓGICA DE TRADUCCIÓN (Sin cambios) ---
         let currentLang = 'es';
         let typeWriterTimeout;
 
@@ -289,9 +377,7 @@
             const element = document.getElementById("typewriter");
             element.innerHTML = "";
             let charIndex = 0;
-            
             clearTimeout(typeWriterTimeout);
-
             function type() {
                 if (charIndex < textToType.length) {
                     element.innerHTML += textToType.charAt(charIndex);
@@ -305,7 +391,6 @@
         function toggleLanguage() {
             currentLang = currentLang === 'es' ? 'en' : 'es';
             document.getElementById('lang-text').innerText = currentLang === 'es' ? 'EN' : 'ES';
-
             const elements = document.querySelectorAll('[data-lang]');
             elements.forEach(el => {
                 const key = el.getAttribute('data-lang');
@@ -316,21 +401,63 @@
             startTypewriter();
         }
 
-        // --- 3. NUEVA LÓGICA DE TEMA CLARO/OSCURO ---
         function toggleTheme() {
             const html = document.documentElement;
             const themeIcon = document.getElementById('theme-icon');
-            
-            // Alternamos la clase 'dark' en el elemento <html>
             html.classList.toggle('dark');
-            
-            // Cambiamos el ícono entre sol y luna
             if (html.classList.contains('dark')) {
                 themeIcon.classList.remove('fa-moon');
                 themeIcon.classList.add('fa-sun');
             } else {
                 themeIcon.classList.remove('fa-sun');
                 themeIcon.classList.add('fa-moon');
+            }
+        }
+
+        // --- LÓGICA DE MODALES (Pop-ups) ---
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            const content = document.getElementById(`modal-content-${id.replace('modal', '')}`);
+            
+            // Mostramos el modal quitando la clase que ignora los clicks
+            modal.classList.remove('pointer-events-none');
+            // Hacemos visible el fondo oscuro
+            modal.classList.remove('opacity-0');
+            // Hacemos el efecto de zoom in al contenido
+            content.classList.remove('scale-95');
+            content.classList.add('scale-100');
+            
+            // Evitamos que se pueda hacer scroll en el fondo de la página
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            const content = document.getElementById(`modal-content-${id.replace('modal', '')}`);
+            
+            // Hacemos el efecto de zoom out
+            content.classList.remove('scale-100');
+            content.classList.add('scale-95');
+            // Ocultamos el fondo
+            modal.classList.add('opacity-0');
+            
+            // Esperamos a que termine la animación para desactivar los clicks
+            setTimeout(() => {
+                modal.classList.add('pointer-events-none');
+                // Devolvemos el scroll a la página
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        // Cerrar el modal haciendo clic fuera de la tarjeta
+        window.onclick = function(event) {
+            if (event.target.classList.contains('fixed')) {
+                const modals = document.querySelectorAll('.fixed.inset-0');
+                modals.forEach(modal => {
+                    if (!modal.classList.contains('opacity-0')) {
+                        closeModal(modal.id);
+                    }
+                });
             }
         }
 
