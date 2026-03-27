@@ -13,16 +13,14 @@ body {
     animation: blink 1s step-end infinite;
     vertical-align: middle;
 }
-
 @keyframes blink {
     50% { opacity: 0; }
 }
 
-/* Animación de elementos flotantes (para las esferas de la foto) */
+/* Animación de elementos flotantes */
 .float-anim {
     animation: floating 4s ease-in-out infinite;
 }
-
 @keyframes floating {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-20px); }
