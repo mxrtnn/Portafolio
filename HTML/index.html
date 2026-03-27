@@ -144,9 +144,22 @@
 
         <div class="z-10 order-1 lg:order-2 text-center lg:text-left">
             <p class="text-accentBlue dark:text-accentLight tracking-widest text-xs font-semibold mb-3" data-lang="about_sub">SOBRE MÍ</p>
-            <h2 class="text-3xl md:text-4xl font-extrabold mb-6 leading-tight" data-lang="about_heading">
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-4 leading-tight" data-lang="about_heading">
                 DISPONIBLE PARA PROYECTOS DE <span class="text-accentBlue">IA Y DESARROLLO WEB</span>
             </h2>
+            
+            <div class="flex justify-center lg:justify-start mb-6">
+                <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-cardLight dark:bg-cardDark border border-blue-100 dark:border-gray-700 shadow-sm">
+                    <div class="w-3.5 h-3.5 rounded-full bg-red-500/20 dark:bg-red-500/10 border border-red-500/30"></div>
+                    <div class="w-3.5 h-3.5 rounded-full bg-yellow-500/20 dark:bg-yellow-500/10 border border-yellow-500/30"></div>
+                    <div class="relative flex items-center justify-center w-3.5 h-3.5">
+                        <span class="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping"></span>
+                        <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]"></span>
+                    </div>
+                    <span class="text-[10px] md:text-xs font-bold text-slate-500 dark:text-gray-400 ml-2 tracking-widest uppercase" data-lang="status_active">Disponible</span>
+                </div>
+            </div>
+
             <p class="text-slate-600 dark:text-textSubDark mb-8 text-sm leading-relaxed" data-lang="about_desc">
                 Soy un Desarrollador Full-Stack, Data Scientist y Scrum Master apasionado por resolver problemas complejos mediante tecnología. Me enfoco en crear soluciones escalables, modelos predictivos y liderar equipos ágiles para asegurar la entrega de valor constante.
             </p>
@@ -333,12 +346,74 @@
     </div>
 
     <script>
-        // --- DICCIONARIO BILINGÜE ACTUALIZADO ---
+        // Efecto Máquina de Escribir (Typewriter)
+        const words = ["Desarrollador Web", "Data Scientist", "Scrum Master"];
+        let i = 0;
+        let j = 0;
+        let currentWord = "";
+        let isDeleting = false;
+
+        function type() {
+            currentWord = words[i];
+            if (isDeleting) {
+                document.getElementById("typewriter").textContent = currentWord.substring(0, j - 1);
+                j--;
+                if (j == 0) {
+                    isDeleting = false;
+                    i++;
+                    if (i == words.length) i = 0;
+                }
+            } else {
+                document.getElementById("typewriter").textContent = currentWord.substring(0, j + 1);
+                j++;
+                if (j == currentWord.length) {
+                    isDeleting = true;
+                    setTimeout(type, 2000); 
+                    return;
+                }
+            }
+            setTimeout(type, isDeleting ? 50 : 100);
+        }
+        document.addEventListener('DOMContentLoaded', type);
+
+        // Cambiar Tema (Modo Claro/Oscuro)
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            const icon = document.getElementById('theme-icon');
+            if(document.documentElement.classList.contains('dark')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        }
+
+        // Modales
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            const content = document.getElementById('modal-content-' + id.replace('modal', ''));
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            content.classList.remove('scale-95');
+            content.classList.add('scale-100');
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            const content = document.getElementById('modal-content-' + id.replace('modal', ''));
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            content.classList.remove('scale-100');
+            content.classList.add('scale-95');
+        }
+
+        // --- DICCIONARIO BILINGÜE ---
         const translations = {
             es: {
                 nav_home: "Inicio", nav_profile: "Perfil", nav_exp: "Experiencia", nav_projects: "Proyectos", nav_contact: "Trabajemos Juntos",
                 header_sub: "Portafolio Web", header_desc: "Transformo ideas complejas en soluciones digitales escalables y eficientes. Especializado en crear experiencias web modernas y modelos de Inteligencia Artificial para potenciar negocios.", header_btn: "Mis Redes &rarr;",
-                about_sub: "SOBRE MÍ", about_heading: 'DISPONIBLE PARA PROYECTOS DE <span class="text-accentBlue">IA Y DESARROLLO WEB</span>', about_desc: "Soy un Desarrollador Full-Stack, Data Scientist y Scrum Master apasionado por resolver problemas complejos mediante tecnología. Me enfoco en crear soluciones escalables, modelos predictivos y liderar equipos ágiles para asegurar la entrega de valor constante.",
+                about_sub: "SOBRE MÍ", about_heading: 'DISPONIBLE PARA PROYECTOS DE <span class="text-accentBlue">IA Y DESARROLLO WEB</span>', 
+                status_active: "Disponible",
+                about_desc: "Soy un Desarrollador Full-Stack, Data Scientist y Scrum Master apasionado por resolver problemas complejos mediante tecnología. Me enfoco en crear soluciones escalables, modelos predictivos y liderar equipos ágiles para asegurar la entrega de valor constante.",
                 stats_proj: "Proyectos Exitosos", stats_exp: "Años de Experiencia", stats_tech: "Tecnologías", cv_btn: "DESCARGAR CV",
                 exp_sub: "TRAYECTORIA", exp_heading: "EXPERIENCIA & EDUCACIÓN",
                 exp_date1: "2023 - PRESENTE", exp_title1: "Scrum Master & Data Scientist", exp_desc1: "Liderazgo de equipos ágiles para el desarrollo de software y creación de modelos predictivos de IA para la toma de decisiones estratégicas.",
@@ -354,114 +429,40 @@
             en: {
                 nav_home: "Home", nav_profile: "Profile", nav_exp: "Experience", nav_projects: "Projects", nav_contact: "Let's Work",
                 header_sub: "Web Portfolio", header_desc: "I transform complex ideas into scalable and efficient digital solutions. Specialized in creating modern web experiences and Artificial Intelligence models to boost businesses.", header_btn: "My Networks &rarr;",
-                about_sub: "ABOUT ME", about_heading: 'AVAILABLE FOR <span class="text-accentBlue">AI & WEB DEV</span> PROJECTS', about_desc: "I am a Full-Stack Developer, Data Scientist, and Scrum Master passionate about solving complex problems through technology. I focus on creating scalable solutions, predictive models, and leading agile teams to ensure constant value delivery.",
+                about_sub: "ABOUT ME", about_heading: 'AVAILABLE FOR <span class="text-accentBlue">AI & WEB DEV</span> PROJECTS', 
+                status_active: "Available",
+                about_desc: "I am a Full-Stack Developer, Data Scientist, and Scrum Master passionate about solving complex problems through technology. I focus on creating scalable solutions, predictive models, and leading agile teams to ensure constant value delivery.",
                 stats_proj: "Successful Projects", stats_exp: "Years of Experience", stats_tech: "Technologies", cv_btn: "DOWNLOAD CV",
                 exp_sub: "CAREER PATH", exp_heading: "EXPERIENCE & EDUCATION",
-                exp_date1: "2023 - PRESENT", exp_title1: "Scrum Master & Data Scientist", exp_desc1: "Leadership of agile teams for software development and creation of AI predictive models for strategic decision-making.",
-                exp_date2: "2021 - 2023", exp_title2: "Full-Stack Developer", exp_desc2: "Design and development of scalable web applications using React, Django, and relational databases, optimizing user experience.",
+                exp_date1: "2023 - PRESENT", exp_title1: "Scrum Master & Data Scientist", exp_desc1: "Leadership of agile teams for software development and creation of predictive AI models for strategic decision making.",
+                exp_date2: "2021 - 2023", exp_title2: "Full-Stack Developer", exp_desc2: "Design and development of scalable web applications using React, Django, and relational databases, optimizing the user experience.",
                 work_sub: "MY WORK", work_heading: "RECENT PROJECTS",
                 proj1_desc: "Duoc Desk Dara was a project created to optimize the management of requirements and help desks, implementing agile methodologies (Scrum)...",
-                proj2_title: "AI PREDICTIVE MODEL", proj2_desc: "Development of a Machine Learning model using neural networks to predict customer churn based on historical data analysis...",
-                modal1_full: "Duoc Desk Dara was a comprehensive project carried out to optimize the management of requirements and help desks. We implemented agile methodologies (Scrum) delivering value in 2-week sprints. The system includes an interactive dashboard for analyzing resolved ticket metrics, hierarchical user roles, and automatic email notifications.",
-                modal2_full: "This project consisted of the development and training of a Machine Learning model (neural networks) designed to predict customer churn. We used a historical dataset of over 50,000 records, applying data cleaning with Pandas and training with TensorFlow. The final model achieved 89% accuracy, allowing the retention team to act proactively.",
+                proj2_title: "AI PREDICTIVE MODEL", proj2_desc: "Development of a Machine Learning model using neural networks to predict customer churn based on data analysis...",
+                modal1_full: "Duoc Desk Dara was a comprehensive project to optimize the institution's requirement management and help desks. We implemented agile methodologies (Scrum), delivering value in 2-week sprints. The system includes an interactive dashboard for metric analysis, hierarchical user roles, and automatic email notifications.",
+                modal2_full: "This project involved developing and training a Machine Learning model (neural networks) designed to predict customer churn rate. We used a historical dataset of over 50,000 records, applying data cleaning with Pandas and training with TensorFlow. The final model achieved 89% accuracy, allowing the retention team to act proactively.",
                 modal_repo: "View Repository",
                 contact_sub: "LET'S TALK", contact_heading: "CONTACT ME", contact_name: "NAME", contact_email: "EMAIL", contact_msg: "MESSAGE", contact_send: "SEND MESSAGE", footer_rights: "All rights reserved."
             }
         };
 
+        // Cambiar Idioma
         let currentLang = 'es';
-        let typeWriterTimeout;
-
-        function startTypewriter() {
-            const textToType = currentLang === 'es' ? "Desarrollador Full-Stack" : "Full-Stack Developer";
-            const element = document.getElementById("typewriter");
-            element.innerHTML = "";
-            let charIndex = 0;
-            clearTimeout(typeWriterTimeout);
-            function type() {
-                if (charIndex < textToType.length) {
-                    element.innerHTML += textToType.charAt(charIndex);
-                    charIndex++;
-                    typeWriterTimeout = setTimeout(type, 150);
-                }
-            }
-            type();
-        }
-
         function toggleLanguage() {
             currentLang = currentLang === 'es' ? 'en' : 'es';
-            document.getElementById('lang-text').innerText = currentLang === 'es' ? 'EN' : 'ES';
+            document.getElementById('lang-text').textContent = currentLang === 'es' ? 'EN' : 'ES';
+            updateLanguage();
+        }
+
+        function updateLanguage() {
             const elements = document.querySelectorAll('[data-lang]');
             elements.forEach(el => {
                 const key = el.getAttribute('data-lang');
                 if (translations[currentLang][key]) {
-                    el.innerHTML = translations[currentLang][key]; 
+                    el.innerHTML = translations[currentLang][key];
                 }
             });
-            startTypewriter();
         }
-
-        function toggleTheme() {
-            const html = document.documentElement;
-            const themeIcon = document.getElementById('theme-icon');
-            html.classList.toggle('dark');
-            if (html.classList.contains('dark')) {
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-            } else {
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-            }
-        }
-
-        // --- LÓGICA DE MODALES (Pop-ups) ---
-        function openModal(id) {
-            const modal = document.getElementById(id);
-            const content = document.getElementById(`modal-content-${id.replace('modal', '')}`);
-            
-            // Mostramos el modal quitando la clase que ignora los clicks
-            modal.classList.remove('pointer-events-none');
-            // Hacemos visible el fondo oscuro
-            modal.classList.remove('opacity-0');
-            // Hacemos el efecto de zoom in al contenido
-            content.classList.remove('scale-95');
-            content.classList.add('scale-100');
-            
-            // Evitamos que se pueda hacer scroll en el fondo de la página
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal(id) {
-            const modal = document.getElementById(id);
-            const content = document.getElementById(`modal-content-${id.replace('modal', '')}`);
-            
-            // Hacemos el efecto de zoom out
-            content.classList.remove('scale-100');
-            content.classList.add('scale-95');
-            // Ocultamos el fondo
-            modal.classList.add('opacity-0');
-            
-            // Esperamos a que termine la animación para desactivar los clicks
-            setTimeout(() => {
-                modal.classList.add('pointer-events-none');
-                // Devolvemos el scroll a la página
-                document.body.style.overflow = 'auto';
-            }, 300);
-        }
-
-        // Cerrar el modal haciendo clic fuera de la tarjeta
-        window.onclick = function(event) {
-            if (event.target.classList.contains('fixed')) {
-                const modals = document.querySelectorAll('.fixed.inset-0');
-                modals.forEach(modal => {
-                    if (!modal.classList.contains('opacity-0')) {
-                        closeModal(modal.id);
-                    }
-                });
-            }
-        }
-
-        window.onload = startTypewriter;
     </script>
 </body>
 </html>
