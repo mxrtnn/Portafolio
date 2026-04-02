@@ -55,26 +55,37 @@
 <body class="antialiased overflow-x-hidden bg-lightBg dark:bg-darkBg text-slate-800 dark:text-white transition-colors duration-500">
 
     <nav class="flex justify-between items-center px-6 md:px-10 py-6 max-w-7xl mx-auto">
-        <div class="text-xl font-bold flex items-center gap-2">
-            <span class="bg-accentBlue text-white p-1 rounded">M</span> Martin Jara
+        <div class="text-xl font-bold flex items-center gap-2 relative z-20">
+            <span class="bg-accentBlue text-white p-1 rounded shadow-md">M</span> Martin Jara
         </div>
-        
-        <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600 dark:text-gray-300">
-            <a href="#inicio" class="hover:text-accentBlue dark:hover:text-white transition" data-lang="nav_home">Inicio</a>
-            <a href="#perfil" class="hover:text-accentBlue dark:hover:text-white transition" data-lang="nav_profile">Perfil</a>
-            <a href="#experiencia" class="hover:text-accentBlue dark:hover:text-white transition" data-lang="nav_exp">Experiencia</a>
-            <a href="#proyectos" class="hover:text-accentBlue dark:hover:text-white transition" data-lang="nav_projects">Proyectos</a>
+    
+        <div
+            class="hidden md:flex items-center space-x-8 text-sm font-bold text-slate-600 dark:text-gray-300 bg-white/60 dark:bg-[#16233d]/80 backdrop-blur-md px-8 py-3 rounded-full border border-blue-100 dark:border-gray-700/50 shadow-sm relative z-20">
+            <a href="#inicio" class="hover:text-accentBlue dark:hover:text-white transition-colors"
+                data-lang="nav_home">Inicio</a>
+            <a href="#perfil" class="hover:text-accentBlue dark:hover:text-white transition-colors"
+                data-lang="nav_profile">Perfil</a>
+            <a href="#experiencia" class="hover:text-accentBlue dark:hover:text-white transition-colors"
+                data-lang="nav_exp">Experiencia</a>
+            <a href="#proyectos" class="hover:text-accentBlue dark:hover:text-white transition-colors"
+                data-lang="nav_projects">Proyectos</a>
         </div>
-        
-        <div class="flex items-center gap-4 md:gap-6">
-            <button onclick="toggleTheme()" class="text-slate-600 dark:text-gray-300 hover:text-accentBlue dark:hover:text-white transition" aria-label="Cambiar tema">
+    
+        <div class="flex items-center gap-4 md:gap-6 relative z-20">
+            <button onclick="toggleTheme()"
+                class="text-slate-600 dark:text-gray-300 hover:text-accentBlue dark:hover:text-white transition-colors"
+                aria-label="Cambiar tema">
                 <i id="theme-icon" class="fa-solid fa-sun text-xl"></i>
             </button>
-            <button onclick="toggleLanguage()" class="flex items-center gap-2 text-slate-600 dark:text-gray-300 hover:text-accentBlue dark:hover:text-white transition" aria-label="Cambiar idioma">
+            <button onclick="toggleLanguage()"
+                class="flex items-center gap-2 text-slate-600 dark:text-gray-300 hover:text-accentBlue dark:hover:text-white transition-colors"
+                aria-label="Cambiar idioma">
                 <i class="fa-solid fa-globe text-xl"></i>
                 <span id="lang-text" class="text-xs font-bold tracking-widest hidden sm:inline-block">EN</span>
             </button>
-            <a href="#contacto" class="bg-accentBlue hover:bg-blue-700 text-white px-6 py-2 rounded-full text-sm font-semibold transition hidden md:block" data-lang="nav_contact">
+            <a href="#contacto"
+                class="bg-accentBlue hover:bg-blue-700 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-md shadow-blue-500/20 hover:shadow-blue-500/40 transition-all hidden md:block hover:-translate-y-0.5"
+                data-lang="nav_contact">
                 Trabajemos Juntos
             </a>
         </div>
@@ -589,68 +600,73 @@
 
         <div id="timeline-vertical" class="relative">
             
-            <div class="absolute left-[32px] md:left-1/2 top-10 bottom-10 w-[3px] bg-blue-100 dark:bg-gray-800 rounded-full z-0 md:-translate-x-1/2"></div>
+            <div class="absolute left-[24px] md:left-1/2 top-10 bottom-10 w-[3px] bg-blue-100 dark:bg-gray-800 rounded-full z-0 md:-translate-x-1/2"></div>
+            
+            <div id="linea-progreso" class="absolute left-[24px] md:left-1/2 top-10 w-[3px] bg-accentBlue shadow-[0_0_8px_rgba(37,99,235,0.8)] rounded-full z-0 md:-translate-x-1/2 transition-all duration-100 ease-out" style="height: 0%;"></div>
 
             <div class="space-y-12 md:space-y-10">
                 
                 <div class="timeline-item relative flex items-start md:items-center gap-6 md:gap-0 z-10 w-full group">
-                    <div class="shrink-0 w-16 h-16 md:w-28 md:h-28 rounded-full border-4 border-white dark:border-cardDark shadow-lg overflow-hidden group-hover:scale-110 group-hover:border-accentBlue transition-all duration-300 md:absolute md:left-1/2 md:-translate-x-1/2 z-20 bg-white flex items-center justify-center">
-                        <img src="/assets/img/icono_fundacion.png" onerror="this.src='https://via.placeholder.com/150/2563eb/ffffff?text=FCJ'" alt="Fundación Ciencia Joven" class="w-full h-full object-contain p-2">
+                    <div class="shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-full border-4 border-white dark:border-cardDark shadow-lg group-hover:scale-110 group-hover:border-accentBlue transition-all duration-300 md:absolute md:left-1/2 md:-translate-x-1/2 z-20 bg-white dark:bg-cardDark flex items-center justify-center">
+                        <i class="fa-solid fa-lightbulb text-xl md:text-2xl text-accentBlue dark:text-accentLight"></i>
                     </div>
-                    <div class="timeline-panel flex-1 md:w-[calc(50%-4.5rem)] md:flex-initial p-6 bg-white dark:bg-cardDark rounded-2xl border border-blue-100 dark:border-gray-800/50 shadow-md group-hover:border-accentBlue/20 transition-all duration-300 md:rounded-r-none md:rounded-l-2xl md:text-right backdrop-blur-sm bg-white/70 dark:bg-cardDark/70">
+                    <div class="timeline-panel flex-1 md:w-[calc(50%-2.5rem)] md:flex-initial p-6 bg-white dark:bg-cardDark rounded-2xl border border-blue-100 dark:border-gray-800/50 shadow-md group-hover:border-accentBlue/20 transition-all duration-300 md:rounded-r-none md:rounded-l-2xl md:text-right backdrop-blur-sm bg-white/70 dark:bg-cardDark/70">
                         <div class="flex items-center gap-3 mb-2 md:justify-end">
                             <span class="text-xs md:text-sm font-bold text-accentBlue dark:text-accentLight tracking-wider bg-blue-100 dark:bg-blue-900/40 px-3 py-1 rounded-full">2017 - 2018</span>
                         </div>
                         <h3 class="text-lg md:text-2xl font-bold text-slate-800 dark:text-white mb-1">Fundación Ciencia Joven</h3>
-                        <p class="text-sm font-semibold text-accentBlue dark:text-accentLight mb-4">Iniciación a Proyectos de Innovación</p>
+                        <p class="text-sm font-semibold text-accentBlue dark:text-accentLight mb-4">Participación en Taller Estudiantil</p>
                         <ul class="space-y-2 text-sm text-slate-600 dark:text-gray-400 list-disc md:list-none pl-4 md:pl-0">
                             <li>Participación en mentorías de proyectos de ciencia y tecnología.</li>
                             <li>Desarrollo de habilidades en resolución de problemas complejos.</li>
                             <li>Primer contacto formal con metodologías de investigación.</li>
+                            <li>Primer contacto formal con actividades de facultades superiores.</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="timeline-item relative flex items-start md:items-center gap-6 md:gap-0 z-10 w-full group">
-                    <div class="shrink-0 w-16 h-16 md:w-28 md:h-28 rounded-full border-4 border-white dark:border-cardDark shadow-lg overflow-hidden group-hover:scale-110 group-hover:border-accentBlue transition-all duration-300 md:absolute md:left-1/2 md:-translate-x-1/2 z-20 bg-white flex items-center justify-center">
-                        <img src="/assets/img/icono_pucv.png" onerror="this.src='https://via.placeholder.com/150/2563eb/ffffff?text=PUCV'" alt="PUCV" class="w-full h-full object-contain p-2">
+                    <div class="shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-full border-4 border-white dark:border-cardDark shadow-lg group-hover:scale-110 group-hover:border-accentBlue transition-all duration-300 md:absolute md:left-1/2 md:-translate-x-1/2 z-20 bg-white dark:bg-cardDark flex items-center justify-center">
+                        <i class="fa-solid fa-microchip text-xl md:text-2xl text-accentBlue dark:text-accentLight"></i>
                     </div>
-                    <div class="timeline-panel flex-1 md:w-[calc(50%-4.5rem)] md:flex-initial p-6 bg-white dark:bg-cardDark rounded-2xl border border-blue-100 dark:border-gray-800/50 shadow-md group-hover:border-accentBlue/20 transition-all duration-300 backdrop-blur-sm bg-white/70 dark:bg-cardDark/70">
+                    <div class="timeline-panel flex-1 md:w-[calc(50%-2.5rem)] md:flex-initial p-6 bg-white dark:bg-cardDark rounded-2xl border border-blue-100 dark:border-gray-800/50 shadow-md group-hover:border-accentBlue/20 transition-all duration-300 backdrop-blur-sm bg-white/70 dark:bg-cardDark/70">
                         <div class="flex items-center gap-3 mb-2">
                             <span class="text-xs md:text-sm font-bold text-accentBlue dark:text-accentLight tracking-wider bg-blue-100 dark:bg-blue-900/40 px-3 py-1 rounded-full">2019 - 2021</span>
                         </div>
                         <h3 class="text-lg md:text-2xl font-bold text-slate-800 dark:text-white mb-1">Estudiante de Ingenieria Electrónica</h3>
                         <p class="text-sm font-semibold text-accentBlue dark:text-accentLight mb-4">Pontificia Universidad Católica de Valparaíso</p>
                         <ul class="space-y-2 text-sm text-slate-600 dark:text-gray-400 list-disc pl-4">
-                            <li>Experiencia y formación base en sistemas digitales y lógica computacional.</li>
-                            <li>Aprendizaje en lenguajes de programación básicos.</li>
+                            <li>Experiencia y formación basica en sistemas digitales y lógica computacional.</li>
+                            <li>Aprendizaje básico en lenguajes de programacion (Python|Java).</li>
+                            <li>Aprendizaje intermedio en matemática aplicada.</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="timeline-item relative flex items-start md:items-center gap-6 md:gap-0 z-10 w-full group">
-                    <div class="shrink-0 w-16 h-16 md:w-28 md:h-28 rounded-full border-4 border-white dark:border-cardDark shadow-lg overflow-hidden group-hover:scale-110 group-hover:border-accentBlue transition-all duration-300 md:absolute md:left-1/2 md:-translate-x-1/2 z-20 bg-white flex items-center justify-center">
-                        <img src="/assets/img/icono_duoc.jpg" onerror="this.src='https://via.placeholder.com/150/2563eb/ffffff?text=DUOC'" alt="Duoc UC" class="w-full h-full object-contain p-2">
+                    <div class="shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-full border-4 border-white dark:border-cardDark shadow-lg group-hover:scale-110 group-hover:border-accentBlue transition-all duration-300 md:absolute md:left-1/2 md:-translate-x-1/2 z-20 bg-white dark:bg-cardDark flex items-center justify-center">
+                        <i class="fa-solid fa-brain text-xl md:text-2xl text-accentBlue dark:text-accentLight"></i>
                     </div>
-                    <div class="timeline-panel flex-1 md:w-[calc(50%-4.5rem)] md:flex-initial p-6 bg-white dark:bg-cardDark rounded-2xl border border-blue-100 dark:border-gray-800/50 shadow-md group-hover:border-accentBlue/20 transition-all duration-300 md:rounded-r-none md:rounded-l-2xl md:text-right backdrop-blur-sm bg-white/70 dark:bg-cardDark/70">
+                    <div class="timeline-panel flex-1 md:w-[calc(50%-2.5rem)] md:flex-initial p-6 bg-white dark:bg-cardDark rounded-2xl border border-blue-100 dark:border-gray-800/50 shadow-md group-hover:border-accentBlue/20 transition-all duration-300 md:rounded-r-none md:rounded-l-2xl md:text-right backdrop-blur-sm bg-white/70 dark:bg-cardDark/70">
                         <div class="flex items-center gap-3 mb-2 md:justify-end">
                             <span class="text-xs md:text-sm font-bold text-accentBlue dark:text-accentLight tracking-wider bg-blue-100 dark:bg-blue-900/40 px-3 py-1 rounded-full">2022 - 2026</span>
                         </div>
-                        <h3 class="text-lg md:text-2xl font-bold text-slate-800 dark:text-white mb-1"> Estudiante de Ingenieria Informática & IA</h3>
-                        <p class="text-sm font-semibold text-accentBlue dark:text-accentLight mb-4">Duoc UC (Especialidad IA)</p>
+                        <h3 class="text-lg md:text-2xl font-bold text-slate-800 dark:text-white mb-1"> Egresado de Ingenieria Informática</h3>
+                        <p class="text-sm font-semibold text-accentBlue dark:text-accentLight mb-4">Duoc UC Sede Viña del Mar</p>
                         <ul class="space-y-2 text-sm text-slate-600 dark:text-gray-400 list-disc md:list-none pl-4 md:pl-0">
+                            <li>Ttulado con especialidad en Ciencia de Datos e Inteligencia Artificial</li>
                             <li>Certificaciones de IA: Artificial Intelligence Professional y Expert.</li>
-                            <li>Certificación Microsoft Azure Fundamentals y Cisco Python Essentials I.</li>
-                            <li>Inicio en Desarrollo Full-Stack con Python, Django y bases de datos.</li>
+                            <li>Certificación de Microsoft Azure Fundamentals en despliegue de servicios</li>
+                            <li>Certificación de Cisco Academy en Python Essentials I</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="timeline-item relative flex items-start md:items-center gap-6 md:gap-0 z-10 w-full group">
-                    <div class="shrink-0 w-16 h-16 md:w-28 md:h-28 rounded-full border-4 border-white dark:border-cardDark shadow-lg overflow-hidden group-hover:scale-110 group-hover:border-accentBlue transition-all duration-300 md:absolute md:left-1/2 md:-translate-x-1/2 z-20 bg-white flex items-center justify-center">
-                        <img src="/assets/img/icono_duoc_negro.jpg" onerror="this.src='https://via.placeholder.com/150/2563eb/ffffff?text=DARA'" alt="Duoc Desk" class="w-full h-full object-contain p-2">
+                    <div class="shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-full border-4 border-white dark:border-cardDark shadow-lg group-hover:scale-110 group-hover:border-accentBlue transition-all duration-300 md:absolute md:left-1/2 md:-translate-x-1/2 z-20 bg-white dark:bg-cardDark flex items-center justify-center">
+                        <i class="fa-solid fa-layer-group text-xl md:text-2xl text-accentBlue dark:text-accentLight"></i>
                     </div>
-                    <div class="timeline-panel flex-1 md:w-[calc(50%-4.5rem)] md:flex-initial p-6 bg-white dark:bg-cardDark rounded-2xl border border-blue-100 dark:border-gray-800/50 shadow-md group-hover:border-accentBlue/20 transition-all duration-300 backdrop-blur-sm bg-white/70 dark:bg-cardDark/70">
+                    <div class="timeline-panel flex-1 md:w-[calc(50%-2.5rem)] md:flex-initial p-6 bg-white dark:bg-cardDark rounded-2xl border border-blue-100 dark:border-gray-800/50 shadow-md group-hover:border-accentBlue/20 transition-all duration-300 backdrop-blur-sm bg-white/70 dark:bg-cardDark/70">
                         <div class="flex items-center gap-3 mb-2">
                             <span class="text-xs md:text-sm font-bold text-accentBlue dark:text-accentLight tracking-wider bg-blue-100 dark:bg-blue-900/40 px-3 py-1 rounded-full">2024</span>
                         </div>
@@ -658,26 +674,25 @@
                         <p class="text-sm font-semibold text-accentBlue dark:text-accentLight mb-4">Líder de Proyecto & Scrum Master en Duoc UC</p>
                         <ul class="space-y-2 text-sm text-slate-600 dark:text-gray-400 list-disc pl-4">
                             <li>Desarrollo integral usando HTML5, Django y MySQL.</li>
-                            <li>Gestión ágil de proyectos certificada (Scrum Developer, Product Owner, Professional Scrum Master).</li>
-                            <li>Enfoque en eficiencia, resultados y encaje perfecto con la identidad visual.</li>
+                            <li>Gestión ágil de proyecto para departamento DARA.</li>
+                            <li>Enfoque en eficiencia y encaje perfecto visual</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="timeline-item relative flex items-start md:items-center gap-6 md:gap-0 z-10 w-full group">
-                    <div class="shrink-0 w-16 h-16 md:w-28 md:h-28 rounded-full border-4 border-accentBlue dark:border-accentLight shadow-[0_0_15px_rgba(37,99,235,0.4)] overflow-hidden scale-110 group-hover:scale-125 transition-all duration-300 md:absolute md:left-1/2 md:-translate-x-1/2 z-20 bg-white flex items-center justify-center">
-                        <img src="/assets/img/icono_informatica.jpg" onerror="this.src='https://via.placeholder.com/150/2563eb/ffffff?text=HOY'" alt="Actualidad" class="w-full h-full object-contain p-2">
+                    <div class="shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-full border-4 border-accentBlue dark:border-accentLight shadow-[0_0_15px_rgba(37,99,235,0.4)] scale-110 group-hover:scale-125 transition-all duration-300 md:absolute md:left-1/2 md:-translate-x-1/2 z-20 bg-accentBlue flex items-center justify-center">
+                        <i class="fa-solid fa-rocket text-xl md:text-2xl text-white"></i>
                     </div>
-                    <div class="timeline-panel flex-1 md:w-[calc(50%-4.5rem)] md:flex-initial p-6 bg-white dark:bg-cardDark rounded-2xl border-2 border-accentBlue dark:border-accentLight/50 shadow-lg md:rounded-r-none md:rounded-l-2xl md:text-right backdrop-blur-sm bg-white/70 dark:bg-cardDark/70">
+                    <div class="timeline-panel flex-1 md:w-[calc(50%-2.5rem)] md:flex-initial p-6 bg-white dark:bg-cardDark rounded-2xl border-2 border-accentBlue dark:border-accentLight/50 shadow-lg md:rounded-r-none md:rounded-l-2xl md:text-right backdrop-blur-sm bg-white/70 dark:bg-cardDark/70">
                         <div class="flex items-center gap-3 mb-2 md:justify-end">
                             <span class="text-xs md:text-sm font-bold text-white bg-accentBlue px-3 py-1 rounded-full uppercase">Actualidad</span>
                         </div>
-                        <h3 class="text-lg md:text-2xl font-bold text-slate-800 dark:text-white mb-1">Innovación Continua</h3>
-                        <p class="text-sm font-semibold text-accentBlue dark:text-accentLight mb-4">Soluciones Digitales Eficientes</p>
+                        <h3 class="text-lg md:text-2xl font-bold text-slate-800 dark:text-white mb-1">Desarrollando plataforma digital</h3>
+                        <p class="text-sm font-semibold text-accentBlue dark:text-accentLight mb-4">Centro de Entrenamiento Viña del Mar</p>
                         <ul class="space-y-2 text-sm text-slate-600 dark:text-gray-400 list-disc md:list-none pl-4 md:pl-0">
-                            <li>Transformando ideas complejas en desarrollos tecnológicos robustos.</li>
-                            <li>Sinergia y colaboración activa en entornos dinámicos.</li>
-                            <li>Inglés nivel intermedio B1 (Certificado TOEIC) para alcance global.</li>
+                            <li>Autenticacion multifactor.</li>
+                            <li>Pagina Web y App Movil.</li>
                         </ul>
                     </div>
                 </div>
@@ -969,6 +984,28 @@
                 content.classList.add('scale-95');
             }
         }
+
+        // Animación de la línea de tiempo al hacer scroll
+        window.addEventListener('scroll', function() {
+            const timeline = document.getElementById('timeline-vertical');
+            const lineaProgreso = document.getElementById('linea-progreso');
+            
+            if (timeline && lineaProgreso) {
+                const timelineRect = timeline.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                // Empieza a llenarse cuando el inicio de la sección entra a un 75% de la pantalla
+                let progreso = ((windowHeight * 0.75 - timelineRect.top) / timelineRect.height) * 100;
+                
+                // Limitamos el crecimiento para que no baje del 0% ni pase del 100%
+                if (progreso < 0) progreso = 0;
+                if (progreso > 100) progreso = 100;
+                
+                // Aplicamos el porcentaje como altura de la línea azul
+                lineaProgreso.style.height = progreso + '%';
+            }
+        });
+
     </script>
 </body>
 </html>
