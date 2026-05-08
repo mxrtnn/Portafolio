@@ -1,0 +1,216 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cursor {
+    display: inline-block;
+    width: 4px;
+    height: 1em;
+    background-color: #2563eb;
+    animation: blink 1s step-end infinite;
+    vertical-align: middle;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Animación de flotación suave para los iconos tecnológicos */
+.float-anim {
+    animation: floating 4s ease-in-out infinite;
+}
+
+@keyframes floating {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.animate-spin-slow {
+    animation: spin-forward 25s linear infinite;
+}
+
+.animate-spin-medium {
+    animation: spin-forward 15s linear infinite;
+}
+
+.animate-counter-spin-slow {
+    animation: spin-backward 25s linear infinite;
+}
+
+@keyframes spin-forward {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin-backward {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+/* Contenedor principal estilo IDE */
+.editor-container {
+    max-width: 600px;
+    /* Un poco más estrecho para que se note la alineación */
+    background-color: #0d1117;
+    border-radius: 10px;
+    border: 1px solid #30363d;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    text-align: left;
+}
+
+/* --- NUEVA CLASE PARA ALINEAR A LA DERECHA --- */
+.right-aligned {
+    margin-left: auto;
+    /* Empuja todo a la derecha */
+    margin-right: 2rem;
+    /* Pequeño margen con el borde derecho de la pantalla */
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Zona de Pestañas */
+.editor-tabs {
+    display: flex;
+    background-color: #161b22;
+    border-bottom: 1px solid #30363d;
+    padding: 0 10px;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    color: #8b949e;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-family: inherit;
+    cursor: pointer;
+    border-top: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+    color: #c9d1d9;
+}
+
+.tab-btn.active {
+    color: #e6edf3;
+    background-color: #0d1117;
+    border-top: 2px solid #58a6ff;
+}
+
+/* Área del Código */
+.editor-content {
+    padding: 20px;
+    overflow-x: auto;
+    position: relative;
+    /* Para el cursor */
+}
+
+.editor-content pre {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #c9d1d9;
+    display: inline;
+    /* Importante para el cursor */
+}
+
+#typing-output {
+    white-space: pre-wrap;
+    /* Mantiene saltos de línea y espacios */
+}
+
+/* --- ANIMACIÓN DEL CURSOR --- */
+.typed-cursor {
+    opacity: 1;
+    color: #58a6ff;
+    font-weight: bold;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Colores de Sintaxis (Igual que antes) */
+.keyword {
+    color: #ff7b72;
+}
+
+.variable {
+    color: #79c0ff;
+}
+
+.property {
+    color: #d2a8ff;
+}
+
+.string {
+    color: #a5d6ff;
+}
+
+.function {
+    color: #ff7b72;
+}
+
+.method {
+    color: #d2a8ff;
+}
+
+.comment {
+    color: #8b949e;
+    font-style: italic;
+}
+
+
+/* Alternar los paneles a la izquierda y derecha en PC */
+@media (min-width: 768px) {
+    #timeline-vertical .timeline-item:nth-child(even) .timeline-panel {
+        margin-left: auto;
+        /* Empuja el panel a la derecha */
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        text-align: left;
+    }
+
+    #timeline-vertical .timeline-item:nth-child(even) .timeline-content {
+        padding-left: 2rem;
+        padding-right: 0;
+    }
+
+    /* Ajuste para los elementos pares (derecha) */
+    #timeline-vertical .timeline-item:nth-child(even) {
+        justify-content: flex-end;
+    }
+}
