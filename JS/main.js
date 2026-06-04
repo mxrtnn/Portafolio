@@ -48,12 +48,45 @@ function toggleTheme() {
 }
 
 // Modales
-function openModal(id) {
+function openModal(id, element) {
     const modal = document.getElementById(id);
     const content = document.getElementById('modal-content-' + id.replace('modal', ''));
+    
+    // Animación de apertura estándar
     modal.classList.remove('opacity-0', 'pointer-events-none');
     content.classList.remove('scale-95');
     content.classList.add('scale-100');
+
+    // Lógica dinámica para los enlaces del proyecto (GitHub e Sitio Web)
+    if (element) {
+        const githubUrl = element.getAttribute('data-github');
+        const siteUrl = element.getAttribute('data-site');
+        const isSiteAvailable = element.getAttribute('data-site-available') === 'true';
+
+        // Buscamos las etiquetas <a> dentro de este modal específico mediante clases
+        const githubBtn = modal.querySelector('.modal-github-link');
+        const siteBtn = modal.querySelector('.modal-site-link');
+
+        // 1. Configurar botón de GitHub (Izquierda)
+        if (githubBtn && githubUrl) {
+            githubBtn.setAttribute('href', githubUrl);
+        }
+
+        // 2. Configurar y validar botón del Sitio del Proyecto (Derecha)
+        if (siteBtn) {
+            if (isSiteAvailable) {
+                siteBtn.setAttribute('href', siteUrl);
+                siteBtn.innerHTML = `VER SITIO - PROYECTO <i class="fa-solid fa-globe text-xs"></i>`;
+                // Removemos clases de deshabilitado en caso de que hayan quedado de otro proyecto
+                siteBtn.classList.remove('opacity-50', 'pointer-events-none', 'cursor-not-allowed');
+            } else {
+                siteBtn.setAttribute('href', '#');
+                siteBtn.innerHTML = `SITIO NO DISPONIBLE <i class="fa-solid fa-ban text-xs"></i>`;
+                // Añadimos clases de Tailwind para deshabilitar visual y lógicamente el click
+                siteBtn.classList.add('opacity-50', 'pointer-events-none', 'cursor-not-allowed');
+            }
+        }
+    }
 }
 
 function closeModal(id) {
