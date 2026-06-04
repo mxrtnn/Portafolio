@@ -1822,6 +1822,187 @@ window.onload = function() {
     }
 };
 </script>
+<!-- ========================================== -->
+<!-- SECCIÓN: COTIZADOR CON FONDO IA AESTHETIC  -->
+<!-- ========================================== -->
+<section id="contacto" class="relative py-16 md:py-24 overflow-hidden transition-colors duration-500 bg-slate-900 border-t border-slate-800">
+    
+    <!-- 1. PATRÓN DE CUADRÍCULA TECNOLÓGICA (Aesthetic Grid) -->
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-60"></div>
+
+    <!-- 2. LUCES NEÓN / ORBES DE IA EN EL FONDO (Glow Effects) -->
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px] pointer-events-none animate-pulse"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-[120px] pointer-events-none animate-pulse" style="animation-duration: 4s;"></div>
+
+    <div class="relative max-w-3xl mx-auto px-6 z-10">
+        
+        <!-- ENCABEZADO -->
+        <div class="text-center mb-12">
+            <p class="text-blue-400 tracking-widest text-xs font-semibold mb-3 flex items-center justify-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-blue-400 animate-ping"></span> 
+                [ DEPLOY_YOUR_IDEA ]
+            </p>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+                COTIZA TU PROYECTO
+            </h2>
+            <p class="text-sm text-slate-400 mt-2 max-w-lg mx-auto font-mono">
+                // Los valores varían según la complejidad y módulos del backend.
+            </p>
+        </div>
+
+        <!-- CONTENEDOR FORMULARIO (ESTILO VENTANA DE COMANDOS) -->
+        <div class="bg-slate-950/80 backdrop-blur-xl rounded-3xl border border-slate-800 shadow-[0_0_50px_rgba(37,99,235,0.1)] overflow-hidden transform hover:scale-[1.01] transition-all duration-300">
+            
+            <!-- Barra superior estilo Mac/Terminal -->
+            <div class="bg-slate-900/90 px-6 py-4 flex items-center justify-between border-b border-slate-800">
+                <div class="flex items-center gap-2">
+                    <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                    <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                    <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                    <span class="ml-4 text-xs text-blue-400/80 font-mono">setup-project.sh</span>
+                </div>
+                <div class="text-xs font-mono text-slate-500 flex items-center gap-1">
+                    <i class="fa-solid fa-brain text-purple-400 animate-pulse"></i> AI_READY
+                </div>
+            </div>
+
+            <!-- Formulario Principal -->
+            <form action="https://formspree.io/f/maqzyayy" method="POST" id="projectForm" class="p-6 md:p-10 space-y-6">
+                
+                <!-- CAMPO: NOMBRE -->
+                <div class="space-y-2">
+                    <label for="name" class="block text-xs font-bold text-slate-400 uppercase tracking-wider font-mono">
+                        &gt;_ Tu Nombre / Empresa
+                    </label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-500">
+                            <i class="fa-solid fa-user text-sm"></i>
+                        </span>
+                        <input type="text" id="name" name="name" required autocomplete="off"
+                            placeholder="Ej. Juan Pérez" 
+                            class="w-full pl-11 pr-4 py-3 bg-slate-900/50 border border-slate-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-slate-600 transition-all duration-300">
+                    </div>
+                </div>
+
+                <!-- CAMPO: IDEA DE PROYECTO -->
+                <div class="space-y-2">
+                    <label for="project_type" class="block text-xs font-bold text-slate-400 uppercase tracking-wider font-mono">
+                        &gt;_ Idea de Proyecto
+                    </label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-500">
+                            <i class="fa-solid fa-lightbulb text-sm"></i>
+                        </span>
+                        <select id="project_type" name="project_type" required
+                            class="w-full pl-11 pr-4 py-3 bg-slate-900/50 border border-slate-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white transition-all duration-300 appearance-none cursor-pointer">
+                            <option value="" disabled selected class="text-slate-600">Selecciona una opción</option>
+                            <option value="Landing Page Comercial" class="bg-slate-950">Landing Page Comercial (Pyme)</option>
+                            <option value="Plataforma Web / SaaS" class="bg-slate-950">Plataforma Web Corporativa / SaaS</option>
+                            <option value="Modelo de Inteligencia Artificial" class="bg-slate-950">Modelo Predictivo / IA</option>
+                            <option value="E-commerce / Tienda Online" class="bg-slate-950">E-commerce / Tienda Online</option>
+                            <option value="Otro" class="bg-slate-950">Otro requerimiento a medida</option>
+                        </select>
+                        <span class="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none text-slate-500">
+                            <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- CAMPO: NIVEL DE SOLICITUD (Cotizador) -->
+                <div class="space-y-2 bg-slate-900/30 p-4 rounded-xl border border-slate-800/60">
+                    <div class="flex justify-between items-center mb-1">
+                        <label for="complexity" class="text-xs font-bold text-slate-400 uppercase tracking-wider font-mono">
+                            &gt;_ Nivel de Complejidad
+                        </label>
+                        <span id="complexity-badge" class="px-2.5 py-0.5 bg-blue-950/60 border border-blue-800/50 text-blue-400 text-[11px] font-extrabold rounded-md uppercase tracking-wider transition-all duration-300">
+                            Básico
+                        </span>
+                    </div>
+                    <input type="range" id="complexity" name="complexity" min="1" max="3" value="1"
+                        class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-blue-500">
+                    <div class="flex justify-between text-[10px] text-slate-500 font-mono pt-1">
+                        <span>[1] MVP / Básico</span>
+                        <span>[2] Intermedio</span>
+                        <span>[3] Avanzado / SaaS</span>
+                    </div>
+                </div>
+
+                <!-- CAMPO: CUÉNTAME TU IDEA -->
+                <div class="space-y-2">
+                    <label for="message" class="block text-xs font-bold text-slate-400 uppercase tracking-wider font-mono">
+                        &gt;_ Detalles del Requerimiento
+                    </label>
+                    <div class="relative">
+                        <span class="absolute top-3 left-4 text-slate-500">
+                            <i class="fa-solid fa-comment-dots text-sm"></i>
+                        </span>
+                        <textarea id="message" name="message" required rows="4" autocomplete="off"
+                            placeholder="Describe integraciones de datos, flujos de usuario, automatizaciones..." 
+                            class="w-full pl-11 pr-4 py-3 bg-slate-900/50 border border-slate-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-slate-600 transition-all duration-300 resize-none"></textarea>
+                    </div>
+                </div>
+
+                <!-- BOTÓN DE ENVIAR CON ANIMACIÓN -->
+                <div class="pt-2">
+                    <button type="submit" id="submitBtn"
+                        class="w-full flex items-center justify-center gap-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-blue-900/20 hover:shadow-purple-900/30 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 group">
+                        <span class="font-mono tracking-wide">ENVIAR MENSAJE</span>
+                        <i class="fa-solid fa-paper-plane text-sm transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- ========================================== -->
+<!-- SCRIPT DE VALIDACIÓN Y PROTECCIÓN ANTIXSS  -->
+<!-- ========================================== -->
+<script>
+    // 1. Dinamismo del nivel de complejidad (Estilo Consola)
+    const slider = document.getElementById('complexity');
+    const badge = document.getElementById('complexity-badge');
+
+    const states = {
+        '1': { text: 'Básico (MVP)', colorClass: 'bg-blue-950/60 border-blue-800/50 text-blue-400' },
+        '2': { text: 'Intermedio (Escalable)', colorClass: 'bg-amber-950/60 border-amber-800/50 text-amber-400' },
+        '3': { text: 'Avanzado (SaaS / IA Core)', colorClass: 'bg-purple-950/60 border-purple-800/50 text-purple-400' }
+    };
+
+    slider.addEventListener('input', (e) => {
+        const value = e.target.value;
+        badge.innerText = states[value].text;
+        badge.className = `px-2.5 py-0.5 text-[11px] font-extrabold rounded-md uppercase tracking-wider border transition-all duration-300 ${states[value].colorClass}`;
+    });
+
+    // 2. Mitigación de Inyección Maliciosa (Sanitización básica en Frontend)
+    document.getElementById('projectForm').addEventListener('submit', function(e) {
+        const nameInput = document.getElementById('name');
+        const messageInput = document.getElementById('message');
+
+        function cleanInput(str) {
+            return str.replace(/[&<>"']/g, function(match) {
+                const escape = {
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    '"': '&quot;',
+                    "'": '&#x27;'
+                };
+                return escape[match];
+            }).trim();
+        }
+
+        nameInput.value = cleanInput(nameInput.value);
+        messageInput.value = cleanInput(messageInput.value);
+
+        const btn = document.getElementById('submitBtn');
+        btn.innerHTML = '<span class="font-mono">SENDING_DATA...</span> <i class="fa-solid fa-circle-notch animate-spin"></i>';
+        btn.style.pointerEvents = 'none';
+        btn.style.opacity = '0.8';
+    });
+</script>
 
 </body>
 
