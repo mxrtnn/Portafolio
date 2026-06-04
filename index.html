@@ -34,6 +34,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        /* Cursor de escritura dinámico */
         .cursor {
             display: inline-block;
             width: 4px;
@@ -44,28 +45,20 @@
         }
 
         @keyframes blink {
-            50% {
-                opacity: 0;
-            }
+            50% { opacity: 0; }
         }
 
-        /* Animación de flotación suave para los iconos tecnológicos */
+        /* Animación de flotación suave para iconos tecnológicos */
         .float-anim {
             animation: floating 4s ease-in-out infinite;
         }
 
         @keyframes floating {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
+        /* Rotaciones fluidas para los círculos del diseño de grilla previa */
         .animate-spin-slow {
             animation: spin-forward 25s linear infinite;
         }
@@ -79,23 +72,32 @@
         }
 
         @keyframes spin-forward {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         @keyframes spin-backward {
-            from {
-                transform: rotate(0deg);
-            }
+            from { transform: rotate(0deg); }
+            to { transform: rotate(-360deg); }
+        }
 
-            to {
-                transform: rotate(-360deg);
+        /* NUEVA ANIMACIÓN: Parpadeo de Nodos Orgánicos Inteligentes para la Línea de Vida */
+        @keyframes pulse-node {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.3;
+                box-shadow: 0 0 4px rgba(59, 130, 246, 0.2);
             }
+            50% {
+                transform: scale(1.3);
+                opacity: 0.9;
+                box-shadow: 0 0 16px rgba(59, 130, 246, 0.7);
+            }
+        }
+
+        /* Clase optimizada para inyectar a los puntos del fondo de constelaciones */
+        .animate-pulse-node {
+            animation: pulse-node 3s ease-in-out infinite;
         }
     </style>
 </head>
@@ -736,182 +738,159 @@
         }
     </style>
 
-    <section id="experiencia"
-        class="bg-blue-50 dark:bg-[#0b162c] py-16 md:py-24 border-y border-blue-100 dark:border-gray-800 transition-colors duration-500">
-        <div class="max-w-7xl mx-auto px-6 md:px-10 relative">
+    <!-- ================================================================= -->
+<!-- SECCIÓN: EXPERIENCIA & EDUCACIÓN (DISEÑO CONSTELACIÓN DE DATOS)     -->
+<!-- ================================================================= -->
+<section id="experiencia"
+    class="relative overflow-hidden bg-slate-50 dark:bg-[#0b162c] py-16 md:py-24 border-y border-blue-100 dark:border-gray-800 transition-colors duration-500">
+    
+    <!-- 1. PATRÓN EXCLUSIVO: CIRCUITOS Y VECTORES OBLICUOS -->
+    <div class="absolute inset-0 bg-[linear-gradient(115deg,rgba(59,130,246,0.03)_0%,transparent_70%)] dark:bg-[linear-gradient(115deg,rgba(59,130,246,0.05)_0%,transparent_60%)] pointer-events-none"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:3rem_3rem] opacity-[0.15] dark:opacity-[0.25] pointer-events-none"></div>
 
-            <div class="text-center mb-16 relative z-10">
-                <p class="text-accentBlue dark:text-accentLight tracking-widest text-xs font-semibold mb-3 uppercase"
-                    data-lang="exp_sub">MI TRAYECTORIA</p>
-                <h2 class="text-3xl md:text-5xl font-extrabold text-slate-800 dark:text-white" data-lang="exp_heading">
-                    EXPERIENCIA & EDUCACIÓN</h2>
-            </div>
+    <!-- 2. NODOS INTELIGENTES ORGÁNICOS (Data Points distribuidos) -->
+    <div class="absolute top-1/4 left-[10%] w-2 h-2 rounded-full bg-blue-400 dark:bg-blue-500 blur-[1px] animate-pulse pointer-events-none"></div>
+    <div class="absolute top-2/4 right-[8%] w-3 h-3 rounded-full bg-purple-400 dark:bg-purple-600 blur-[2px] opacity-60 pointer-events-none" style="animation-duration: 4s;"></div>
+    <div class="absolute bottom-1/4 left-[15%] w-2.5 h-2.5 rounded-full bg-accentBlue blur-[1px] animate-pulse pointer-events-none" style="animation-delay: 1.5s;"></div>
 
-            <div id="timeline-vertical" class="relative">
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div class="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
 
-                <div
-                    class="absolute left-[24px] md:left-1/2 top-10 bottom-10 w-[3px] bg-blue-100 dark:bg-gray-800 rounded-full z-0 md:-translate-x-1/2">
-                </div>
-
-                <div id="linea-progreso"
-                    class="absolute left-[24px] md:left-1/2 top-10 w-[3px] bg-accentBlue shadow-[0_0_8px_rgba(37,99,235,0.8)] rounded-full z-0 md:-translate-x-1/2 transition-all duration-100 ease-out"
-                    style="height: 0%;"></div>
-
-                <div class="space-y-12 md:space-y-10">
-
-                    <div
-                        class="timeline-item relative flex items-start md:items-center gap-6 md:gap-0 z-10 w-full group">
-                        <div
-                            class="shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-full border-4 border-white dark:border-cardDark shadow-lg group-hover:scale-110 group-hover:border-accentBlue transition-all duration-300 md:absolute md:left-1/2 md:-translate-x-1/2 z-20 bg-white dark:bg-cardDark flex items-center justify-center">
-                            <i
-                                class="fa-solid fa-lightbulb text-xl md:text-2xl text-accentBlue dark:text-accentLight"></i>
-                        </div>
-                        <div
-                            class="timeline-panel flex-1 md:w-[calc(50%-2.5rem)] md:flex-initial p-6 bg-white dark:bg-cardDark rounded-2xl border border-blue-100 dark:border-gray-800/50 shadow-md group-hover:border-accentBlue/20 transition-all duration-300 md:rounded-r-none md:rounded-l-2xl md:text-right backdrop-blur-sm bg-white/70 dark:bg-cardDark/70">
-                            <div class="flex items-center gap-3 mb-2 md:justify-end">
-                                <span
-                                    class="text-xs md:text-sm font-bold text-accentBlue dark:text-accentLight tracking-wider bg-blue-100 dark:bg-blue-900/40 px-3 py-1 rounded-full"
-                                    data-lang="exp1_date">2017 - 2018</span>
-                            </div>
-                            <h3 class="text-lg md:text-2xl font-bold text-slate-800 dark:text-white mb-1"
-                                data-lang="exp1_title">Fundación Ciencia Joven</h3>
-                            <p class="text-sm font-semibold text-accentBlue dark:text-accentLight mb-4"
-                                data-lang="exp1_sub">Participación en Taller Estudiantil</p>
-                            <ul
-                                class="space-y-2 text-sm text-slate-600 dark:text-gray-400 list-disc md:list-none pl-4 md:pl-0">
-                                <li data-lang="exp1_li1">Participación en mentorías de proyectos de ciencia y
-                                    tecnología.</li>
-                                <li data-lang="exp1_li2">Desarrollo de habilidades en resolución de problemas complejos.
-                                </li>
-                                <li data-lang="exp1_li3">Primer contacto formal con metodologías de investigación.</li>
-                                <li data-lang="exp1_li4">Primer contacto formal con actividades de facultades
-                                    superiores.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div
-                        class="timeline-item relative flex items-start md:items-center gap-6 md:gap-0 z-10 w-full group">
-                        <div
-                            class="shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-full border-4 border-white dark:border-cardDark shadow-lg group-hover:scale-110 group-hover:border-accentBlue transition-all duration-300 md:absolute md:left-1/2 md:-translate-x-1/2 z-20 bg-white dark:bg-cardDark flex items-center justify-center">
-                            <i
-                                class="fa-solid fa-microchip text-xl md:text-2xl text-accentBlue dark:text-accentLight"></i>
-                        </div>
-                        <div
-                            class="timeline-panel flex-1 md:w-[calc(50%-2.5rem)] md:flex-initial p-6 bg-white dark:bg-cardDark rounded-2xl border border-blue-100 dark:border-gray-800/50 shadow-md group-hover:border-accentBlue/20 transition-all duration-300 backdrop-blur-sm bg-white/70 dark:bg-cardDark/70">
-                            <div class="flex items-center gap-3 mb-2">
-                                <span
-                                    class="text-xs md:text-sm font-bold text-accentBlue dark:text-accentLight tracking-wider bg-blue-100 dark:bg-blue-900/40 px-3 py-1 rounded-full"
-                                    data-lang="exp2_date">2019 - 2021</span>
-                            </div>
-                            <h3 class="text-lg md:text-2xl font-bold text-slate-800 dark:text-white mb-1"
-                                data-lang="exp2_title">Estudiante de Ingeniería Electrónica</h3>
-                            <p class="text-sm font-semibold text-accentBlue dark:text-accentLight mb-4"
-                                data-lang="exp2_sub">Pontificia Universidad Católica de Valparaíso</p>
-                            <ul class="space-y-2 text-sm text-slate-600 dark:text-gray-400 list-disc pl-4">
-                                <li data-lang="exp2_li1">Experiencia y formación básica en sistemas digitales y lógica
-                                    computacional.</li>
-                                <li data-lang="exp2_li2">Aprendizaje básico en lenguajes de programación (Python |
-                                    Java).</li>
-                                <li data-lang="exp2_li3">Aprendizaje intermedio en matemática aplicada.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div
-                        class="timeline-item relative flex items-start md:items-center gap-6 md:gap-0 z-10 w-full group">
-                        <div
-                            class="shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-full border-4 border-white dark:border-cardDark shadow-lg group-hover:scale-110 group-hover:border-accentBlue transition-all duration-300 md:absolute md:left-1/2 md:-translate-x-1/2 z-20 bg-white dark:bg-cardDark flex items-center justify-center">
-                            <i class="fa-solid fa-brain text-xl md:text-2xl text-accentBlue dark:text-accentLight"></i>
-                        </div>
-                        <div
-                            class="timeline-panel flex-1 md:w-[calc(50%-2.5rem)] md:flex-initial p-6 bg-white dark:bg-cardDark rounded-2xl border border-blue-100 dark:border-gray-800/50 shadow-md group-hover:border-accentBlue/20 transition-all duration-300 md:rounded-r-none md:rounded-l-2xl md:text-right backdrop-blur-sm bg-white/70 dark:bg-cardDark/70">
-                            <div class="flex items-center gap-3 mb-2 md:justify-end">
-                                <span
-                                    class="text-xs md:text-sm font-bold text-accentBlue dark:text-accentLight tracking-wider bg-blue-100 dark:bg-blue-900/40 px-3 py-1 rounded-full"
-                                    data-lang="exp3_date">2022 - 2026</span>
-                            </div>
-                            <h3 class="text-lg md:text-2xl font-bold text-slate-800 dark:text-white mb-1"
-                                data-lang="exp3_title">Cursando ultimo año de Ingeniería Informática con especialidad IA</h3>
-                            <p class="text-sm font-semibold text-accentBlue dark:text-accentLight mb-4"
-                                data-lang="exp3_sub">Duoc UC Sede Viña del Mar</p>
-                            <ul
-                                class="space-y-2 text-sm text-slate-600 dark:text-gray-400 list-disc md:list-none pl-4 md:pl-0">
-                                <li data-lang="exp3_li1">Aprendizaje en especialidad en Ciencia de Datos e Inteligencia
-                                    Artificial</li>
-                                <li data-lang="exp3_li2">Certificaciones de Artificial Intelligence Professional en Certiprof</li>
-                                <li data-lang="exp3_li3">Certificaciónes Scrum Master y Foundation professional en Certiprof.</li>
-                                <li data-lang="exp3_li4">Certificación en Python Essentials I en Cisco Academy.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div
-                        class="timeline-item relative flex items-start md:items-center gap-6 md:gap-0 z-10 w-full group">
-                        <div
-                            class="shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-full border-4 border-white dark:border-cardDark shadow-lg group-hover:scale-110 group-hover:border-accentBlue transition-all duration-300 md:absolute md:left-1/2 md:-translate-x-1/2 z-20 bg-white dark:bg-cardDark flex items-center justify-center">
-                            <i
-                                class="fa-solid fa-layer-group text-xl md:text-2xl text-accentBlue dark:text-accentLight"></i>
-                        </div>
-                        <div
-                            class="timeline-panel flex-1 md:w-[calc(50%-2.5rem)] md:flex-initial p-6 bg-white dark:bg-cardDark rounded-2xl border border-blue-100 dark:border-gray-800/50 shadow-md group-hover:border-accentBlue/20 transition-all duration-300 backdrop-blur-sm bg-white/70 dark:bg-cardDark/70">
-                            <div class="flex items-center gap-3 mb-2">
-                                <span
-                                    class="text-xs md:text-sm font-bold text-accentBlue dark:text-accentLight tracking-wider bg-blue-100 dark:bg-blue-900/40 px-3 py-1 rounded-full"
-                                    data-lang="exp4_date">2024</span>
-                            </div>
-                            <h3 class="text-lg md:text-2xl font-bold text-slate-800 dark:text-white mb-1"
-                                data-lang="exp4_title">Desarrollador Frontend y Gestor de proyecto</h3>
-                            <p class="text-sm font-semibold text-accentBlue dark:text-accentLight mb-4"
-                                data-lang="exp4_sub">Líder de Proyecto & Scrum Master en Duoc UC</p>
-                            <ul class="space-y-2 text-sm text-slate-600 dark:text-gray-400 list-disc pl-4">
-                                <li data-lang="exp4_li1">Desarrollo integral usando HTML5, Django y MySQL.</li>
-                                <li data-lang="exp4_li2">Gestión ágil de proyecto para departamento DARA.</li>
-                                <li data-lang="exp4_li3">Enfoque en eficiencia y encaje perfecto visual.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div
-                        class="timeline-item relative flex items-start md:items-center gap-6 md:gap-0 z-10 w-full group">
-                        <div
-                            class="shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-full border-4 border-accentBlue dark:border-accentLight shadow-[0_0_15px_rgba(37,99,235,0.4)] scale-110 group-hover:scale-125 transition-all duration-300 md:absolute md:left-1/2 md:-translate-x-1/2 z-20 bg-accentBlue flex items-center justify-center">
-                            <i class="fa-solid fa-rocket text-xl md:text-2xl text-white"></i>
-                        </div>
-                        <div
-                            class="timeline-panel flex-1 md:w-[calc(50%-2.5rem)] md:flex-initial p-6 bg-white dark:bg-cardDark rounded-2xl border-2 border-accentBlue dark:border-accentLight/50 shadow-lg md:rounded-r-none md:rounded-l-2xl md:text-right backdrop-blur-sm bg-white/70 dark:bg-cardDark/70">
-                            <div class="flex items-center gap-3 mb-2 md:justify-end">
-                                <span
-                                    class="text-xs md:text-sm font-bold text-white bg-accentBlue px-3 py-1 rounded-full uppercase"
-                                    data-lang="exp5_date">Actualidad</span>
-                            </div>
-                            <h3 class="text-lg md:text-2xl font-bold text-slate-800 dark:text-white mb-1"
-                                data-lang="exp5_title">Desarrollando servicio web VitalCenter</h3>
-                            <p class="text-sm font-semibold text-accentBlue dark:text-accentLight mb-4"
-                                data-lang="exp5_sub">Desarollador Full-Stack</p>
-                            <ul
-                                class="space-y-2 text-sm text-slate-600 dark:text-gray-400 list-disc md:list-none pl-4 md:pl-0">
-                                <li data-lang="exp5_li1">Plataforma SAAS de autenticación de socios</li>
-                                <li data-lang="exp5_li1">Sitio web con wordpress para inscripcion de socios</li>
-                                <li data-lang="exp5_li1">Autenticación multifactor.</li>
-                                <li data-lang="exp5_li2">Servicios digitales.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div
-                class="absolute top-28 left-0 w-full h-10 bg-gradient-to-b from-blue-50 dark:from-[#0b162c] to-transparent z-1 pointer-events-none hidden md:block">
-            </div>
-            <div
-                class="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-t from-blue-50 dark:from-[#0b162c] to-transparent z-1 pointer-events-none hidden md:block">
-            </div>
-
+        <!-- CABECERA DE LA SECCIÓN -->
+        <div class="text-center mb-16 relative z-10">
+            <p class="text-accentBlue dark:text-accentLight tracking-widest text-xs font-semibold mb-3 uppercase"
+                data-lang="exp_sub">MI TRAYECTORIA</p>
+            <h2 class="text-3xl md:text-5xl font-extrabold text-slate-800 dark:text-white" data-lang="exp_heading">
+                EXPERIENCIA & EDUCACIÓN</h2>
         </div>
-    </section>
 
+        <!-- CONTENEDOR TIMELINE -->
+        <div id="timeline-vertical" class="relative">
+
+            <!-- Línea Base Flotante -->
+            <div class="absolute left-[24px] md:left-1/2 top-10 bottom-10 w-[3px] bg-blue-100 dark:bg-gray-800 rounded-full z-0 md:-translate-x-1/2">
+            </div>
+
+            <!-- Línea de Progreso Activa -->
+            <div id="linea-progreso"
+                class="absolute left-[24px] md:left-1/2 top-10 w-[3px] bg-accentBlue shadow-[0_0_12px_rgba(37,99,235,0.8)] rounded-full z-0 md:-translate-x-1/2 transition-all duration-100 ease-out"
+                style="height: 0%;"></div>
+
+            <!-- ESPACIADO DE TARJETAS -->
+            <div class="space-y-12 md:space-y-16">
+
+                <!-- ITEM 1: Ciencia Joven -->
+                <div class="timeline-item relative flex items-start md:items-center gap-6 md:gap-0 z-10 w-full group">
+                    <div class="shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-full border-4 border-white dark:border-cardDark shadow-lg group-hover:scale-110 group-hover:border-accentBlue group-hover:shadow-[0_0_15px_rgba(37,99,235,0.4)] transition-all duration-300 md:absolute md:left-1/2 md:-translate-x-1/2 z-20 bg-white dark:bg-cardDark flex items-center justify-center">
+                        <i class="fa-solid fa-lightbulb text-xl md:text-2xl text-accentBlue dark:text-accentLight"></i>
+                    </div>
+                    <div class="timeline-panel flex-1 md:w-[calc(50%-2.5rem)] md:flex-initial p-6 bg-white/80 dark:bg-cardDark/70 rounded-2xl border border-blue-100 dark:border-gray-800/60 shadow-md group-hover:border-accentBlue/30 transition-all duration-300 md:rounded-r-none md:rounded-l-2xl md:text-right backdrop-blur-md">
+                        <div class="flex items-center gap-3 mb-2 md:justify-end">
+                            <span class="text-xs md:text-sm font-bold text-accentBlue dark:text-accentLight tracking-wider bg-blue-100 dark:bg-blue-900/40 px-3 py-1 rounded-full"
+                                data-lang="exp1_date">2017 - 2018</span>
+                        </div>
+                        <h3 class="text-lg md:text-2xl font-bold text-slate-800 dark:text-white mb-1" data-lang="exp1_title">Fundación Ciencia Joven</h3>
+                        <p class="text-sm font-semibold text-accentBlue dark:text-accentLight mb-4" data-lang="exp1_sub">Participación en Taller Estudiantil</p>
+                        <ul class="space-y-2 text-sm text-slate-600 dark:text-gray-400 list-disc md:list-none pl-4 md:pl-0">
+                            <li data-lang="exp1_li1">Participación en mentorías de proyectos de ciencia y tecnología.</li>
+                            <li data-lang="exp1_li2">Desarrollo de habilidades en resolución de problemas complejos.</li>
+                            <li data-lang="exp1_li3">Primer contacto formal con metodologías de investigación.</li>
+                            <li data-lang="exp1_li4">Primer contacto formal con actividades de facultades superiores.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- ITEM 2: Electrónica -->
+                <div class="timeline-item relative flex items-start md:items-center gap-6 md:gap-0 z-10 w-full group">
+                    <div class="shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-full border-4 border-white dark:border-cardDark shadow-lg group-hover:scale-110 group-hover:border-accentBlue group-hover:shadow-[0_0_15px_rgba(37,99,235,0.4)] transition-all duration-300 md:absolute md:left-1/2 md:-translate-x-1/2 z-20 bg-white dark:bg-cardDark flex items-center justify-center">
+                        <i class="fa-solid fa-microchip text-xl md:text-2xl text-accentBlue dark:text-accentLight"></i>
+                    </div>
+                    <div class="timeline-panel flex-1 md:w-[calc(50%-2.5rem)] md:flex-initial p-6 bg-white/80 dark:bg-cardDark/70 rounded-2xl border border-blue-100 dark:border-gray-800/60 shadow-md group-hover:border-accentBlue/30 transition-all duration-300 backdrop-blur-md">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-xs md:text-sm font-bold text-accentBlue dark:text-accentLight tracking-wider bg-blue-100 dark:bg-blue-900/40 px-3 py-1 rounded-full"
+                                data-lang="exp2_date">2019 - 2021</span>
+                        </div>
+                        <h3 class="text-lg md:text-2xl font-bold text-slate-800 dark:text-white mb-1" data-lang="exp2_title">Estudiante de Ingeniería Electrónica</h3>
+                        <p class="text-sm font-semibold text-accentBlue dark:text-accentLight mb-4" data-lang="exp2_sub">Pontificia Universidad Católica de Valparaíso</p>
+                        <ul class="space-y-2 text-sm text-slate-600 dark:text-gray-400 list-disc pl-4">
+                            <li data-lang="exp2_li1">Experiencia y formación básica en sistemas digitales y lógica computacional.</li>
+                            <li data-lang="exp2_li2">Aprendizaje básico en lenguajes de programación (Python | Java).</li>
+                            <li data-lang="exp2_li3">Aprendizaje intermedio en matemática aplicada.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- ITEM 3: Informática IA -->
+                <div class="timeline-item relative flex items-start md:items-center gap-6 md:gap-0 z-10 w-full group">
+                    <div class="shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-full border-4 border-white dark:border-cardDark shadow-lg group-hover:scale-110 group-hover:border-accentBlue group-hover:shadow-[0_0_15px_rgba(37,99,235,0.4)] transition-all duration-300 md:absolute md:left-1/2 md:-translate-x-1/2 z-20 bg-white dark:bg-cardDark flex items-center justify-center">
+                        <i class="fa-solid fa-brain text-xl md:text-2xl text-accentBlue dark:text-accentLight"></i>
+                    </div>
+                    <div class="timeline-panel flex-1 md:w-[calc(50%-2.5rem)] md:flex-initial p-6 bg-white/80 dark:bg-cardDark/70 rounded-2xl border border-blue-100 dark:border-gray-800/60 shadow-md group-hover:border-accentBlue/30 transition-all duration-300 md:rounded-r-none md:rounded-l-2xl md:text-right backdrop-blur-md">
+                        <div class="flex items-center gap-3 mb-2 md:justify-end">
+                            <span class="text-xs md:text-sm font-bold text-accentBlue dark:text-accentLight tracking-wider bg-blue-100 dark:bg-blue-900/40 px-3 py-1 rounded-full"
+                                data-lang="exp3_date">2022 - 2026</span>
+                        </div>
+                        <h3 class="text-lg md:text-2xl font-bold text-slate-800 dark:text-white mb-1" data-lang="exp3_title">Cursando último año de Ingeniería Informática con especialidad IA</h3>
+                        <p class="text-sm font-semibold text-accentBlue dark:text-accentLight mb-4" data-lang="exp3_sub">Duoc UC Sede Viña del Mar</p>
+                        <ul class="space-y-2 text-sm text-slate-600 dark:text-gray-400 list-disc md:list-none pl-4 md:pl-0">
+                            <li data-lang="exp3_li1">Aprendizaje en especialidad en Ciencia de Datos e Inteligencia Artificial</li>
+                            <li data-lang="exp3_li2">Certificaciones de Artificial Intelligence Professional en Certiprof</li>
+                            <li data-lang="exp3_li3">Certificaciones Scrum Master y Foundation professional en Certiprof.</li>
+                            <li data-lang="exp3_li4">Certificación en Python Essentials I en Cisco Academy.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- ITEM 4: Frontend Scrum -->
+                <div class="timeline-item relative flex items-start md:items-center gap-6 md:gap-0 z-10 w-full group">
+                    <div class="shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-full border-4 border-white dark:border-cardDark shadow-lg group-hover:scale-110 group-hover:border-accentBlue group-hover:shadow-[0_0_15px_rgba(37,99,235,0.4)] transition-all duration-300 md:absolute md:left-1/2 md:-translate-x-1/2 z-20 bg-white dark:bg-cardDark flex items-center justify-center">
+                        <i class="fa-solid fa-layer-group text-xl md:text-2xl text-accentBlue dark:text-accentLight"></i>
+                    </div>
+                    <div class="timeline-panel flex-1 md:w-[calc(50%-2.5rem)] md:flex-initial p-6 bg-white/80 dark:bg-cardDark/70 rounded-2xl border border-blue-100 dark:border-gray-800/60 shadow-md group-hover:border-accentBlue/30 transition-all duration-300 backdrop-blur-md">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-xs md:text-sm font-bold text-accentBlue dark:text-accentLight tracking-wider bg-blue-100 dark:bg-blue-900/40 px-3 py-1 rounded-full"
+                                data-lang="exp4_date">2024</span>
+                        </div>
+                        <h3 class="text-lg md:text-2xl font-bold text-slate-800 dark:text-white mb-1" data-lang="exp4_title">Desarrollador Frontend y Gestor de proyecto</h3>
+                        <p class="text-sm font-semibold text-accentBlue dark:text-accentLight mb-4" data-lang="exp4_sub">Líder de Proyecto & Scrum Master en Duoc UC</p>
+                        <ul class="space-y-2 text-sm text-slate-600 dark:text-gray-400 list-disc pl-4">
+                            <li data-lang="exp4_li1">Desarrollo integral usando HTML5, Django y MySQL.</li>
+                            <li data-lang="exp4_li2">Gestión ágil de proyecto para departamento DARA.</li>
+                            <li data-lang="exp4_li3">Enfoque en eficiencia y encaje perfecto visual.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- ITEM 5: Actualidad VitalCenter (Destaque Especial) -->
+                <div class="timeline-item relative flex items-start md:items-center gap-6 md:gap-0 z-10 w-full group">
+                    <div class="shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-full border-4 border-accentBlue dark:border-accentLight shadow-[0_0_15px_rgba(37,99,235,0.5)] scale-110 group-hover:scale-125 transition-all duration-300 md:absolute md:left-1/2 md:-translate-x-1/2 z-20 bg-accentBlue flex items-center justify-center">
+                        <i class="fa-solid fa-rocket text-xl md:text-2xl text-white"></i>
+                    </div>
+                    <div class="timeline-panel flex-1 md:w-[calc(50%-2.5rem)] md:flex-initial p-6 bg-white/90 dark:bg-cardDark/80 rounded-2xl border-2 border-accentBlue dark:border-accentLight/50 shadow-xl md:rounded-r-none md:rounded-l-2xl md:text-right backdrop-blur-md">
+                        <div class="flex items-center gap-3 mb-2 md:justify-end">
+                            <span class="text-xs md:text-sm font-bold text-white bg-accentBlue px-3 py-1 rounded-full uppercase"
+                                data-lang="exp5_date">Actualidad</span>
+                        </div>
+                        <h3 class="text-lg md:text-2xl font-bold text-slate-800 dark:text-white mb-1" data-lang="exp5_title">Desarrollando servicio web VitalCenter</h3>
+                        <p class="text-sm font-semibold text-accentBlue dark:text-accentLight mb-4" data-lang="exp5_sub">Desarrollador Full-Stack</p>
+                        <ul class="space-y-2 text-sm text-slate-600 dark:text-gray-400 list-disc md:list-none pl-4 md:pl-0">
+                            <li data-lang="exp5_li1">Plataforma SAAS de autenticación de socios</li>
+                            <li data-lang="exp5_li1">Sitio web con WordPress para inscripción de socios</li>
+                            <li data-lang="exp5_li1">Autenticación multifactor.</li>
+                            <li data-lang="exp5_li2">Servicios digitales.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Difuminados degradados en los extremos superiores/inferiores -->
+        <div class="absolute top-0 left-0 w-full h-16 bg-gradient-to-b from-slate-50 dark:from-[#0b162c] to-transparent z-1 pointer-events-none hidden md:block"></div>
+        <div class="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-slate-50 dark:from-[#0b162c] to-transparent z-1 pointer-events-none hidden md:block"></div>
+
+    </div>
+</section>
 <!-- ========================================== -->
 <!-- SECCIÓN COMPLETADA: PROYECTOS Y MODALES     -->
 <!-- ========================================== -->
@@ -1713,21 +1692,15 @@ window.onload = function() {
     }
 };
 </script>
-<!-- ========================================== -->
-<!-- SECCIÓN: COTIZADOR CON FONDO IA AESTHETIC  -->
-<!-- ========================================== -->
 <section id="contacto" class="relative py-16 md:py-24 overflow-hidden transition-colors duration-500 bg-slate-900 border-t border-slate-800">
     
-    <!-- 1. PATRÓN DE CUADRÍCULA TECNOLÓGICA (Aesthetic Grid) -->
     <div class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-60"></div>
 
-    <!-- 2. LUCES NEÓN / ORBES DE IA EN EL FONDO (Glow Effects) -->
     <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px] pointer-events-none animate-pulse"></div>
     <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-[120px] pointer-events-none animate-pulse" style="animation-duration: 4s;"></div>
 
     <div class="relative max-w-3xl mx-auto px-6 z-10">
         
-        <!-- ENCABEZADO -->
         <div class="text-center mb-12">
             <p class="text-blue-400 tracking-widest text-xs font-semibold mb-3 flex items-center justify-center gap-2">
                 <span class="w-2 h-2 rounded-full bg-blue-400 animate-ping"></span> 
@@ -1737,14 +1710,12 @@ window.onload = function() {
                 COTIZA TU PROYECTO
             </h2>
             <p class="text-sm text-slate-400 mt-2 max-w-lg mx-auto font-mono">
-                // Los valores varían según la complejidad y módulos del backend.
+                // Los valores varían según la complejidad del proyecto
             </p>
         </div>
 
-        <!-- CONTENEDOR FORMULARIO (ESTILO VENTANA DE COMANDOS) -->
         <div class="bg-slate-950/80 backdrop-blur-xl rounded-3xl border border-slate-800 shadow-[0_0_50px_rgba(37,99,235,0.1)] overflow-hidden transform hover:scale-[1.01] transition-all duration-300">
             
-            <!-- Barra superior estilo Mac/Terminal -->
             <div class="bg-slate-900/90 px-6 py-4 flex items-center justify-between border-b border-slate-800">
                 <div class="flex items-center gap-2">
                     <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
@@ -1757,10 +1728,8 @@ window.onload = function() {
                 </div>
             </div>
 
-            <!-- Formulario Principal -->
             <form action="https://formspree.io/f/maqzyayy" method="POST" id="projectForm" class="p-6 md:p-10 space-y-6">
                 
-                <!-- CAMPO: NOMBRE -->
                 <div class="space-y-2">
                     <label for="name" class="block text-xs font-bold text-slate-400 uppercase tracking-wider font-mono">
                         &gt;_ Tu Nombre / Empresa
@@ -1775,7 +1744,6 @@ window.onload = function() {
                     </div>
                 </div>
 
-                <!-- CAMPO: IDEA DE PROYECTO -->
                 <div class="space-y-2">
                     <label for="project_type" class="block text-xs font-bold text-slate-400 uppercase tracking-wider font-mono">
                         &gt;_ Idea de Proyecto
@@ -1799,7 +1767,6 @@ window.onload = function() {
                     </div>
                 </div>
 
-                <!-- CAMPO: NIVEL DE SOLICITUD (Cotizador) -->
                 <div class="space-y-2 bg-slate-900/30 p-4 rounded-xl border border-slate-800/60">
                     <div class="flex justify-between items-center mb-1">
                         <label for="complexity" class="text-xs font-bold text-slate-400 uppercase tracking-wider font-mono">
@@ -1818,7 +1785,6 @@ window.onload = function() {
                     </div>
                 </div>
 
-                <!-- CAMPO: CUÉNTAME TU IDEA -->
                 <div class="space-y-2">
                     <label for="message" class="block text-xs font-bold text-slate-400 uppercase tracking-wider font-mono">
                         &gt;_ Detalles del Requerimiento
@@ -1833,10 +1799,15 @@ window.onload = function() {
                     </div>
                 </div>
 
-                <!-- BOTÓN DE ENVIAR CON ANIMACIÓN -->
-                <div class="pt-2">
+                <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                    <button type="button" id="openPricesBtn"
+                        class="sm:w-1/3 flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-850 text-blue-400 border border-slate-800 hover:border-blue-500/50 font-bold px-4 py-4 rounded-xl shadow-md transition-all duration-300 group font-mono text-sm tracking-wide">
+                        <i class="fa-solid fa-robot text-xs text-purple-400 animate-bounce"></i>
+                        <span>VER VALORES</span>
+                    </button>
+
                     <button type="submit" id="submitBtn"
-                        class="w-full flex items-center justify-center gap-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-blue-900/20 hover:shadow-purple-900/30 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 group">
+                        class="flex-1 flex items-center justify-center gap-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-blue-900/20 hover:shadow-purple-900/30 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 group">
                         <span class="font-mono tracking-wide">ENVIAR MENSAJE</span>
                         <i class="fa-solid fa-paper-plane text-sm transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
                     </button>
@@ -1847,9 +1818,67 @@ window.onload = function() {
     </div>
 </section>
 
-<!-- ========================================== -->
-<!-- SCRIPT DE VALIDACIÓN Y PROTECCIÓN ANTIXSS  -->
-<!-- ========================================== -->
+<div id="pricesModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md hidden opacity-0 transition-opacity duration-300">
+    <div class="bg-slate-900 border border-slate-800 w-full max-w-lg rounded-2xl shadow-[0_0_50px_rgba(168,85,247,0.15)] overflow-hidden transform scale-95 transition-transform duration-300 font-mono" id="modalContainer">
+        
+        <div class="bg-slate-950 px-6 py-4 flex items-center justify-between border-b border-slate-800">
+            <div class="flex items-center gap-2 text-xs text-purple-400">
+                <i class="fa-solid fa-terminal"></i>
+                <span>PRICING_BOT.exe</span>
+            </div>
+            <button id="closePricesBtn" class="text-slate-500 hover:text-white transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+        </div>
+
+        <div class="p-6 space-y-4">
+            <div class="flex items-start gap-4 bg-slate-950/50 p-4 rounded-xl border border-slate-800/60">
+                <div class="bg-purple-500/10 border border-purple-500/30 p-3 rounded-xl relative flex-shrink-0">
+                    <i class="fa-solid fa-robot text-2xl text-purple-400"></i>
+                    <span class="absolute top-1 right-1 w-2 h-2 bg-green-500 rounded-full animate-ping"></span>
+                </div>
+                <div class="text-xs space-y-1">
+                    <span class="text-slate-500 block">[ SYSTEM_BOT_v1.0 ]</span>
+                    <p class="text-slate-300 leading-relaxed">
+                        Saludos. He analizado el requerimiento actual en tu formulario. Aquí tienes el desglose base estimado para este tipo de arquitectura:
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-slate-950 border border-slate-800 rounded-xl p-5 space-y-4">
+                <div>
+                    <span class="text-[10px] text-slate-500 uppercase block tracking-wider">// Tipo Detectado</span>
+                    <span id="bot-project-title" class="text-sm font-bold text-blue-400">Ninguno seleccionado</span>
+                </div>
+                
+                <div class="border-t border-slate-800/80 pt-3">
+                    <span class="text-[10px] text-slate-500 uppercase block tracking-wider">// Rango Estimado (USD)</span>
+                    <div class="flex items-baseline gap-2 mt-1">
+                        <span id="bot-price" class="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500">$0</span>
+                        <span class="text-[10px] text-slate-400">Base</span>
+                    </div>
+                </div>
+
+                <div class="border-t border-slate-800/80 pt-3 space-y-1">
+                    <span class="text-[10px] text-slate-500 uppercase block tracking-wider">// Qué incluye este valor</span>
+                    <ul id="bot-features" class="text-[11px] text-slate-400 space-y-1.5 list-none pl-0">
+                        </ul>
+                </div>
+            </div>
+
+            <p class="text-[10px] text-center text-slate-500">
+                *Los costos finales se ajustan según integraciones extras y plazos de entrega.
+            </p>
+        </div>
+
+        <div class="bg-slate-950/40 p-4 border-t border-slate-800 text-right">
+            <button id="closePricesBtn2" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-lg transition-colors">
+                CERRAR_CONSOLA
+            </button>
+        </div>
+    </div>
+</div>
+
 <script>
     // 1. Dinamismo del nivel de complejidad (Estilo Consola)
     const slider = document.getElementById('complexity');
@@ -1867,7 +1896,121 @@ window.onload = function() {
         badge.className = `px-2.5 py-0.5 text-[11px] font-extrabold rounded-md uppercase tracking-wider border transition-all duration-300 ${states[value].colorClass}`;
     });
 
-    // 2. Mitigación de Inyección Maliciosa (Sanitización básica en Frontend)
+    // ==========================================
+    // LÓGICA DEL BOTÓN DE VALORES Y EL ROBOT (NUEVO)
+    // ==========================================
+    const openPricesBtn = document.getElementById('openPricesBtn');
+    const closePricesBtn = document.getElementById('closePricesBtn');
+    const closePricesBtn2 = document.getElementById('closePricesBtn2');
+    const pricesModal = document.getElementById('pricesModal');
+    const modalContainer = document.getElementById('modalContainer');
+    const projectTypeSelect = document.getElementById('project_type');
+
+    // Estructura de Precios por cada tipo de trabajo
+    const priceDatabase = {
+        "Landing Page Comercial": {
+            title: "Landing Page Comercial (Pyme)",
+            price: "$300 - $600",
+            features: [
+                "⚡ Diseño UI/UX Customizado y Ultra-Aesthetic",
+                "📱 Adaptabilidad móvil perfecta (Responsive)",
+                "SEO optimizado para Google + Formulario de contacto directo",
+                "⚙️ Despliegue en producción Cloud e integración Analytics"
+            ]
+        },
+        "Plataforma Web / SaaS": {
+            title: "Plataforma Web Corporativa / SaaS",
+            price: "$1,200 - $3,500+",
+            features: [
+                "🔐 Sistema de usuarios completo (Autenticación / Roles)",
+                "📊 Panel de control interactivo con Gráficas en tiempo real",
+                "💳 Integración de pasarelas de pago (Stripe / PayPal)",
+                "☁️ Arquitectura escalable y base de datos relacional"
+            ]
+        },
+        "Modelo de Inteligencia Artificial": {
+            title: "Modelo Predictivo / Integración IA",
+            price: "$1,500 - $4,000+",
+            features: [
+                "🤖 Automatizaciones inteligentes con OpenAI / Anthropic API",
+                "🧠 Modelos de Machine Learning a medida y análisis de datos",
+                "🛠️ Agentes de Chat entrenados con tu documentación propia",
+                "⚡ Endpoints API rápidos optimizados en NodeJS / Python"
+            ]
+        },
+        "E-commerce / Tienda Online": {
+            title: "E-commerce / Tienda Online",
+            price: "$800 - $2,000",
+            features: [
+                "🛒 Carrito de compras fluido y pasarela de checkout segura",
+                "📦 Panel autoadministrable de gestión de inventario y stock",
+                "🚚 Módulo de envíos calculados automáticamente",
+                "📈 Email marketing automatizado de carritos abandonados"
+            ]
+        },
+        "Otro": {
+            title: "Requerimiento a Medida / Consultoría",
+            price: "A convenir",
+            features: [
+                "🛠️ Análisis técnico de requerimientos específicos",
+                "💻 Desarrollo full-stack ágil personalizado",
+                "☁️ Arquitectura de sistemas dedicados e infraestructuras",
+                "💬 Agenda una videollamada para estructurar el presupuesto"
+            ]
+        }
+    };
+
+    function toggleModal(open) {
+        if (open) {
+            // Leer qué seleccionó el usuario
+            const selectedOption = projectTypeSelect.value;
+            
+            // Si no ha elegido nada, le asignamos una por defecto o la genérica "Otro"
+            const data = priceDatabase[selectedOption] || priceDatabase["Otro"];
+            
+            // Inyectar datos en el robot modal
+            document.getElementById('bot-project-title').innerText = `> ${data.title}`;
+            document.getElementById('bot-price').innerText = data.price;
+            
+            const featuresContainer = document.getElementById('bot-features');
+            featuresContainer.innerHTML = '';
+            data.features.forEach(feat => {
+                const li = document.createElement('li');
+                li.className = 'flex items-start gap-2';
+                li.innerHTML = `<span class="text-purple-400">></span> <span>${feat}</span>`;
+                featuresContainer.appendChild(li);
+            });
+
+            // Animación para mostrar el modal
+            pricesModal.classList.remove('hidden');
+            setTimeout(() => {
+                pricesModal.classList.add('opacity-100');
+                modalContainer.classList.remove('scale-95');
+                modalContainer.classList.add('scale-100');
+            }, 10);
+        } else {
+            // Animación para ocultar el modal
+            pricesModal.classList.remove('opacity-100');
+            modalContainer.classList.remove('scale-100');
+            modalContainer.classList.add('scale-95');
+            setTimeout(() => {
+                pricesModal.classList.add('hidden');
+            }, 300);
+        }
+    }
+
+    // Eventos de abrir y cerrar
+    openPricesBtn.addEventListener('click', () => toggleModal(true));
+    closePricesBtn.addEventListener('click', () => toggleModal(false));
+    closePricesBtn2.addEventListener('click', () => toggleModal(false));
+    
+    // Cerrar si hace click fuera del cuadro contenedor
+    pricesModal.addEventListener('click', (e) => {
+        if (e.target === pricesModal) toggleModal(false);
+    });
+
+
+    // 3. Mitigación de Inyección Maliciosa (Sanitización básica en Frontend)
     document.getElementById('projectForm').addEventListener('submit', function(e) {
         const nameInput = document.getElementById('name');
         const messageInput = document.getElementById('message');
