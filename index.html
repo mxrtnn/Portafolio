@@ -1226,8 +1226,8 @@
                 <h3 class="text-2xl font-bold text-slate-800 dark:text-white mb-2">SWEETBITE - PYME DE GALLETAS</h3>
                 <p class="text-xs font-bold text-accentBlue dark:text-accentLight tracking-wider uppercase mb-4">Landing Page Comercial (2026)</p>
                 <div class="space-y-4 text-sm leading-relaxed">
-                    <p>Este proyecto consistió en el diseño y desarrollo de una Landing Page estratégica y altamente optimizada para una pyme local de galletas caseras ubicada en **Quilpué**.</p>
-                    <p>Desarrollada durante este año **2026**, la plataforma fue clave para digitalizar el catálogo de productos de la pyme y agilizar el proceso de captación de pedidos, logrando cumplir exitosamente con las metas de conversión y ventas establecidas para abastecer a una panadería local de la zona.</p>
+                    <p>Este proyecto esta en progreso para el diseño y desarrollo de una Landing Page estratégica y altamente optimizada para una pyme local de galletas caseras ubicada en **Quilpué**.</p>
+                    <p>Desarrollada durante este año 2026, la pagina esta siendo desarrollada para digitalizar el catálogo de productos de la pyme y agilizar el proceso de captación de pedidos, logrando cumplir exitosamente con las metas de conversión y ventas establecidas para abastecer a una panadería local de la zona.</p>
                 </div>
                 <div class="mt-6">
                     <h4 class="text-xs font-bold text-slate-400 dark:text-gray-500 uppercase tracking-widest mb-2">Tecnologías e Impacto</h4>
@@ -1579,21 +1579,80 @@ function toggleTheme() {
 // ==========================================
 // 5. FUNCIONES DE MODALES
 // ==========================================
-function openModal(id) {
-    const modal = document.getElementById(id);
-    const content = document.getElementById('modal-content-' + id.replace('modal', ''));
-    modal.classList.remove('opacity-0', 'pointer-events-none');
-    content.classList.remove('scale-95');
-    content.classList.add('scale-100');
-}
+function openModal(modalId, cardElement) {
+        const modal = document.getElementById(modalId);
+        if (!modal) return;
 
-function closeModal(id) {
-    const modal = document.getElementById(id);
-    const content = document.getElementById('modal-content-' + id.replace('modal', ''));
-    modal.classList.add('opacity-0', 'pointer-events-none');
-    content.classList.remove('scale-100');
-    content.classList.add('scale-95');
-}
+        // 1. Extraer los datos de la tarjeta que el usuario acaba de clickear
+        const githubUrl = cardElement.getAttribute('data-github');
+        const siteUrl = cardElement.getAttribute('data-site');
+        const isSiteAvailable = cardElement.getAttribute('data-site-available') === 'true';
+
+        // 2. Encontrar los botones dentro del modal específico que se va a abrir
+        const githubBtn = modal.querySelector('.modal-github-link');
+        const siteBtn = modal.querySelector('.modal-site-link');
+
+        // 3. Actualizar dinámicamente el enlace de GitHub
+        if (githubBtn) {
+            githubBtn.href = githubUrl && githubUrl !== '#' ? githubUrl : 'javascript:void(0)';
+            
+            // Opcional: Si no hay repo, le quitamos el target_blank para que no abra una pestaña vacía
+            if (!githubUrl || githubUrl === '#') {
+                githubBtn.removeAttribute('target');
+                githubBtn.classList.add('opacity-30', 'cursor-not-allowed');
+            } else {
+                githubBtn.setAttribute('target', '_blank');
+                githubBtn.classList.remove('opacity-30', 'cursor-not-allowed');
+            }
+        }
+
+        // 4. Actualizar dinámicamente el enlace del Sitio Web
+        if (siteBtn) {
+            if (isSiteAvailable && siteUrl && siteUrl !== '#') {
+                // Si el sitio está disponible, asignamos el link real
+                siteBtn.href = siteUrl;
+                siteBtn.setAttribute('target', '_blank');
+                siteBtn.classList.remove('opacity-50', 'cursor-not-allowed', 'border-gray-500', 'text-gray-500');
+                siteBtn.innerHTML = 'VER SITIO - PROYECTO <i class="fa-solid fa-globe text-xs"></i>';
+            } else {
+                // Si el sitio NO está disponible (ej. software interno), desactivamos el botón
+                siteBtn.href = 'javascript:void(0)';
+                siteBtn.removeAttribute('target');
+                siteBtn.classList.add('opacity-50', 'cursor-not-allowed', 'border-gray-500', 'text-gray-500');
+                siteBtn.innerHTML = 'SITIO NO DISPONIBLE <i class="fa-solid fa-lock text-xs"></i>';
+            }
+        }
+
+        // 5. Animación para abrir el modal de forma suave
+        modal.classList.remove('pointer-events-none', 'opacity-0');
+        const modalContent = modal.querySelector('[id^="modal-content-"]');
+        if (modalContent) {
+            modalContent.classList.remove('scale-95');
+            modalContent.classList.add('scale-100');
+        }
+    }
+
+    function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (!modal) return;
+
+        // Animación para cerrar el modal suavemente
+        modal.classList.add('pointer-events-none', 'opacity-0');
+        const modalContent = modal.querySelector('[id^="modal-content-"]');
+        if (modalContent) {
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+        }
+    }
+
+    // Cerrar modal al hacer clic en el fondo oscuro (fuera de la caja blanca)
+    document.querySelectorAll('[id^="modal"]').forEach(modal => {
+        modal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal(this.id);
+            }
+        });
+    });
 
 function openTimelineModal(modalId) {
     const modal = document.getElementById(modalId);
