@@ -1,0 +1,178 @@
+/* One continuous blueprint canvas, from navigation to footer. */
+.portfolio-page {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  background: linear-gradient(
+    180deg,
+    #eff6ff 0%,
+    #eceafd 18%,
+    #e0f2fe 35%,
+    #e9efff 52%,
+    #f0eafa 70%,
+    #dfeffc 87%,
+    #eaf1ff 100%
+  );
+}
+.dark .portfolio-page {
+  background: linear-gradient(
+    180deg,
+    #060e22 0%,
+    #090e25 8%,
+    #171030 19%,
+    #102442 36%,
+    #0a1832 51%,
+    #18122f 68%,
+    #112b43 85%,
+    #070f23 100%
+  );
+}
+.portfolio-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background-image:
+    linear-gradient(to right, rgba(78, 111, 169, 0.13) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(78, 111, 169, 0.13) 1px, transparent 1px),
+    linear-gradient(to right, rgba(78, 111, 169, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(78, 111, 169, 0.04) 1px, transparent 1px);
+  background-size:
+    80px 80px,
+    80px 80px,
+    16px 16px,
+    16px 16px;
+}
+.dark .portfolio-page::before {
+  background-image:
+    linear-gradient(to right, rgba(135, 163, 210, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(135, 163, 210, 0.1) 1px, transparent 1px),
+    linear-gradient(to right, rgba(135, 163, 210, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(135, 163, 210, 0.025) 1px, transparent 1px);
+}
+.portfolio-page [data-page-surface] {
+  background: transparent !important;
+}
+.introduction-surface {
+  position: relative;
+}
+/* Remove the earlier, section-local grids so the global lines stay aligned. */
+[data-page-surface] > div[class*="bg-[linear-gradient"],
+[data-page-surface] > div[class*="bg-[radial-gradient"] {
+  display: none;
+}
+.portfolio-page #experiencia,
+.portfolio-page #contacto,
+.portfolio-page footer {
+  border-color: rgba(115, 146, 202, 0.13);
+}
+
+/* Individual cards enter once; their layout dimensions never change. */
+.reveal-pending {
+  opacity: 0;
+  translate: 0 24px;
+  transition:
+    opacity 700ms ease var(--reveal-delay, 0ms),
+    translate 700ms cubic-bezier(0.2, 0.65, 0.3, 1) var(--reveal-delay, 0ms);
+}
+.reveal-pending.reveal-visible,
+.reveal-pending:focus-within {
+  opacity: 1;
+  translate: 0 0;
+}
+
+/* Keep the extra row mounted so opening AND closing can interpolate. */
+.technology-extra {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    grid-template-rows 420ms cubic-bezier(0.22, 0.7, 0.25, 1),
+    opacity 280ms ease,
+    visibility 420ms;
+}
+.technology-extra.is-expanded {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  visibility: visible;
+}
+.technology-extra-clip {
+  min-height: 0;
+  overflow: hidden;
+}
+.technology-extra-icons {
+  padding: 16px 2px 4px;
+}
+.technology-card {
+  align-self: start;
+}
+.technology-toggle-mark {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  display: block;
+  transition: rotate 350ms ease;
+}
+.technology-toggle-mark::before,
+.technology-toggle-mark::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 14px;
+  height: 1.5px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.technology-toggle-mark::after {
+  rotate: 90deg;
+  transition:
+    scale 250ms ease,
+    opacity 250ms ease;
+}
+.technology-more[aria-expanded="true"] .technology-toggle-mark {
+  rotate: 180deg;
+}
+.technology-more[aria-expanded="true"] .technology-toggle-mark::after {
+  scale: 0 1;
+  opacity: 0;
+}
+
+.profile-status-lights i:nth-child(3) {
+  animation: availability-beacon 1.7s ease-in-out infinite;
+}
+@keyframes availability-beacon {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow:
+      0 0 5px #00e891,
+      0 0 15px #00e89199;
+  }
+  50% {
+    opacity: 0.28;
+    box-shadow: 0 0 1px #00e89133;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-pending {
+    opacity: 1;
+    translate: none;
+    transition: none;
+  }
+  .technology-extra,
+  .technology-toggle-mark,
+  .technology-toggle-mark::after {
+    transition: none;
+  }
+  .profile-status-lights i:nth-child(3) {
+    animation: none;
+  }
+}
+
+/* Contain the decorative hero orbits at tablet widths. */
+.introduction-surface {
+  overflow: clip;
+}

@@ -1,0 +1,85 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Cursor de escritura dinámico */
+.cursor {
+  display: inline-block;
+  width: 4px;
+  height: 1em;
+  background-color: #2563eb;
+  animation: blink 1s step-end infinite;
+  vertical-align: middle;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Animación de flotación suave para iconos tecnológicos */
+.float-anim {
+  animation: floating 4s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Rotaciones fluidas para los círculos del diseño de grilla previa */
+.animate-spin-slow {
+  animation: spin-forward 25s linear infinite;
+}
+
+.animate-spin-medium {
+  animation: spin-forward 15s linear infinite;
+}
+
+.animate-counter-spin-slow {
+  animation: spin-backward 25s linear infinite;
+}
+
+@keyframes spin-forward {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-backward {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+/* NUEVA ANIMACIÓN: Parpadeo de Nodos Orgánicos Inteligentes para la Línea de Vida */
+@keyframes pulse-node {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+    box-shadow: 0 0 4px rgba(59, 130, 246, 0.2);
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.9;
+    box-shadow: 0 0 16px rgba(59, 130, 246, 0.7);
+  }
+}
+
+/* Clase optimizada para inyectar a los puntos del fondo de constelaciones */
+.animate-pulse-node {
+  animation: pulse-node 3s ease-in-out infinite;
+}
