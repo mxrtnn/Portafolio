@@ -143,4 +143,34 @@ export const journey = [
       tags: ["Generative AI", "Vercel", "Render", "MySQL", "TiDB Cloud"],
     },
   },
+  {
+    id: "contraplano",
+    icon: "newspaper",
+    es: {
+      period: "Práctica profesional",
+      title: "Medios Contraplano",
+      subtitle: "Desarrollador web · Empresa de medios de comunicación",
+      description:
+        "Práctica profesional en una empresa de medios de comunicación, participando como desarrollador web en la mantención y configuración de su presencia digital.",
+      bullets: [
+        "Trabajo con WordPress, PHP, HTML5 y CSS3 para la implementación y ajuste de contenidos e interfaces web.",
+        "Gestión de bases de datos mediante phpMyAdmin y configuración e integración de plugins.",
+        "Apoyo complementario en edición periodística con Clipchamp, para la difusión de noticias empresariales.",
+      ],
+      tags: ["WordPress", "PHP", "HTML5", "CSS3", "phpMyAdmin", "Clipchamp"],
+    },
+    en: {
+      period: "Professional internship",
+      title: "Medios Contraplano",
+      subtitle: "Web Developer · Media company",
+      description:
+        "Professional internship at a media company, contributing as a web developer to the maintenance and configuration of its digital presence.",
+      bullets: [
+        "Work with WordPress, PHP, HTML5 and CSS3 to implement and refine web content and interfaces.",
+        "Database management through phpMyAdmin and plugin configuration and integration.",
+        "Additional support with editorial video editing in Clipchamp for business news distribution.",
+      ],
+      tags: ["WordPress", "PHP", "HTML5", "CSS3", "phpMyAdmin", "Clipchamp"],
+    },
+  },
 ];

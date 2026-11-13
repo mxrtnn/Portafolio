@@ -36,7 +36,7 @@ export function PortfolioProvider({ children }) {
     return () => window.removeEventListener("keydown", onKey);
   }, [activeModal]);
 
-  function openModal(id, data) {
+  function openModal(id, data = {}) {
     setActiveModal({
       id,
       github: data.github && data.github !== "#" ? data.github : null,

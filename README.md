@@ -31,7 +31,7 @@ npm run preview
 
 ## Revisión antes de publicar
 
-Revisar escritorio y móvil, tema claro/oscuro, cambio de idioma, pestañas del editor, cinco modales de proyectos, CV y cotizador. El formulario conserva su acción de Formspree y realiza un envío real al pulsar Enviar. El cotizador mantiene sus valores base originales y no recalcula según complejidad.
+Revisar escritorio y móvil, tema claro/oscuro, cambio de idioma, pestañas del editor, seis modales de proyectos, CV y cotizador. El formulario conserva su acción de Formspree y realiza un envío real al pulsar Enviar. El cotizador mantiene sus valores base originales y no recalcula según complejidad.
 
 La traducción original es parcial: se conservan los textos españoles donde falta la traducción. Los enlaces de redes del pie que apuntan a `tu-usuario` proceden del original y siguen pendientes de completar.
 
