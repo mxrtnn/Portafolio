@@ -118,14 +118,9 @@ export default function Experience() {
             );
           })}
         </ol>
-        <p className="journey-closing">
-          <span aria-hidden="true" />
-          <i className="fa-solid fa-code" aria-hidden="true" />
-          {english
-            ? "Always learning. Always building."
-            : "Siempre aprendiendo. Siempre construyendo."}
-          <span aria-hidden="true" />
-        </p>
+        <div className="journey-closing" aria-hidden="true">
+          <i className="fa-solid fa-code" />
+        </div>
       </div>
     </section>
   );

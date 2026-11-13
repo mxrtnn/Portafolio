@@ -38,11 +38,23 @@ export default function Projects() {
             {english ? "IDEAS TURNED INTO" : "IDEAS CONVERTIDAS EN"}{" "}
             <span>{english ? "PROJECTS" : "PROYECTOS"}</span>
           </h2>
-          <span>
-            {english
-              ? "Web development, artificial intelligence and experiences with their own identity."
-              : "Desarrollo web, inteligencia artificial y experiencias con identidad propia."}
-          </span>
+          <p className="projects-introduction">
+            <span>
+              {english
+                ? "Every project starts with an idea. The challenge is making it work."
+                : "Cada proyecto empieza con una idea. El desafío está en hacerla funcionar."}
+            </span>
+            <span>
+              {english
+                ? "I combine development, design and AI to build solutions with a purpose."
+                : "Combino desarrollo, diseño e IA para construir soluciones con propósito."}
+            </span>
+            <strong>
+              {english
+                ? "Explore what happens when creativity becomes code."
+                : "Explora lo que pasa cuando la creatividad se convierte en código."}
+            </strong>
+          </p>
         </header>
         <article className="project-featured">
           <span className="featured-ribbon">

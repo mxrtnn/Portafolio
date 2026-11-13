@@ -1048,3 +1048,40 @@
     margin-bottom: 34px;
   }
 }
+
+/* Centered introduction with a clear pause before the featured project. */
+.projects-heading {
+  text-align: center;
+  margin-bottom: 86px;
+}
+.projects-heading .projects-introduction {
+  max-width: 850px;
+  margin: 23px auto 0;
+  color: var(--projects-muted);
+  font-size: 16px;
+  line-height: 1.85;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.projects-introduction > span,
+.projects-introduction > strong {
+  display: block;
+}
+.projects-introduction > strong {
+  color: var(--projects-text);
+  font-weight: 600;
+}
+@media (max-width: 580px) {
+  .projects-heading {
+    margin-bottom: 68px;
+  }
+  .projects-heading .projects-introduction {
+    font-size: 14px;
+    line-height: 1.8;
+    margin-top: 21px;
+  }
+  .projects-introduction > span + span,
+  .projects-introduction > strong {
+    margin-top: 8px;
+  }
+}
