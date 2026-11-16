@@ -1,341 +1,186 @@
+import { useState } from "react";
 import { usePortfolio } from "../context/PortfolioContext";
+import { learningPaths } from "../data/certifications";
+import CertificationCard from "./CertificationCard";
+import "../styles/certifications.css";
 
 export default function Certifications() {
-  const { translate, dark } = usePortfolio();
-
+  const { language } = usePortfolio();
+  const en = language === "en";
+  const [expanded, setExpanded] = useState(() => new Set(["scrum", "ai"]));
+  const total = learningPaths.reduce(
+    (count, path) => count + path.badges.length,
+    0,
+  );
+  function toggle(id) {
+    setExpanded((current) => {
+      const next = new Set(current);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  }
   return (
-    <>
-      <section data-page-surface
-        id="certificaciones"
-        className="max-w-7xl mx-auto px-6 md:px-10 py-16 md:py-24"
-      >
-        <div className="text-center mb-12 lg:mb-16">
-          <p
-            className="text-accentBlue dark:text-accentLight tracking-widest text-xs font-semibold mb-3"
-            data-lang="certs_sub"
-          >
-            {translate("certs_sub", <>{" LOGROS VALIDADOS "}</>)}
-          </p>
-          <h2
-            className="text-3xl md:text-4xl font-extrabold text-slate-800 dark:text-white leading-tight"
-            data-lang="certs_heading"
-          >
-            {translate(
-              "certs_heading",
-              <>
-                {" INSIGNIAS Y "}
-                <span className="text-accentBlue">{"CERTIFICACIONES"}</span>
-              </>,
-            )}
-          </h2>
+    <section
+      data-page-surface
+      id="certificaciones"
+      className="certifications-section"
+      aria-labelledby="certifications-title"
+    >
+      <div className="certifications-heading">
+        <p>
+          {en
+            ? "CONTINUOUS LEARNING · VERIFIED CREDENTIALS"
+            : "APRENDIZAJE CONTINUO · CREDENCIALES"}
+        </p>
+        <h2 id="certifications-title">
+          {en ? "BADGES &" : "INSIGNIAS Y"}{" "}
+          <span>{en ? "CERTIFICATIONS" : "CERTIFICACIONES"}</span>
+        </h2>
+        <p className="certifications-lead">
+          {en
+            ? "A learning journey organized by discipline. Explore each path, its badges and the organizations behind my training."
+            : "Un recorrido de aprendizaje organizado por disciplinas. Explora cada línea, sus insignias y las entidades que acompañan mi formación."}
+        </p>
+        <div className="certifications-summary">
+          <span>
+            <strong>{String(total).padStart(2, "0")}</strong>
+            {en ? "badges" : "insignias"}
+          </span>
+          <i aria-hidden="true" />
+          <span>
+            <strong>{String(learningPaths.length).padStart(2, "0")}</strong>
+            {en ? "learning paths" : "líneas de aprendizaje"}
+          </span>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="bg-cardLight dark:bg-cardDark p-8 rounded-3xl border border-blue-100 dark:border-gray-800 shadow-sm hover:shadow-[0_10px_30px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-accentBlue/50 transition-all duration-500 transform hover:-translate-y-2 flex flex-col items-center group">
-            <div
-              className="w-32 h-32 mb-6 relative flex justify-center items-center float-anim"
-              style={{ animationDelay: "0.1s" }}
-            >
-              <div className="absolute inset-0 bg-accentBlue/20 dark:bg-accentLight/10 blur-xl rounded-full z-0 group-hover:scale-110 transition-transform duration-500"></div>
-              <img
-                src="/assets/img/badge_scr.png"
-                alt="Scrum Master Professional Certification"
-                className="relative z-10 w-full h-full object-contain drop-shadow-md group-hover:rotate-3 transition-transform duration-500"
-              />
-            </div>
-            <h3 className="text-xl font-bold text-slate-800 dark:text-white text-center mb-4 min-h-[56px] flex items-center justify-center">
-              {" Scrum Master Professional Certification - SMPC® "}
-            </h3>
-            <div className="mt-auto w-full flex flex-col items-center gap-3">
-              <a
-                href="https://www.credly.com/badges/6844e459-1ff9-4688-8238-be3d6621d8c6/public_url"
-                rel="noopener noreferrer"
-                target="_blank"
-                className="flex items-center justify-center gap-2 bg-transparent border-2 border-accentBlue dark:border-accentLight text-accentBlue dark:text-accentLight hover:bg-accentBlue hover:text-white dark:hover:bg-accentLight dark:hover:text-gray-900 px-6 py-2.5 rounded-full text-sm font-bold transition-all w-full md:w-4/5 shadow-sm"
-              >
-                {" Ver Insignia "}
-                <i className="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-              </a>
-              <a
-                href="/assets/cv/Scrum Master Professional Certificate.pdf"
-                download
-                className="flex items-center justify-center gap-2 text-xs font-bold text-slate-500 dark:text-gray-400 hover:text-accentBlue dark:hover:text-accentLight transition-colors py-1"
-              >
-                <i className="fa-solid fa-file-pdf"></i>
-                {" Ver Certificado "}
-              </a>
-              <p className="text-[11px] font-extrabold text-accentBlue dark:text-accentLight tracking-widest text-center mt-3 uppercase">
-                {" Metodologías Ágiles - Certiprof "}
-              </p>
-            </div>
-          </div>
-          <div className="bg-cardLight dark:bg-cardDark p-8 rounded-3xl border border-blue-100 dark:border-gray-800 shadow-sm hover:shadow-[0_10px_30px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-accentBlue/50 transition-all duration-500 transform hover:-translate-y-2 flex flex-col items-center group">
-            <div
-              className="w-32 h-32 mb-6 relative flex justify-center items-center float-anim"
-              style={{ animationDelay: "0.15s" }}
-            >
-              <div className="absolute inset-0 bg-accentBlue/20 dark:bg-accentLight/10 blur-xl rounded-full z-0 group-hover:scale-110 transition-transform duration-500"></div>
-              <img
-                src="/assets/img/badge_scrum_fd.png"
-                alt="Scrum Foundation Professional Certification"
-                className="relative z-10 w-full h-full object-contain drop-shadow-md group-hover:rotate-3 transition-transform duration-500"
-              />
-            </div>
-            <h3 className="text-xl font-bold text-slate-800 dark:text-white text-center mb-4 min-h-[56px] flex items-center justify-center">
-              {" Scrum Foundation Professional Certification - SFPC™ "}
-            </h3>
-            <div className="mt-auto w-full flex flex-col items-center gap-3">
-              <a
-                href="https://www.credly.com/badges/96863aac-9354-4255-a494-f9bbb4910809/linked_in_profile"
-                rel="noopener noreferrer"
-                target="_blank"
-                className="flex items-center justify-center gap-2 bg-transparent border-2 border-accentBlue dark:border-accentLight text-accentBlue dark:text-accentLight hover:bg-accentBlue hover:text-white dark:hover:bg-accentLight dark:hover:text-gray-900 px-6 py-2.5 rounded-full text-sm font-bold transition-all w-full md:w-4/5 shadow-sm"
-              >
-                {" Ver Insignia "}
-                <i className="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-              </a>
-              <a
-                href="/assets/cv/Scrum Foundation Professional Certificate.pdf"
-                download
-                className="flex items-center justify-center gap-2 text-xs font-bold text-slate-500 dark:text-gray-400 hover:text-accentBlue dark:hover:text-accentLight transition-colors py-1"
-              >
-                <i className="fa-solid fa-file-pdf"></i>
-                {" Ver Certificado "}
-              </a>
-              <p className="text-[11px] font-extrabold text-accentBlue dark:text-accentLight tracking-widest text-center mt-3 uppercase">
-                {" Metodologías Ágiles - Certiprof "}
-              </p>
-            </div>
-          </div>
-          <div className="bg-cardLight dark:bg-cardDark p-8 rounded-3xl border border-blue-100 dark:border-gray-800 shadow-sm hover:shadow-[0_10px_30px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-accentBlue/50 transition-all duration-500 transform hover:-translate-y-2 flex flex-col items-center group">
-            <div
-              className="w-32 h-32 mb-6 relative flex justify-center items-center float-anim"
-              style={{ animationDelay: "0.1s" }}
-            >
-              <div className="absolute inset-0 bg-accentBlue/20 dark:bg-accentLight/10 blur-xl rounded-full z-0 group-hover:scale-110 transition-transform duration-500"></div>
-              <img
-                src="/assets/img/scrum_developer.png"
-                alt="Scrum Developer Professional Certification"
-                className="relative z-10 w-full h-full object-contain drop-shadow-md group-hover:rotate-3 transition-transform duration-500"
-              />
-            </div>
-            <h3 className="text-xl font-bold text-slate-800 dark:text-white text-center mb-4 min-h-[56px] flex items-center justify-center">
-              {" Scrum Developer Professional Certification - SDPC "}
-            </h3>
-            <div className="mt-auto w-full flex flex-col items-center gap-3">
-              <a
-                href="https://www.credly.com/badges/7858ea03-88fa-4434-9de3-2e3088534f54/public_url"
-                rel="noopener noreferrer"
-                target="_blank"
-                className="flex items-center justify-center gap-2 bg-transparent border-2 border-accentBlue dark:border-accentLight text-accentBlue dark:text-accentLight hover:bg-accentBlue hover:text-white dark:hover:bg-accentLight dark:hover:text-gray-900 px-6 py-2.5 rounded-full text-sm font-bold transition-all w-full md:w-4/5 shadow-sm"
-              >
-                {" Ver Insignia "}
-                <i className="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-              </a>
-              <a
-                href="/assets/cv/Certificate-Martin-JaraCastanedaScrum.pdf"
-                download
-                className="flex items-center justify-center gap-2 text-xs font-bold text-slate-500 dark:text-gray-400 hover:text-accentBlue dark:hover:text-accentLight transition-colors py-1"
-              >
-                <i className="fa-solid fa-file-pdf"></i>
-                {" Ver Certificado "}
-              </a>
-              <p className="text-[11px] font-extrabold text-accentBlue dark:text-accentLight tracking-widest text-center mt-3 uppercase">
-                {" Metodologías Ágiles - Certiprof "}
-              </p>
-            </div>
-          </div>
-          <div className="bg-cardLight dark:bg-cardDark p-8 rounded-3xl border border-blue-100 dark:border-gray-800 shadow-sm hover:shadow-[0_10px_30px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-accentBlue/50 transition-all duration-500 transform hover:-translate-y-2 flex flex-col items-center group">
-            <div
-              className="w-32 h-32 mb-6 relative flex justify-center items-center float-anim"
-              style={{ animationDelay: "0.2s" }}
-            >
-              <div className="absolute inset-0 bg-accentBlue/20 dark:bg-accentLight/10 blur-xl rounded-full z-0 group-hover:scale-110 transition-transform duration-500"></div>
-              <img
-                src="/assets/img/badge_lf.png"
-                alt="LifeLong Learning"
-                className="relative z-10 w-full h-full object-contain drop-shadow-md group-hover:rotate-3 transition-transform duration-500"
-              />
-            </div>
-            <h3 className="text-xl font-bold text-slate-800 dark:text-white text-center mb-4 min-h-[56px] flex items-center justify-center">
-              {" LifeLong Learning "}
-            </h3>
-            <div className="mt-auto w-full flex flex-col items-center gap-3">
-              <a
-                href="https://profiles.badgeclaimed.com/user-47050/badges/urn:uuid:693c52a3-b076-42b7-82f2-9eacdfe51576.html"
-                rel="noopener noreferrer"
-                target="_blank"
-                className="flex items-center justify-center gap-2 bg-transparent border-2 border-accentBlue dark:border-accentLight text-accentBlue dark:text-accentLight hover:bg-accentBlue hover:text-white dark:hover:bg-accentLight dark:hover:text-gray-900 px-6 py-2.5 rounded-full text-sm font-bold transition-all w-full md:w-4/5 shadow-sm"
-              >
-                {" Ver Insignia "}
-                <i className="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-              </a>
-              <a
-                href="https://profiles.badgeclaimed.com/user-47050/badges/urn:uuid:693c52a3-b076-42b7-82f2-9eacdfe51576.html"
-                download
-                className="flex items-center justify-center gap-2 text-xs font-bold text-slate-500 dark:text-gray-400 hover:text-accentBlue dark:hover:text-accentLight transition-colors py-1"
-              >
-                <i className="fa-solid fa-file-pdf"></i>
-                {" Ver Certificado "}
-              </a>
-              <p className="text-[11px] font-extrabold text-accentBlue dark:text-accentLight tracking-widest text-center mt-3 uppercase">
-                {" Desarrollo Continuo - Certiprof "}
-              </p>
-            </div>
-          </div>
-          <div className="bg-cardLight dark:bg-cardDark p-8 rounded-3xl border border-blue-100 dark:border-gray-800 shadow-sm hover:shadow-[0_10px_30px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-accentBlue/50 transition-all duration-500 transform hover:-translate-y-2 flex flex-col items-center group">
-            <div
-              className="w-32 h-32 mb-6 relative flex justify-center items-center float-anim"
-              style={{ animationDelay: "0.25s" }}
-            >
-              <div className="absolute inset-0 bg-accentBlue/20 dark:bg-accentLight/10 blur-xl rounded-full z-0 group-hover:scale-110 transition-transform duration-500"></div>
-              <img
-                src="/assets/img/badge_ia.png"
-                alt="Artificial Intelligence Professional Certification"
-                className="relative z-10 w-full h-full object-contain drop-shadow-md group-hover:rotate-3 transition-transform duration-500"
-              />
-            </div>
-            <h3 className="text-xl font-bold text-slate-800 dark:text-white text-center mb-4 min-h-[56px] flex items-center justify-center">
-              {" Artificial Intelligence Professional Certification - CAIPC® "}
-            </h3>
-            <div className="mt-auto w-full flex flex-col items-center gap-3">
-              <a
-                href="https://www.credly.com/badges/30548248-89aa-4b88-be3f-86e516213db6/linked_in_profile"
-                rel="noopener noreferrer"
-                target="_blank"
-                className="flex items-center justify-center gap-2 bg-transparent border-2 border-accentBlue dark:border-accentLight text-accentBlue dark:text-accentLight hover:bg-accentBlue hover:text-white dark:hover:bg-accentLight dark:hover:text-gray-900 px-6 py-2.5 rounded-full text-sm font-bold transition-all w-full md:w-4/5 shadow-sm"
-              >
-                {" Ver Insignia "}
-                <i className="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-              </a>
-              <a
-                href="/assets/cv/Artificial Inteligence Expert Certificate.pdf"
-                download
-                className="flex items-center justify-center gap-2 text-xs font-bold text-slate-500 dark:text-gray-400 hover:text-accentBlue dark:hover:text-accentLight transition-colors py-1"
-              >
-                <i className="fa-solid fa-file-pdf"></i>
-                {" Ver Certificado "}
-              </a>
-              <p className="text-[11px] font-extrabold text-accentBlue dark:text-accentLight tracking-widest text-center mt-3 uppercase">
-                {" Inteligencia Artificial - Certiprof "}
-              </p>
-            </div>
-          </div>
-          <div className="bg-cardLight dark:bg-cardDark p-8 rounded-3xl border border-blue-100 dark:border-gray-800 shadow-sm hover:shadow-[0_10px_30px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-accentBlue/50 transition-all duration-500 transform hover:-translate-y-2 flex flex-col items-center group">
-            <div
-              className="w-32 h-32 mb-6 relative flex justify-center items-center float-anim"
-              style={{ animationDelay: "0.25s" }}
-            >
-              <div className="absolute inset-0 bg-accentBlue/20 dark:bg-accentLight/10 blur-xl rounded-full z-0 group-hover:scale-110 transition-transform duration-500"></div>
-              <img
-                src="/assets/img/generative_ia.png"
-                alt="Generative AI Professional Certification"
-                className="relative z-10 w-full h-full object-contain drop-shadow-md group-hover:rotate-3 transition-transform duration-500"
-              />
-            </div>
-            <h3 className="text-xl font-bold text-slate-800 dark:text-white text-center mb-4 min-h-[56px] flex items-center justify-center">
-              {" Generative AI Professional Certification - GAIPC™ "}
-            </h3>
-            <div className="mt-auto w-full flex flex-col items-center gap-3">
-              <a
-                href="https://www.credly.com/badges/30548248-89aa-4b88-be3f-86e516213db6/linked_in_profile"
-                rel="noopener noreferrer"
-                target="_blank"
-                className="flex items-center justify-center gap-2 bg-transparent border-2 border-accentBlue dark:border-accentLight text-accentBlue dark:text-accentLight hover:bg-accentBlue hover:text-white dark:hover:bg-accentLight dark:hover:text-gray-900 px-6 py-2.5 rounded-full text-sm font-bold transition-all w-full md:w-4/5 shadow-sm"
-              >
-                {" Ver Insignia "}
-                <i className="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-              </a>
-              <a
-                href="/assets/cv/Certificate-Martin-JaraCastanedaGenerative.pdf"
-                download
-                className="flex items-center justify-center gap-2 text-xs font-bold text-slate-500 dark:text-gray-400 hover:text-accentBlue dark:hover:text-accentLight transition-colors py-1"
-              >
-                <i className="fa-solid fa-file-pdf"></i>
-                {" Ver Certificado "}
-              </a>
-              <p className="text-[11px] font-extrabold text-accentBlue dark:text-accentLight tracking-widest text-center mt-3 uppercase">
-                {" Inteligencia Artificial - Certiprof "}
-              </p>
-            </div>
-          </div>
-          <div className="bg-cardLight dark:bg-cardDark p-8 rounded-3xl border border-blue-100 dark:border-gray-800 shadow-sm hover:shadow-[0_10px_30px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-accentBlue/50 transition-all duration-500 transform hover:-translate-y-2 flex flex-col items-center group">
-            <div
-              className="w-32 h-32 mb-6 relative flex justify-center items-center float-anim"
-              style={{ animationDelay: "0.25s" }}
-            >
-              <div className="absolute inset-0 bg-accentBlue/20 dark:bg-accentLight/10 blur-xl rounded-full z-0 group-hover:scale-110 transition-transform duration-500"></div>
-              <img
-                src="/assets/img/generative_ia.png"
-                alt="Generative AI Professional Certification"
-                className="relative z-10 w-full h-full object-contain drop-shadow-md group-hover:rotate-3 transition-transform duration-500"
-              />
-            </div>
-            <h3 className="text-xl font-bold text-slate-800 dark:text-white text-center mb-4 min-h-[56px] flex items-center justify-center">
-              {" DevOps Essentials Professional Certification - DEPC® "}
-            </h3>
-            <div className="mt-auto w-full flex flex-col items-center gap-3">
-              <a
-                href="https://www.credly.com/earner/earned/badge/4f569038-3318-4756-ac7b-48f7d85254bc"
-                rel="noopener noreferrer"
-                target="_blank"
-                className="flex items-center justify-center gap-2 bg-transparent border-2 border-accentBlue dark:border-accentLight text-accentBlue dark:text-accentLight hover:bg-accentBlue hover:text-white dark:hover:bg-accentLight dark:hover:text-gray-900 px-6 py-2.5 rounded-full text-sm font-bold transition-all w-full md:w-4/5 shadow-sm"
-              >
-                {" Ver Insignia "}
-                <i className="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-              </a>
-              <a
-                href="/assets/cv/Certificate-MartinJara-CastanedaDevops.pdf"
-                download
-                className="flex items-center justify-center gap-2 text-xs font-bold text-slate-500 dark:text-gray-400 hover:text-accentBlue dark:hover:text-accentLight transition-colors py-1"
-              >
-                <i className="fa-solid fa-file-pdf"></i>
-                {" Ver Certificado "}
-              </a>
-              <p className="text-[11px] font-extrabold text-accentBlue dark:text-accentLight tracking-widest text-center mt-3 uppercase">
-                {" Dev0ps - Certiprof "}
-              </p>
-            </div>
-          </div>
-          <div className="bg-cardLight dark:bg-cardDark p-8 rounded-3xl border border-blue-100 dark:border-gray-800 shadow-sm hover:shadow-[0_10px_30px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-accentBlue/50 transition-all duration-500 transform hover:-translate-y-2 flex flex-col items-center group">
-            <div
-              className="w-32 h-32 mb-6 relative flex justify-center items-center float-anim"
-              style={{ animationDelay: "0.3s" }}
-            >
-              <div className="absolute inset-0 bg-accentBlue/20 dark:bg-accentLight/10 blur-xl rounded-full z-0 group-hover:scale-110 transition-transform duration-500"></div>
-              <img
-                src="/assets/img/badge_python.png"
-                alt="Python Essentials 1"
-                className="relative z-10 w-full h-full object-contain drop-shadow-md group-hover:rotate-3 transition-transform duration-500"
-              />
-            </div>
-            <h3 className="text-xl font-bold text-slate-800 dark:text-white text-center mb-4 min-h-[56px] flex items-center justify-center">
-              {" Python Essentials I "}
-            </h3>
-            <div className="mt-auto w-full flex flex-col items-center gap-3">
-              <a
-                href="https://www.credly.com/badges/11be5261-0c4e-4e82-8e92-f5b775c93fc5/public_url"
-                rel="noopener noreferrer"
-                target="_blank"
-                className="flex items-center justify-center gap-2 bg-transparent border-2 border-accentBlue dark:border-accentLight text-accentBlue dark:text-accentLight hover:bg-accentBlue hover:text-white dark:hover:bg-accentLight dark:hover:text-gray-900 px-6 py-2.5 rounded-full text-sm font-bold transition-all w-full md:w-4/5 shadow-sm"
-              >
-                {" Ver Insignia "}
-                <i className="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-              </a>
-              <a
-                href="/assets/cv/Python Essentials I Certificate.pdf"
-                download
-                className="flex items-center justify-center gap-2 text-xs font-bold text-slate-500 dark:text-gray-400 hover:text-accentBlue dark:hover:text-accentLight transition-colors py-1"
-              >
-                <i className="fa-solid fa-file-pdf"></i>
-                {" Ver Certificado "}
-              </a>
-              <p className="text-[11px] font-extrabold text-accentBlue dark:text-accentLight tracking-widest text-center mt-3 uppercase">
-                {" Programación Python - Cisco Academy "}
-              </p>
-            </div>
-          </div>
+      </div>
+      <div className="certifications-toolbar">
+        <p>
+          <i className="fa-solid fa-route" aria-hidden="true" />
+          {en ? "Choose a path to explore" : "Elige una línea para explorar"}
+        </p>
+        <div>
+          <button
+            disabled={expanded.size === learningPaths.length}
+            onClick={() =>
+              setExpanded(new Set(learningPaths.map((path) => path.id)))
+            }
+          >
+            <i className="fa-solid fa-plus" aria-hidden="true" />
+            {en ? "Expand all" : "Desplegar todas"}
+          </button>
+          <button
+            disabled={expanded.size === 0}
+            onClick={() => setExpanded(new Set())}
+          >
+            <i className="fa-solid fa-minus" aria-hidden="true" />
+            {en ? "Collapse all" : "Cerrar todas"}
+          </button>
         </div>
-      </section>
-    </>
+      </div>
+      <div className="learning-paths">
+        {learningPaths.map((path, index) => {
+          const open = expanded.has(path.id);
+          return (
+            <section
+              className={`cert-learning-line cert-line-${path.color} ${open ? "is-open" : ""}`}
+              key={path.id}
+              data-cert-line={path.id}
+              aria-labelledby={`cert-line-${path.id}-title`}
+            >
+              <h3 className="cert-line-heading">
+                <button
+                  type="button"
+                  className="cert-line-toggle"
+                  onClick={() => toggle(path.id)}
+                  aria-expanded={open}
+                  aria-controls={`cert-panel-${path.id}`}
+                  id={`cert-line-${path.id}-title`}
+                >
+                  <span className="cert-line-icon">
+                    <i
+                      className={`fa-solid fa-${path.icon}`}
+                      aria-hidden="true"
+                    />
+                  </span>
+                  <span className="cert-line-content">
+                    <span className="cert-line-number">
+                      {en ? "LEARNING PATH" : "LÍNEA DE APRENDIZAJE"} / 0
+                      {index + 1}
+                    </span>
+                    <strong>{path[en ? "titleEn" : "title"]}</strong>
+                    <span className="cert-line-subtitle">
+                      {path[en ? "subtitleEn" : "subtitle"]}
+                    </span>
+                    <span className="cert-line-providers">
+                      <span>{path.issuer}</span>
+                      {path.context && <span>{path.context}</span>}
+                    </span>
+                  </span>
+                  <span className="cert-line-meta">
+                    <span className="cert-line-count">
+                      {path.badges.length}{" "}
+                      {en
+                        ? path.badges.length === 1
+                          ? "badge"
+                          : "badges"
+                        : path.badges.length === 1
+                          ? "insignia"
+                          : "insignias"}
+                    </span>
+                    <span className="cert-line-chevron">
+                      <i
+                        className="fa-solid fa-chevron-down"
+                        aria-hidden="true"
+                      />
+                    </span>
+                  </span>
+                  <i
+                    className={`cert-line-watermark fa-solid fa-${path.icon}`}
+                    aria-hidden="true"
+                  />
+                </button>
+              </h3>
+              <div
+                className="cert-line-panel"
+                id={`cert-panel-${path.id}`}
+                role="region"
+                aria-labelledby={`cert-line-${path.id}-title`}
+                aria-hidden={!open}
+                inert={!open}
+              >
+                <div className="cert-line-clip">
+                  <div className="cert-line-inner">
+                    <p className="cert-line-description">
+                      {path[en ? "descriptionEn" : "description"]}
+                    </p>
+                    <div className="certification-grid">
+                      {path.badges.map((badge, i) => (
+                        <CertificationCard
+                          key={badge.id}
+                          badge={badge}
+                          issuer={path.issuer}
+                          english={en}
+                          index={i}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          );
+        })}
+      </div>
+      <p className="certifications-footnote">
+        <i
+          className="fa-solid fa-arrow-up-right-from-square"
+          aria-hidden="true"
+        />
+        {en
+          ? "Each badge links to its external credential. Available certificates can be downloaded from each card."
+          : "Cada insignia enlaza a su credencial externa. Los certificados disponibles se pueden descargar desde cada tarjeta."}
+      </p>
+    </section>
   );
 }
