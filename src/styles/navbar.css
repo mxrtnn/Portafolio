@@ -1,8 +1,9 @@
+/* Navbar accents match accentBlue (#2563eb) from the hero title. */
 /* Futuristic capsule inspired by the reference: cyan rails, diagonal cuts and light wells. */
 .neon-navbar {
-  --nav-text: #183151;
-  --nav-muted: #526f95;
-  --nav-cyan: #008ed6;
+  --nav-text: #182551;
+  --nav-muted: #526295;
+  --nav-cyan: #2563eb;
   position: sticky;
   top: 0;
   z-index: 35;
@@ -14,7 +15,7 @@
 .dark .neon-navbar {
   --nav-text: #f0f6ff;
   --nav-muted: #c0d0e8;
-  --nav-cyan: #22d8ff;
+  --nav-cyan: #2563eb;
 }
 .neon-nav-shell {
   position: relative;
@@ -24,14 +25,14 @@
   align-items: center;
   min-height: 86px;
   padding: 10px 20px 10px 27px;
-  border: 1px solid #008ed6b3;
+  border: 1px solid #2563ebb3;
   border-radius: 999px;
   background: linear-gradient(180deg, #f2fbfff5, #e0effcf5 52%, #f8fcfff5);
   box-shadow:
-    inset 0 1px 7px #3ebcff33,
-    inset 0 -1px 4px #2ca5fc26,
-    0 0 18px #2ca5fc17,
-    0 10px 30px #1238610d;
+    inset 0 1px 7px #2563eb33,
+    inset 0 -1px 4px #2563eb26,
+    0 0 18px #2563eb17,
+    0 10px 30px #1225610d;
   backdrop-filter: blur(22px);
   transition:
     border-color 0.3s,
@@ -40,14 +41,14 @@
   animation: neon-nav-arrive 650ms cubic-bezier(0.2, 0.65, 0.3, 1) both;
 }
 .dark .neon-nav-shell {
-  border-color: #12c8ffcc;
+  border-color: #2563ebcc;
   background:
-    radial-gradient(ellipse at 17% 50%, #0a386b55, transparent 24%),
+    radial-gradient(ellipse at 17% 50%, #0a216b55, transparent 24%),
     linear-gradient(180deg, #06152bf7, #020b1bf7 52%, #06152bf7);
   box-shadow:
-    inset 0 1px 9px #208eff35,
-    inset 0 -1px 8px #0dbdff25,
-    0 0 22px #008dff17,
+    inset 0 1px 9px #2563eb35,
+    inset 0 -1px 8px #2563eb25,
+    0 0 22px #2563eb17,
     0 12px 30px #0002;
 }
 .neon-nav-shell::before {
@@ -61,13 +62,13 @@
   background: linear-gradient(
     90deg,
     transparent 0%,
-    #69eaff 12%,
+    #2563eb 12%,
     transparent 25%,
     transparent 66%,
-    #69eaff 87%,
+    #2563eb 87%,
     transparent
   );
-  box-shadow: 0 0 7px #26cbff80;
+  box-shadow: 0 0 7px #2563eb80;
   pointer-events: none;
 }
 .neon-nav-shell::after {
@@ -75,8 +76,8 @@
   position: absolute;
   inset: 3px 22px;
   z-index: -1;
-  border-top: 1px solid #188fe12b;
-  border-bottom: 1px solid #168fe11c;
+  border-top: 1px solid #2563eb2b;
+  border-bottom: 1px solid #2563eb1c;
   border-radius: 999px;
   pointer-events: none;
 }
@@ -86,8 +87,8 @@
 .neon-navbar.is-scrolled .neon-nav-shell {
   min-height: 75px;
   box-shadow:
-    inset 0 0 12px #159dff1c,
-    0 0 15px #14aaff20,
+    inset 0 0 12px #2563eb1c,
+    0 0 15px #2563eb20,
     0 12px 30px #0003;
 }
 .neon-nav-brand {
@@ -104,16 +105,16 @@
   flex-shrink: 0;
   width: 47px;
   height: 49px;
-  border: 1.5px solid #2cbbf9;
+  border: 1.5px solid #2563eb;
   border-radius: 11px;
   color: #fff;
   background:
-    radial-gradient(ellipse at 50% 10%, #35bdff77, transparent 60%),
-    linear-gradient(145deg, #176fbb, #144d8c);
+    radial-gradient(ellipse at 50% 10%, #2563eb77, transparent 60%),
+    linear-gradient(145deg, #2563eb, #14308c);
   box-shadow:
-    inset 0 0 10px #50cfff66,
-    0 0 6px #2db8ff77,
-    0 0 17px #0fa5ff3d;
+    inset 0 0 10px #2563eb66,
+    0 0 6px #2563eb77,
+    0 0 17px #2563eb3d;
   font-size: 29px;
   line-height: 1;
   font-weight: 800;
@@ -125,14 +126,14 @@
 .neon-nav-brand:hover .neon-brand-icon {
   translate: 0 -1px;
   box-shadow:
-    inset 0 0 15px #50cfff99,
-    0 0 20px #0fa5ff77;
+    inset 0 0 15px #2563eb99,
+    0 0 20px #2563eb77;
 }
 .neon-brand-name {
   position: relative;
   display: block;
   padding-left: 18px;
-  border-left: 1px solid #169ddd7a;
+  border-left: 1px solid #2563eb7a;
   font-size: 23px;
   line-height: 1.2;
   letter-spacing: -0.7px;
@@ -145,8 +146,8 @@
   top: 25%;
   bottom: 25%;
   width: 1px;
-  background: #5edcff;
-  box-shadow: 0 0 6px #1fc8ff;
+  background: #2563eb;
+  box-shadow: 0 0 6px #2563eb;
 }
 .neon-brand-name > span {
   display: block;
@@ -175,15 +176,15 @@
   transform: skew(-42deg);
   background: linear-gradient(
     180deg,
-    #006fbb22,
-    #11beffcc 45%,
-    #078ddd77 70%,
-    #023a6a33
+    #2563eb22,
+    #2563ebcc 45%,
+    #2563eb77 70%,
+    #021b6a33
   );
   box-shadow:
-    -6px 0 0 #0c629c18,
-    6px 0 0 #0788d42b,
-    0 0 12px #00b9ff2b;
+    -6px 0 0 #2563eb18,
+    6px 0 0 #2563eb2b,
+    0 0 12px #2563eb2b;
 }
 .neon-nav-divider::after {
   content: "";
@@ -193,7 +194,7 @@
   height: 120%;
   width: 1px;
   transform: skew(-42deg);
-  background: linear-gradient(transparent, #0a9ae2aa, transparent);
+  background: linear-gradient(transparent, #2563ebaa, transparent);
 }
 .neon-nav-links {
   display: flex;
@@ -204,15 +205,15 @@
   max-width: 720px;
   justify-self: center;
   padding: 4px;
-  border: 1px solid #1789ce70;
+  border: 1px solid #2563eb70;
   border-radius: 999px;
-  background: linear-gradient(180deg, #8dc8ed0f, #fff2);
-  box-shadow: inset 0 0 13px #238edb0e;
+  background: linear-gradient(180deg, #2563eb0f, #fff2);
+  box-shadow: inset 0 0 13px #2563eb0e;
 }
 .dark .neon-nav-links {
-  background: linear-gradient(180deg, #0a244750, #02091770);
-  border-color: #1680c799;
-  box-shadow: inset 0 1px 7px #2077bd20;
+  background: linear-gradient(180deg, #0a184750, #02091770);
+  border-color: #2563eb99;
+  box-shadow: inset 0 1px 7px #2563eb20;
 }
 .neon-nav-link {
   position: relative;
@@ -236,41 +237,41 @@
 }
 .neon-nav-link > i {
   font-size: 19px;
-  color: #2e96da;
+  color: #2563eb;
   transition:
     color 0.25s,
     filter 0.25s;
 }
 .dark .neon-nav-link > i {
   color: #e9f5ff;
-  filter: drop-shadow(0 0 3px #008dff99);
+  filter: drop-shadow(0 0 3px #2563eb99);
 }
 .neon-nav-link:hover {
-  background: #1ea3f411;
+  background: #2563eb11;
   color: var(--nav-text);
 }
 .neon-nav-link.is-active {
   color: var(--nav-text);
-  border-color: #22cafa;
+  border-color: #2563eb;
   background:
-    radial-gradient(ellipse at 50% 115%, #3bdfff40, transparent 65%),
-    linear-gradient(180deg, #1999df22, #0c75d233);
+    radial-gradient(ellipse at 50% 115%, #2563eb40, transparent 65%),
+    linear-gradient(180deg, #2563eb22, #2563eb33);
   box-shadow:
-    inset 0 0 12px #25bdff40,
-    0 0 9px #0aa6ff33;
+    inset 0 0 12px #2563eb40,
+    0 0 9px #2563eb33;
 }
 .dark .neon-nav-link.is-active {
-  border-color: #18d4ff;
+  border-color: #2563eb;
   background:
-    radial-gradient(ellipse at 50% 115%, #39dfff66, transparent 68%),
-    linear-gradient(180deg, #084d7c88, #082a5688);
+    radial-gradient(ellipse at 50% 115%, #2563eb66, transparent 68%),
+    linear-gradient(180deg, #08237c88, #081a5688);
   box-shadow:
-    inset 0 0 12px #11baff55,
-    0 0 11px #05baff55;
+    inset 0 0 12px #2563eb55,
+    0 0 11px #2563eb55;
 }
 .neon-nav-link.is-active > i {
   color: #f2fdff;
-  filter: drop-shadow(0 0 5px #08caff);
+  filter: drop-shadow(0 0 5px #2563eb);
 }
 .nav-link-light {
   position: absolute;
@@ -279,9 +280,9 @@
   right: 24%;
   height: 2px;
   border-radius: 50%;
-  background: linear-gradient(90deg, transparent, #6deaff, transparent);
+  background: linear-gradient(90deg, transparent, #2563eb, transparent);
   opacity: 0;
-  box-shadow: 0 0 7px #34d1ff;
+  box-shadow: 0 0 7px #2563eb;
   transition: opacity 0.25s;
 }
 .neon-nav-link.is-active .nav-link-light {
@@ -302,11 +303,11 @@
   min-width: 39px;
   height: 40px;
   padding: 0 11px;
-  border: 1px solid #198bc66b;
+  border: 1px solid #2563eb6b;
   border-radius: 999px;
   color: var(--nav-text);
-  background: linear-gradient(180deg, #1687cb16, #096ba50a);
-  box-shadow: inset 0 0 7px #1595d80b;
+  background: linear-gradient(180deg, #2563eb16, #2563eb0a);
+  box-shadow: inset 0 0 7px #2563eb0b;
   font-size: 18px;
   transition:
     color 0.25s,
@@ -314,12 +315,12 @@
     box-shadow 0.25s;
 }
 .dark .neon-nav-tool {
-  background: linear-gradient(180deg, #0a2a4c7a, #07122988);
-  box-shadow: inset 0 0 7px #198ddb1c;
+  background: linear-gradient(180deg, #0a1a4c7a, #07122988);
+  box-shadow: inset 0 0 7px #2563eb1c;
 }
 .neon-nav-tool:hover {
-  border-color: #34c7ff;
-  box-shadow: 0 0 12px #0abaff33;
+  border-color: #2563eb;
+  box-shadow: 0 0 12px #2563eb33;
 }
 .neon-language-tool > span {
   font-size: 11px;
@@ -334,14 +335,14 @@
   gap: 12px;
   margin-left: 7px;
   padding: 12px 17px;
-  border: 1px solid #40d9ff;
+  border: 1px solid #2563eb;
   border-radius: 999px;
   background:
-    radial-gradient(ellipse at 50% 130%, #0fccff77, transparent 70%),
-    linear-gradient(180deg, #1782d3, #085aac);
+    radial-gradient(ellipse at 50% 130%, #2563eb77, transparent 70%),
+    linear-gradient(180deg, #2563eb, #2563eb);
   box-shadow:
-    inset 0 0 10px #4ad5ff55,
-    0 0 13px #1ebaff44;
+    inset 0 0 10px #2563eb55,
+    0 0 13px #2563eb44;
   color: white;
   font-size: 13px;
   font-weight: 750;
@@ -357,19 +358,19 @@
   top: 10%;
   bottom: 10%;
   width: 1px;
-  background: linear-gradient(transparent, #1e9bdc99, transparent);
+  background: linear-gradient(transparent, #2563eb99, transparent);
 }
 .neon-nav-contact > i {
-  color: #6ceaff;
+  color: #2563eb;
   font-size: 21px;
   rotate: -8deg;
-  filter: drop-shadow(0 0 5px #0bcaff66);
+  filter: drop-shadow(0 0 5px #2563eb66);
 }
 .neon-nav-contact:hover {
   translate: 0 -2px;
   box-shadow:
-    inset 0 0 14px #5de5ff77,
-    0 0 20px #18baff77;
+    inset 0 0 14px #2563eb77,
+    0 0 20px #2563eb77;
 }
 .neon-reading-progress {
   position: absolute;
@@ -386,8 +387,8 @@
   height: 100%;
   scale: 0 1;
   transform-origin: left;
-  background: linear-gradient(90deg, #1c8cff, #6deaff);
-  box-shadow: 0 0 7px #34cfff;
+  background: linear-gradient(90deg, #2563eb, #2563eb);
+  box-shadow: 0 0 7px #2563eb;
 }
 .neon-menu-toggle {
   display: none;
@@ -399,10 +400,10 @@
   width: 39px;
   height: 39px;
   flex-shrink: 0;
-  border: 1px solid #269dd577;
+  border: 1px solid #2563eb77;
   border-radius: 50%;
   color: var(--nav-text);
-  background: #208fc211;
+  background: #2563eb11;
 }
 .neon-menu-toggle > span {
   width: 15px;
@@ -426,7 +427,7 @@
 }
 .neon-navbar a:focus-visible,
 .neon-navbar button:focus-visible {
-  outline: 2px solid #60d4ff;
+  outline: 2px solid #2563eb;
   outline-offset: 4px;
 }
 @keyframes neon-nav-arrive {
@@ -548,7 +549,7 @@
     grid-template-rows: 1fr;
     opacity: 1;
     visibility: visible;
-    border-color: #1bc9ff77;
+    border-color: #2563eb77;
   }
   .neon-mobile-clip {
     min-height: 0;
