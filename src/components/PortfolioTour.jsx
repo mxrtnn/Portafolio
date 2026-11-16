@@ -33,7 +33,7 @@ export default function PortfolioTour({ onClose, onBack }) {
       const rect = target.getBoundingClientRect();
       const visibleHeight = Math.min(rect.height, Math.max(0, panelTop - 40));
       const navBottom =
-        document.querySelector(".neon-navbar")?.getBoundingClientRect()
+        document.querySelector(".neon-nav-dock")?.getBoundingClientRect()
           .bottom || 0;
       const top = Math.max(navBottom + 12, (panelTop - visibleHeight) / 2);
       window.scrollTo({

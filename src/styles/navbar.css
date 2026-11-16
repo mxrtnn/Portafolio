@@ -1,288 +1,201 @@
-/* Navbar accents match accentBlue (#2563eb) from the hero title. */
-/* Futuristic capsule inspired by the reference: cyan rails, diagonal cuts and light wells. */
+/* Independent blue capsules. Only the central navigation docks while scrolling. */
 .neon-navbar {
-  --nav-text: #182551;
-  --nav-muted: #526295;
-  --nav-cyan: #2563eb;
-  position: sticky;
-  top: 0;
+  --nav-text: #233554;
+  --nav-muted: #5e7191;
+  --nav-blue: #2563eb;
+  position: relative;
   z-index: 35;
-  width: min(1680px, calc(100% - 32px));
+  width: min(1480px, calc(100% - 48px));
   margin: 0 auto;
-  padding: 16px 0 11px;
-  transition: padding 300ms ease;
+  padding: 16px 0 9px;
 }
 .dark .neon-navbar {
-  --nav-text: #f0f6ff;
-  --nav-muted: #c0d0e8;
-  --nav-cyan: #2563eb;
+  --nav-text: #edf3ff;
+  --nav-muted: #b3c2df;
 }
 .neon-nav-shell {
   position: relative;
-  isolation: isolate;
   display: grid;
-  grid-template-columns: auto 54px minmax(0, 1fr) 54px auto;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
-  min-height: 86px;
-  padding: 10px 20px 10px 27px;
-  border: 1px solid #2563ebb3;
-  border-radius: 999px;
-  background: linear-gradient(180deg, #f2fbfff5, #e0effcf5 52%, #f8fcfff5);
+  gap: 25px;
+}
+.neon-nav-brand,
+.neon-nav-tool,
+.neon-nav-contact,
+.neon-nav-dock {
+  border: 1px solid #2563eb80;
+  background: linear-gradient(180deg, #f7faffee, #e6eefbee);
   box-shadow:
-    inset 0 1px 7px #2563eb33,
-    inset 0 -1px 4px #2563eb26,
-    0 0 18px #2563eb17,
-    0 10px 30px #1225610d;
-  backdrop-filter: blur(22px);
-  transition:
-    border-color 0.3s,
-    box-shadow 0.3s,
-    min-height 0.3s;
-  animation: neon-nav-arrive 650ms cubic-bezier(0.2, 0.65, 0.3, 1) both;
+    inset 0 1px 7px #2563eb12,
+    0 0 12px #2563eb0d;
+  backdrop-filter: blur(20px);
 }
-.dark .neon-nav-shell {
-  border-color: #2563ebcc;
-  background:
-    radial-gradient(ellipse at 17% 50%, #0a216b55, transparent 24%),
-    linear-gradient(180deg, #06152bf7, #020b1bf7 52%, #06152bf7);
+.dark .neon-nav-brand,
+.dark .neon-nav-tool,
+.dark .neon-nav-contact,
+.dark .neon-nav-dock {
+  background: linear-gradient(180deg, #0c1934f0, #060f23ed);
   box-shadow:
-    inset 0 1px 9px #2563eb35,
-    inset 0 -1px 8px #2563eb25,
-    0 0 22px #2563eb17,
-    0 12px 30px #0002;
-}
-.neon-nav-shell::before {
-  content: "";
-  position: absolute;
-  left: 9%;
-  right: 9%;
-  bottom: -1px;
-  height: 2px;
-  border-radius: 50%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    #2563eb 12%,
-    transparent 25%,
-    transparent 66%,
-    #2563eb 87%,
-    transparent
-  );
-  box-shadow: 0 0 7px #2563eb80;
-  pointer-events: none;
-}
-.neon-nav-shell::after {
-  content: "";
-  position: absolute;
-  inset: 3px 22px;
-  z-index: -1;
-  border-top: 1px solid #2563eb2b;
-  border-bottom: 1px solid #2563eb1c;
-  border-radius: 999px;
-  pointer-events: none;
-}
-.neon-navbar.is-scrolled {
-  padding-top: 8px;
-}
-.neon-navbar.is-scrolled .neon-nav-shell {
-  min-height: 75px;
-  box-shadow:
-    inset 0 0 12px #2563eb1c,
-    0 0 15px #2563eb20,
-    0 12px 30px #0003;
+    inset 0 1px 8px #2563eb14,
+    0 0 13px #2563eb12;
 }
 .neon-nav-brand {
   display: flex;
   align-items: center;
-  gap: 19px;
+  gap: 11px;
   flex-shrink: 0;
+  justify-self: start;
+  padding: 8px 19px 8px 9px;
+  min-height: 53px;
   color: var(--nav-text);
-  padding: 0 5px;
+  border-radius: 999px;
+  animation: nav-capsule-enter 550ms ease both;
 }
 .neon-brand-icon {
   display: grid;
   place-items: center;
   flex-shrink: 0;
-  width: 47px;
-  height: 49px;
-  border: 1.5px solid #2563eb;
-  border-radius: 11px;
+  width: 33px;
+  height: 36px;
+  border-radius: 9px;
+  border: 1px solid #6996f1;
   color: #fff;
   background:
-    radial-gradient(ellipse at 50% 10%, #2563eb77, transparent 60%),
-    linear-gradient(145deg, #2563eb, #14308c);
+    radial-gradient(ellipse at 50% 10%, #6a9aff55, transparent 70%),
+    linear-gradient(145deg, #2563eb, #194397);
   box-shadow:
-    inset 0 0 10px #2563eb66,
-    0 0 6px #2563eb77,
-    0 0 17px #2563eb3d;
-  font-size: 29px;
+    inset 0 0 8px #82a8ff44,
+    0 0 8px #2563eb44;
+  font-size: 22px;
   line-height: 1;
   font-weight: 800;
-  text-shadow: 0 0 8px #effaff66;
-  transition:
-    box-shadow 0.25s,
-    translate 0.25s;
+  transition: box-shadow 0.25s;
 }
 .neon-nav-brand:hover .neon-brand-icon {
-  translate: 0 -1px;
   box-shadow:
-    inset 0 0 15px #2563eb99,
-    0 0 20px #2563eb77;
+    inset 0 0 10px #82a8ff77,
+    0 0 13px #2563eb77;
 }
 .neon-brand-name {
-  position: relative;
   display: block;
-  padding-left: 18px;
-  border-left: 1px solid #2563eb7a;
-  font-size: 23px;
+  font-size: 17px;
   line-height: 1.2;
-  letter-spacing: -0.7px;
+  letter-spacing: -0.5px;
   font-weight: 750;
-}
-.neon-brand-name::before {
-  content: "";
-  position: absolute;
-  left: -1px;
-  top: 25%;
-  bottom: 25%;
-  width: 1px;
-  background: #2563eb;
-  box-shadow: 0 0 6px #2563eb;
 }
 .neon-brand-name > span {
   display: block;
-  color: var(--nav-cyan);
-  font-size: 8px;
+  margin-top: 5px;
+  color: #6a8ddd;
+  font-size: 6px;
+  letter-spacing: 1.4px;
   font-weight: 650;
-  letter-spacing: 1.8px;
-  margin-top: 7px;
   white-space: nowrap;
 }
-.neon-nav-divider {
-  position: relative;
-  align-self: stretch;
+.neon-nav-anchor {
+  min-width: 0;
+  height: 53px;
+}
+.neon-nav-dock {
+  position: fixed;
+  z-index: 36;
+  left: 50%;
+  top: 16px;
+  transform: translateX(-50%);
+  width: 470px;
+  max-width: calc(100% - 24px);
+  border-radius: 999px;
+  padding: 4px;
   overflow: hidden;
-  min-height: 55px;
-  margin: -8px 0;
+  transition:
+    border-color 0.28s,
+    box-shadow 0.28s,
+    background-color 0.28s;
+}
+.neon-nav-dock::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 17%;
+  right: 17%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #719aff88, transparent);
+  box-shadow: 0 0 6px #2563eb66;
   pointer-events: none;
 }
-.neon-nav-divider::before {
-  content: "";
-  position: absolute;
-  top: -9%;
-  left: 45%;
-  height: 120%;
-  width: 9px;
-  transform: skew(-42deg);
-  background: linear-gradient(
-    180deg,
-    #2563eb22,
-    #2563ebcc 45%,
-    #2563eb77 70%,
-    #021b6a33
-  );
+.is-scrolled .neon-nav-dock {
+  border-color: #3979f5a6;
   box-shadow:
-    -6px 0 0 #2563eb18,
-    6px 0 0 #2563eb2b,
-    0 0 12px #2563eb2b;
-}
-.neon-nav-divider::after {
-  content: "";
-  position: absolute;
-  top: -9%;
-  left: calc(45% - 15px);
-  height: 120%;
-  width: 1px;
-  transform: skew(-42deg);
-  background: linear-gradient(transparent, #2563ebaa, transparent);
+    inset 0 1px 8px #2563eb1a,
+    0 8px 25px #0002,
+    0 0 17px #2563eb17;
 }
 .neon-nav-links {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: center;
-  justify-content: space-between;
   gap: 3px;
   width: 100%;
-  max-width: 720px;
-  justify-self: center;
-  padding: 4px;
-  border: 1px solid #2563eb70;
-  border-radius: 999px;
-  background: linear-gradient(180deg, #2563eb0f, #fff2);
-  box-shadow: inset 0 0 13px #2563eb0e;
-}
-.dark .neon-nav-links {
-  background: linear-gradient(180deg, #0a184750, #02091770);
-  border-color: #2563eb99;
-  box-shadow: inset 0 1px 7px #2563eb20;
 }
 .neon-nav-link {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 12px 16px;
+  gap: 8px;
+  padding: 12px 8px;
   border: 1px solid transparent;
   border-radius: 999px;
   color: var(--nav-muted);
-  font-size: 14px;
-  line-height: 1.2;
+  font-size: 11px;
   font-weight: 700;
+  line-height: 1.2;
   white-space: nowrap;
   transition:
     color 0.25s,
-    background-color 0.25s,
     border-color 0.25s,
+    background-color 0.25s,
     box-shadow 0.25s;
 }
 .neon-nav-link > i {
-  font-size: 19px;
-  color: #2563eb;
+  font-size: 14px;
+  color: #6689c1;
   transition:
     color 0.25s,
     filter 0.25s;
 }
 .dark .neon-nav-link > i {
-  color: #e9f5ff;
-  filter: drop-shadow(0 0 3px #2563eb99);
+  color: #bcd1f6;
 }
 .neon-nav-link:hover {
-  background: #2563eb11;
   color: var(--nav-text);
+  background: #2563eb13;
 }
 .neon-nav-link.is-active {
   color: var(--nav-text);
-  border-color: #2563eb;
+  border-color: #2563ebaa;
   background:
-    radial-gradient(ellipse at 50% 115%, #2563eb40, transparent 65%),
-    linear-gradient(180deg, #2563eb22, #2563eb33);
+    radial-gradient(ellipse at 50% 120%, #2563eb2e, transparent 70%),
+    linear-gradient(180deg, #2563eb13, #2563eb22);
   box-shadow:
-    inset 0 0 12px #2563eb40,
-    0 0 9px #2563eb33;
-}
-.dark .neon-nav-link.is-active {
-  border-color: #2563eb;
-  background:
-    radial-gradient(ellipse at 50% 115%, #2563eb66, transparent 68%),
-    linear-gradient(180deg, #08237c88, #081a5688);
-  box-shadow:
-    inset 0 0 12px #2563eb55,
-    0 0 11px #2563eb55;
+    inset 0 0 8px #2563eb20,
+    0 0 7px #2563eb16;
 }
 .neon-nav-link.is-active > i {
-  color: #f2fdff;
-  filter: drop-shadow(0 0 5px #2563eb);
+  color: #6596ff;
+  filter: drop-shadow(0 0 4px #2563eb77);
 }
 .nav-link-light {
   position: absolute;
   bottom: -2px;
-  left: 24%;
-  right: 24%;
+  left: 25%;
+  right: 25%;
   height: 2px;
   border-radius: 50%;
-  background: linear-gradient(90deg, transparent, #2563eb, transparent);
   opacity: 0;
-  box-shadow: 0 0 7px #2563eb;
+  background: linear-gradient(90deg, transparent, #679bff, transparent);
+  box-shadow: 0 0 6px #2563eb;
   transition: opacity 0.25s;
 }
 .neon-nav-link.is-active .nav-link-light {
@@ -292,93 +205,76 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 11px;
+  gap: 9px;
 }
 .neon-nav-tool {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 7px;
-  flex-shrink: 0;
-  min-width: 39px;
-  height: 40px;
-  padding: 0 11px;
-  border: 1px solid #2563eb6b;
+  min-width: 42px;
+  height: 45px;
+  padding: 0 13px;
   border-radius: 999px;
   color: var(--nav-text);
-  background: linear-gradient(180deg, #2563eb16, #2563eb0a);
-  box-shadow: inset 0 0 7px #2563eb0b;
-  font-size: 18px;
+  font-size: 16px;
+  animation: nav-capsule-enter 550ms ease 60ms both;
   transition:
-    color 0.25s,
     border-color 0.25s,
-    box-shadow 0.25s;
-}
-.dark .neon-nav-tool {
-  background: linear-gradient(180deg, #0a1a4c7a, #07122988);
-  box-shadow: inset 0 0 7px #2563eb1c;
+    box-shadow 0.25s,
+    color 0.25s;
 }
 .neon-nav-tool:hover {
-  border-color: #2563eb;
+  border-color: #6998f7;
   box-shadow: 0 0 12px #2563eb33;
 }
 .neon-language-tool > span {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.7px;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.6px;
 }
 .neon-nav-contact {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  margin-left: 7px;
-  padding: 12px 17px;
-  border: 1px solid #2563eb;
+  gap: 10px;
+  min-height: 45px;
+  padding: 11px 17px;
   border-radius: 999px;
-  background:
-    radial-gradient(ellipse at 50% 130%, #2563eb77, transparent 70%),
-    linear-gradient(180deg, #2563eb, #2563eb);
+  color: #fff;
+  background: linear-gradient(145deg, #2e6cf0, #1c4caf);
   box-shadow:
-    inset 0 0 10px #2563eb55,
-    0 0 13px #2563eb44;
-  color: white;
-  font-size: 13px;
-  font-weight: 750;
+    inset 0 1px 6px #82abff33,
+    0 0 12px #2563eb22;
+  font-size: 11px;
+  font-weight: 700;
   white-space: nowrap;
+  animation: nav-capsule-enter 550ms ease 120ms both;
   transition:
     box-shadow 0.25s,
     translate 0.25s;
 }
-.neon-nav-contact::before {
-  content: "";
-  position: absolute;
-  left: -13px;
-  top: 10%;
-  bottom: 10%;
-  width: 1px;
-  background: linear-gradient(transparent, #2563eb99, transparent);
+.dark .neon-nav-contact {
+  background: linear-gradient(145deg, #285dce, #173d88);
+  box-shadow:
+    inset 0 1px 7px #82abff22,
+    0 0 13px #2563eb1f;
 }
 .neon-nav-contact > i {
-  color: #2563eb;
-  font-size: 21px;
-  rotate: -8deg;
-  filter: drop-shadow(0 0 5px #2563eb66);
+  color: #a9c5ff;
+  font-size: 16px;
 }
 .neon-nav-contact:hover {
   translate: 0 -2px;
-  box-shadow:
-    inset 0 0 14px #2563eb77,
-    0 0 20px #2563eb77;
+  box-shadow: 0 0 18px #2563eb55;
 }
 .neon-reading-progress {
   position: absolute;
   pointer-events: none;
+  bottom: 0;
+  left: 25px;
+  right: 25px;
   height: 1px;
-  left: 45px;
-  right: 45px;
-  bottom: -1px;
   overflow: hidden;
 }
 .neon-reading-progress > span {
@@ -387,260 +283,156 @@
   height: 100%;
   scale: 0 1;
   transform-origin: left;
-  background: linear-gradient(90deg, #2563eb, #2563eb);
-  box-shadow: 0 0 7px #2563eb;
-}
-.neon-menu-toggle {
-  display: none;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 5px;
-  width: 39px;
-  height: 39px;
-  flex-shrink: 0;
-  border: 1px solid #2563eb77;
-  border-radius: 50%;
-  color: var(--nav-text);
-  background: #2563eb11;
-}
-.neon-menu-toggle > span {
-  width: 15px;
-  height: 1.5px;
-  background: currentColor;
-  border-radius: 2px;
-  transition:
-    rotate 0.25s,
-    translate 0.25s;
-}
-.neon-menu-toggle.is-open > span:first-child {
-  translate: 0 3.25px;
-  rotate: 45deg;
-}
-.neon-menu-toggle.is-open > span:last-child {
-  translate: 0 -3.25px;
-  rotate: -45deg;
-}
-.neon-mobile-menu {
-  display: none;
+  background: linear-gradient(90deg, #2563eb, #729eff);
 }
 .neon-navbar a:focus-visible,
 .neon-navbar button:focus-visible {
-  outline: 2px solid #2563eb;
-  outline-offset: 4px;
+  outline: 2px solid #7da6fc;
+  outline-offset: 3px;
 }
-@keyframes neon-nav-arrive {
+@keyframes nav-capsule-enter {
   from {
     opacity: 0;
-    translate: 0 -10px;
+    translate: 0 -7px;
   }
   to {
     opacity: 1;
     translate: 0 0;
   }
 }
-@media (max-width: 1450px) {
-  .neon-nav-shell {
-    grid-template-columns: auto 39px minmax(0, 1fr) 39px auto;
-    padding: 10px 17px;
+@media (min-width: 1101px) and (max-width: 1250px) {
+  .neon-navbar {
+    width: calc(100% - 32px);
   }
   .neon-nav-brand {
-    gap: 12px;
-  }
-  .neon-brand-icon {
-    width: 42px;
-    height: 45px;
-    font-size: 27px;
+    padding-right: 14px;
+    gap: 9px;
   }
   .neon-brand-name {
-    font-size: 21px;
-    padding-left: 13px;
+    font-size: 16px;
   }
-  .neon-brand-name > span {
-    font-size: 7px;
-    letter-spacing: 1.5px;
+  .neon-nav-dock {
+    width: 430px;
   }
-  .neon-nav-link {
-    font-size: 12px;
-    gap: 8px;
-    padding: 12px 13px;
-  }
-  .neon-nav-link > i {
-    font-size: 17px;
+  .neon-nav-contact {
+    padding: 11px 13px;
+    font-size: 10px;
   }
   .neon-nav-actions {
-    gap: 8px;
-  }
-  .neon-nav-contact {
-    font-size: 11px;
-    gap: 10px;
-    padding: 12px 14px;
-  }
-  .neon-nav-contact > i {
-    font-size: 19px;
-  }
-  .neon-nav-tool {
-    padding: 0 9px;
-    min-width: 36px;
-    height: 38px;
-    font-size: 17px;
-  }
-}
-@media (max-width: 1200px) {
-  .neon-nav-shell {
-    grid-template-columns: auto 30px minmax(0, 1fr) 30px auto;
-  }
-  .neon-brand-name {
-    font-size: 19px;
-  }
-  .neon-nav-link {
-    font-size: 11px;
-    padding: 12px 10px;
     gap: 7px;
   }
-  .neon-nav-link > i {
-    font-size: 15px;
-  }
-  .neon-nav-contact {
-    font-size: 10px;
-    padding: 12px;
+  .neon-nav-tool {
+    min-width: 39px;
+    height: 43px;
+    padding: 0 11px;
   }
 }
 @media (max-width: 1100px) {
   .neon-nav-shell {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-    min-height: 78px;
-    padding: 12px 22px;
+    grid-template-columns: auto 1fr;
+    gap: 12px;
   }
-  .neon-nav-links,
-  .neon-nav-divider {
-    display: none;
+  .neon-nav-brand {
+    grid-column: 1;
+    grid-row: 1;
   }
-  .neon-menu-toggle {
-    display: flex;
+  .neon-nav-actions {
+    grid-column: 2;
+    grid-row: 1;
   }
-  .neon-mobile-menu {
-    position: absolute;
-    display: grid;
-    grid-template-rows: 0fr;
-    top: calc(100% + 11px);
-    left: 0;
-    right: 0;
-    opacity: 0;
-    visibility: hidden;
-    border: 1px solid transparent;
-    border-radius: 22px;
-    background: #eff9fff7;
-    backdrop-filter: blur(22px);
-    box-shadow: 0 15px 35px #0002;
-    transition:
-      grid-template-rows 0.32s cubic-bezier(0.2, 0.65, 0.3, 1),
-      opacity 0.25s,
-      border-color 0.25s,
-      visibility 0.32s;
-  }
-  .dark .neon-mobile-menu {
-    background: #07172bf5;
-  }
-  .neon-mobile-menu.is-open {
-    grid-template-rows: 1fr;
-    opacity: 1;
-    visibility: visible;
-    border-color: #2563eb77;
-  }
-  .neon-mobile-clip {
-    min-height: 0;
-    overflow: hidden;
-  }
-  .neon-mobile-clip > nav {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
-    padding: 14px;
-  }
-  .neon-mobile-menu .neon-nav-link {
-    justify-content: flex-start;
-    padding: 14px;
-    font-size: 13px;
-    gap: 11px;
-  }
-  .neon-mobile-menu .neon-nav-link:last-child {
+  .neon-nav-anchor {
     grid-column: 1 / -1;
+    grid-row: 2;
+    height: 53px;
+  }
+  .neon-nav-dock {
+    top: 81px;
+    width: 470px;
   }
 }
 @media (max-width: 600px) {
   .neon-navbar {
-    width: calc(100% - 20px);
-    padding-top: 11px;
-    padding-bottom: 8px;
+    width: calc(100% - 24px);
+    padding: 12px 0 8px;
   }
   .neon-nav-shell {
-    min-height: 73px;
-    padding: 11px 14px;
-    gap: 8px;
-    border-radius: 38px;
-  }
-  .neon-navbar.is-scrolled .neon-nav-shell {
-    min-height: 65px;
+    column-gap: 8px;
+    row-gap: 11px;
   }
   .neon-nav-brand {
-    gap: 9px;
-    padding: 0;
+    padding: 7px 13px 7px 7px;
+    gap: 8px;
+    min-height: 47px;
   }
   .neon-brand-icon {
-    width: 32px;
-    height: 36px;
+    width: 29px;
+    height: 31px;
     border-radius: 8px;
-    font-size: 22px;
+    font-size: 20px;
   }
   .neon-brand-name {
-    font-size: 16px;
-    padding-left: 9px;
-    letter-spacing: -0.5px;
-  }
-  .neon-brand-name > span {
-    font-size: 5px;
-    letter-spacing: 1px;
-    margin-top: 5px;
-  }
-  .neon-nav-contact {
-    display: none;
-  }
-  .neon-nav-actions {
-    gap: 5px;
-  }
-  .neon-nav-tool,
-  .neon-menu-toggle {
-    min-width: 30px;
-    width: 30px;
-    height: 32px;
-    padding: 0;
     font-size: 14px;
   }
+  .neon-brand-name > span {
+    font-size: 4.8px;
+    letter-spacing: 0.85px;
+  }
+  .neon-nav-actions {
+    gap: 6px;
+  }
+  .neon-nav-tool {
+    height: 36px;
+    min-width: 34px;
+    padding: 0 10px;
+    font-size: 13px;
+  }
   .neon-language-tool {
-    width: 41px;
-    gap: 4px;
+    gap: 5px;
+    padding: 0 9px;
   }
   .neon-language-tool > span {
     font-size: 8px;
   }
-  .neon-nav-shell::before {
-    left: 15%;
-    right: 15%;
+  .neon-nav-contact {
+    width: 37px;
+    min-height: 36px;
+    height: 36px;
+    padding: 0;
+  }
+  .neon-nav-contact > span {
+    display: none;
+  }
+  .neon-nav-contact > i {
+    font-size: 14px;
+  }
+  .neon-nav-anchor {
+    height: 58px;
+  }
+  .neon-nav-dock {
+    top: 70px;
+    padding: 4px;
+    width: 370px;
+  }
+  .neon-nav-link {
+    flex-direction: column;
+    gap: 5px;
+    padding: 8px 5px;
+    font-size: 9px;
+  }
+  .neon-nav-link > i {
+    font-size: 14px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .neon-nav-shell {
+  .neon-nav-brand,
+  .neon-nav-tool,
+  .neon-nav-contact {
     animation: none;
   }
-  .neon-navbar,
-  .neon-nav-shell,
+  .neon-nav-dock,
   .neon-nav-link,
-  .neon-mobile-menu,
-  .neon-menu-toggle > span {
+  .neon-nav-tool,
+  .neon-nav-contact {
     transition: none;
   }
 }
