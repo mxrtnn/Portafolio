@@ -72,7 +72,7 @@ function ProjectDialog({ project, english, closeModal }) {
       </header>
       <div className="project-gallery">
         <div
-          className="project-gallery-stage"
+          className={`project-gallery-stage ${media.screenshot ? "project-gallery-stage-screenshot" : ""}`}
           tabIndex={project.media.length > 1 ? 0 : undefined}
           aria-label={english ? "Project gallery" : "Galería del proyecto"}
           onKeyDown={(event) => {

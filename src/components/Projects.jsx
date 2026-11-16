@@ -94,6 +94,7 @@ export default function Projects() {
               const content = project[english ? "en" : "es"];
               return (
                 <article
+                  data-project-id={project.id}
                   className={`gx-project-card project-theme-${project.theme}`}
                   key={project.id}
                 >

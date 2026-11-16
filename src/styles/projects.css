@@ -1085,3 +1085,16 @@
     margin-top: 8px;
   }
 }
+
+/* Preserve the full captured viewport and readable UI in the screenshot gallery. */
+.project-gallery-stage-screenshot {
+  height: auto;
+  aspect-ratio: 1890 / 914;
+}
+.project-gallery-stage-screenshot > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}

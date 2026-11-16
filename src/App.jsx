@@ -10,6 +10,7 @@ import Projects from "./components/Projects";
 import ProjectModals from "./components/ProjectModals";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import PortfolioAssistant from "./components/PortfolioAssistant";
 
 export default function App() {
   const pageRef = useRef(null);
@@ -25,6 +26,7 @@ export default function App() {
       <ProjectModals />
       <Contact />
       <Footer />
+      <PortfolioAssistant />
     </div>
   );
 }
