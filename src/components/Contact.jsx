@@ -1,6 +1,6 @@
-import { usePortfolio } from "../context/PortfolioContext";
-import { useEffect, useState } from "react";
-import { priceDatabase } from "../data/pricing";
+
+import { useEffect, useRef, useState } from "react";
+import { estimateProject } from "../data/pricing";
 
 const complexityStates = {
   1: {
@@ -8,29 +8,47 @@ const complexityStates = {
     colorClass: "bg-blue-950/60 border-blue-800/50 text-blue-400",
   },
   2: {
-    text: "Intermedio (Escalable)",
+    text: "Intermedio · A evaluar",
     colorClass: "bg-amber-950/60 border-amber-800/50 text-amber-400",
   },
   3: {
-    text: "Avanzado (SaaS / IA Core)",
+    text: "Avanzado · Variable",
     colorClass: "bg-purple-950/60 border-purple-800/50 text-purple-400",
   },
 };
 
 export default function Contact() {
-  const { translate } = usePortfolio();
+
   const [projectType, setProjectType] = useState("");
   const [complexity, setComplexity] = useState("1");
   const [pricesOpen, setPricesOpen] = useState(false);
+  const [message, setMessage] = useState("");
+  const modalRef = useRef(null);
+
   const [submitting, setSubmitting] = useState(false);
-  const pricing = priceDatabase[projectType] || priceDatabase.Otro;
+  const pricing = estimateProject({ projectType, complexity, message });
   useEffect(() => {
     if (!pricesOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    const opener = document.activeElement;
+    document.body.style.overflow = "hidden";
+    modalRef.current?.querySelector("button")?.focus();
     const onKey = (event) => {
       if (event.key === "Escape") setPricesOpen(false);
+      if (event.key === "Tab") {
+        const buttons = modalRef.current?.querySelectorAll('button, a[href], input, select, textarea, [tabindex="0"]');
+        if (!buttons?.length) return;
+        const first = buttons[0], last = buttons[buttons.length - 1];
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+      }
     };
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = previousOverflow;
+      opener?.focus();
+    };
   }, [pricesOpen]);
   function handleSubmit(event) {
     if (!event.currentTarget.checkValidity()) return;
@@ -74,7 +92,7 @@ export default function Contact() {
               </div>
               <div className="text-xs font-mono text-slate-500 flex items-center gap-1">
                 <i className="fa-solid fa-brain text-purple-400 animate-pulse"></i>
-                {" AI_READY "}
+                {" SCOPE_READY "}
               </div>
             </div>
             <form
@@ -178,10 +196,11 @@ export default function Contact() {
                       value="Landing Page Comercial"
                       className="bg-slate-950"
                     >
-                      {"Landing Page Comercial (Pyme)"}
+                      {"Landing Page · $220.000–$250.000 CLP"}
                     </option>
                     <option
-                      value="Plataforma Web / SaaS"
+                      value="Página Web Funcional" className="bg-slate-950">Página Web Funcional · Desde $400.000 CLP</option>
+                    <option value="Plataforma Web / SaaS"
                       className="bg-slate-950"
                     >
                       {"Plataforma Web Corporativa / SaaS"}
@@ -190,14 +209,15 @@ export default function Contact() {
                       value="Modelo de Inteligencia Artificial"
                       className="bg-slate-950"
                     >
-                      {"Modelo Predictivo / IA"}
+                      {"Modelo Predictivo / IA · Variable"}
                     </option>
                     <option
                       value="E-commerce / Tienda Online"
                       className="bg-slate-950"
                     >
-                      {"E-commerce / Tienda Online"}
+                      {"E-commerce · Desde $700.000 CLP"}
                     </option>
+                    <option value="Mantención" className="bg-slate-950">Mantención / Soporte · Variable</option>
                     <option value="Otro" className="bg-slate-950">
                       {"Otro requerimiento a medida"}
                     </option>
@@ -252,6 +272,8 @@ export default function Contact() {
                   <textarea
                     id="message"
                     name="message"
+                    value={message}
+                    onChange={(event) => setMessage(event.target.value)}
                     required
                     rows="4"
                     autoComplete="off"
@@ -260,10 +282,15 @@ export default function Contact() {
                   ></textarea>
                 </div>
               </div>
+              <input type="hidden" name="estimated_price_clp" value={pricing.price} />
+              <input type="hidden" name="base_reference_clp" value={pricing.base || "Variable"} />
+              <input type="hidden" name="scope_review" value={pricing.reason} />
+              <input type="hidden" name="scope_signals" value={pricing.signals.join(", ") || "Sin señales adicionales"} />
               <div className="flex flex-col sm:flex-row gap-4 pt-2">
                 <button
                   type="button"
                   id="openPricesBtn"
+
                   className="sm:w-1/3 flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-850 text-blue-400 border border-slate-800 hover:border-blue-500/50 font-bold px-4 py-4 rounded-xl shadow-md transition-all duration-300 group font-mono text-sm tracking-wide"
                   onClick={() => setPricesOpen(true)}
                 >
@@ -294,6 +321,7 @@ export default function Contact() {
       </section>
       <div
         id="pricesModal"
+        ref={modalRef}
         className={`fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md transition-opacity duration-300 ${pricesOpen ? "opacity-100" : "hidden opacity-0"}`}
         onClick={(event) => {
           if (event.target === event.currentTarget) setPricesOpen(false);
@@ -305,6 +333,7 @@ export default function Contact() {
         <div
           className="bg-slate-900 border border-slate-800 w-full max-w-lg rounded-2xl shadow-[0_0_50px_rgba(168,85,247,0.15)] overflow-hidden transform scale-100 transition-transform duration-300 font-mono"
           id="modalContainer"
+          style={{ maxHeight: "calc(100dvh - 32px)", overflowY: "auto" }}
         >
           <div className="bg-slate-950 px-6 py-4 flex items-center justify-between border-b border-slate-800">
             <div className="flex items-center gap-2 text-xs text-purple-400">
@@ -313,6 +342,7 @@ export default function Contact() {
             </div>
             <button
               id="closePricesBtn"
+              aria-label="Cerrar estimación"
               className="text-slate-500 hover:text-white transition-colors"
               onClick={() => setPricesOpen(false)}
             >
@@ -327,11 +357,11 @@ export default function Contact() {
               </div>
               <div className="text-xs space-y-1">
                 <span className="text-slate-500 block">
-                  {"[ SYSTEM_BOT_v1.0 ]"}
+                  {"[ SCOPE_ESTIMATOR_v2.0 ]"}
                 </span>
                 <p className="text-slate-300 leading-relaxed">
                   {
-                    " Saludos. He analizado el requerimiento actual en tu formulario. Aquí tienes el desglose base estimado para este tipo de arquitectura: "
+                    " Referencia calculada con el tipo de proyecto y la complejidad que elegiste. Busco señales en tu descripción para orientar la revisión; este estimador usa reglas, no un modelo de IA entrenado. "
                   }
                 </p>
               </div>
@@ -339,7 +369,7 @@ export default function Contact() {
             <div className="bg-slate-950 border border-slate-800 rounded-xl p-5 space-y-4">
               <div>
                 <span className="text-[10px] text-slate-500 uppercase block tracking-wider">
-                  {"// Tipo Detectado"}
+                  {"// Tipo seleccionado"}
                 </span>
                 <span
                   id="bot-project-title"
@@ -350,21 +380,24 @@ export default function Contact() {
               </div>
               <div className="border-t border-slate-800/80 pt-3">
                 <span className="text-[10px] text-slate-500 uppercase block tracking-wider">
-                  {"// Rango Estimado (USD)"}
+                  {"// Estimación referencial (CLP)"}
                 </span>
-                <div className="flex items-baseline gap-2 mt-1">
+                <div className="flex flex-wrap items-baseline gap-2 mt-1">
                   <span
                     id="bot-price"
                     className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500"
                   >
                     {pricing.price}
                   </span>
-                  <span className="text-[10px] text-slate-400">{"Base"}</span>
+                  <span className="text-[10px] text-slate-400">{pricing.level}</span>
                 </div>
               </div>
+              {pricing.variable && pricing.base && <p className="text-xs text-blue-300">Referencia base: {pricing.base}</p>}
+              <p className="text-xs text-slate-300 leading-relaxed" id="bot-reason">{pricing.reason}</p>
+              {pricing.signals.length > 0 && <div className="text-xs text-amber-300 leading-relaxed"><p>Posibles requisitos a confirmar:</p><ul className="list-disc pl-4">{pricing.signals.map(signal => <li key={signal}>{signal}</li>)}</ul></div>}
               <div className="border-t border-slate-800/80 pt-3 space-y-1">
                 <span className="text-[10px] text-slate-500 uppercase block tracking-wider">
-                  {"// Qué incluye este valor"}
+                  {"// Alcance de referencia"}
                 </span>
                 <ul
                   id="bot-features"
@@ -381,7 +414,7 @@ export default function Contact() {
             </div>
             <p className="text-[10px] text-center text-slate-500">
               {
-                " *Los costos finales se ajustan según integraciones extras y plazos de entrega. "
+                " *Estimación orientativa, sujeta a revisión contigo. Dominio, hosting, servicios externos y suscripciones se acuerdan por separado. "
               }
             </p>
           </div>

@@ -1,0 +1,66 @@
+.scrum-value { padding: 6rem 0; position: relative; }
+.scrum-value-inner { width: min(1280px, calc(100% - 48px)); margin: auto; }
+.scrum-value-heading { max-width: 850px; margin: 0 auto 3rem; text-align: center; }
+.scrum-eyebrow { color: #2563eb; font-size: .73rem; font-weight: 800; letter-spacing: .18em; }
+.scrum-value-heading h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 900; line-height: 1.12; color: #17233c; margin: 1rem 0 1.3rem; }
+.scrum-value-heading h2 span { color: #2563eb; }
+.scrum-value-heading > p:not(.scrum-eyebrow) { font-size: 1.05rem; line-height: 1.8; color: #475569; max-width: 720px; margin: auto; }
+.scrum-cycle-label { display: inline-flex; align-items: center; gap: .6rem; border: 1px solid #2563eb45; border-radius: 100px; padding: .55rem 1rem; margin-top: 1.5rem; font-size: .8rem; color: #2563eb; background: #2563eb0c; }
+.scrum-phase-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.2rem; }
+.scrum-card-reveal { min-width: 0; }
+.scrum-phase-card { position: relative; width: 100%; height: 100%; display: flex; flex-direction: column; text-align: left; border: 1px solid #9eb7e6; border-radius: 22px; padding: 1.6rem; background: linear-gradient(145deg,#f8fbfff5,#eaf0fcdd); color: #17233c; box-shadow: inset 0 1px 0 #fff8,0 12px 35px #13265a0b; transition: transform .4s ease, border-color .4s ease, box-shadow .4s ease, background .4s ease; }
+.scrum-phase-card:hover { transform: translateY(-9px) rotate(-.5deg); border-color: #2563eb; box-shadow: 0 18px 45px #2563eb28; }
+.scrum-phase-card:active { transform: translateY(-3px) scale(.985); }
+.scrum-phase-card.is-selected { border-color: #2563eb; box-shadow: 0 0 0 1px #2563eb70,0 0 30px #2563eb25; }
+.scrum-phase-card:focus-visible, .scrum-replay:focus-visible, .scrum-contact:focus-visible { outline: 3px solid #60a5fa; outline-offset: 5px; }
+.scrum-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; }
+.scrum-phase-icon { display: grid; place-items: center; width: 50px; height: 50px; color: #2563eb; border: 1px solid #2563eb55; border-radius: 15px; background: #2563eb12; font-size: 1.3rem; transition: transform .4s ease; }
+.scrum-phase-card:hover .scrum-phase-icon { transform: rotate(8deg) scale(1.08); }
+.scrum-phase-number { font: 700 1.6rem Consolas,monospace; color: #2563eb80; }
+.scrum-phase-card h3 { font-size: 1.15rem; font-weight: 800; min-height: 2.8em; line-height: 1.4; margin-bottom: .65rem; }
+.scrum-phase-card p { line-height: 1.75; font-size: .88rem; color: #475569; margin-bottom: 1.2rem; }
+.scrum-deliverable { display: block; margin-top: auto; padding-top: 1rem; border-top: 1px solid #2563eb25; color: #245ac9; font-size: .72rem; font-weight: 700; line-height: 1.6; }
+.scrum-card-action { display: flex; justify-content: space-between; gap: 1rem; color: #2563eb; font-size: .75rem; font-weight: 700; margin-top: 1.2rem; }
+.scrum-phase-card.is-selected .scrum-card-action i { animation: scrum-nudge 1.8s ease-in-out infinite; }
+.scrum-process-note { max-width: 850px; text-align: center; margin: 1.5rem auto 2.5rem; font-size: .8rem; line-height: 1.8; color: #526179; }
+.scrum-code-panel { border: 1px solid #385da0; border-radius: 20px; background: #090f1d; color: #dce6fc; overflow: hidden; box-shadow: 0 20px 65px #070c2425,0 0 40px #2563eb0c; }
+.scrum-editor-bar { display: flex; justify-content: space-between; gap: 1rem; align-items: center; padding: 1rem 1.5rem; background: #111b30; border-bottom: 1px solid #304366; font: .8rem Consolas,monospace; }
+.scrum-editor-bar i { color: #689bff; margin-right: .7rem; }
+.scrum-editor-language { color: #8b9cbb; font-size: .7rem; }
+.scrum-editor-body { display: grid; grid-template-columns: minmax(0,1.7fr) minmax(0,1fr); }
+.scrum-code-area { min-width: 0; padding: 1.8rem 1rem; min-height: 365px; border-right: 1px solid #253553; }
+.scrum-code-area pre { font: .79rem/1.95 Consolas,Monaco,monospace; color: #a9ccff; white-space: pre-wrap; overflow-wrap: anywhere; }
+.scrum-code-line { display: flex; }
+.scrum-line-number { flex: 0 0 2rem; text-align: right; padding-right: 1rem; color: #536582; user-select: none; }
+.scrum-code-line > span:last-child { min-width: 0; }
+.scrum-code-line.is-comment { color: #7dd3a7; }
+.scrum-code-caret { color: #60a5fa; animation: scrum-blink .8s steps(1) infinite; }
+.scrum-editor-empty { min-height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 1rem; }
+.scrum-editor-empty > span { color: #477ee8; font: 3rem Consolas,monospace; margin-bottom: 1rem; }
+.scrum-editor-empty p { font-weight: 700; margin-bottom: .7rem; }
+.scrum-editor-empty small { color: #93a3bf; }
+.scrum-editor-explanation { display: flex; flex-direction: column; padding: 2rem; background: linear-gradient(145deg,#15254888,#25154355); }
+.scrum-editor-explanation .scrum-eyebrow { color: #82aaff; font-size: .65rem; }
+.scrum-phase-summary { animation: scrum-summary-in .4s ease both; }
+.scrum-phase-summary h3 { font-size: 1.25rem; font-weight: 800; line-height: 1.5; margin: 1rem 0; }
+.scrum-phase-summary p { color: #acbbd5; font-size: .85rem; line-height: 1.8; margin-bottom: 1.5rem; }
+.scrum-replay { font-size: .75rem; color: #93b5ff; align-self: flex-start; margin-bottom: 1.5rem; }
+.scrum-replay i { margin-right: .4rem; }
+.scrum-contact { display: flex; justify-content: center; align-items: center; gap: 1rem; margin-top: auto; background: #2563eb; color: white; border-radius: 12px; padding: .95rem .8rem; font-size: .85rem; font-weight: 700; transition: transform .3s ease, box-shadow .3s ease; }
+.scrum-contact:hover { transform: translateY(-3px); box-shadow: 0 6px 25px #2563eb60; }
+.scrum-editor-status { display: flex; align-items: center; gap: .6rem; padding: .7rem 1.5rem; border-top: 1px solid #253553; font: .7rem Consolas,monospace; color: #9cabc5; }
+.scrum-editor-status > span { width: 6px; height: 6px; background: #34d399; border-radius: 50%; }
+.scrum-editor-status > span.is-typing { animation: scrum-blink .7s ease infinite; background: #60a5fa; }
+.dark .scrum-value-heading h2 { color: #f5f3ff; }
+.dark .scrum-value-heading h2 span { color: #5084ff; }
+.dark .scrum-value-heading > p:not(.scrum-eyebrow), .dark .scrum-phase-card p, .dark .scrum-process-note { color: #aab6cf; }
+.dark .scrum-phase-card { background: linear-gradient(145deg,#17233bea,#11172cdd); border-color: #344a79; color: #f5f3ff; }
+.dark .scrum-phase-card:hover, .dark .scrum-phase-card.is-selected { border-color: #4b80ff; }
+.dark .scrum-deliverable, .dark .scrum-card-action, .dark .scrum-cycle-label, .dark .scrum-eyebrow, .dark .scrum-phase-icon { color: #85aaff; }
+@keyframes scrum-blink { 50% { opacity: .3; } }
+@keyframes scrum-nudge { 50% { transform: translateY(4px); } }
+@keyframes scrum-summary-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@media(max-width:1050px) { .scrum-phase-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media(max-width:700px) { .scrum-editor-body { grid-template-columns: 1fr; } .scrum-code-area { border-right: 0; border-bottom: 1px solid #253553; } .scrum-editor-explanation { padding: 1.5rem; } .scrum-editor-language { display: none; } }
+@media(max-width:480px) { .scrum-value { padding: 4rem 0; } .scrum-value-inner { width: calc(100% - 32px); } .scrum-phase-grid { grid-template-columns: 1fr; gap: 1rem; } .scrum-phase-card h3 { min-height: 0; } .scrum-phase-card { padding: 1.5rem; } .scrum-code-area pre { font-size: .71rem; } .scrum-editor-bar { padding: 1rem; } }
+@media(prefers-reduced-motion:reduce) { .scrum-value *, .scrum-value *::before, .scrum-value *::after { animation: none !important; transition: none !important; } .scrum-phase-card:hover, .scrum-phase-card:active, .scrum-contact:hover { transform: none; } }
