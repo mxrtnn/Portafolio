@@ -1,3 +1,4 @@
+import HeroOrbit from "./HeroOrbit";
 import { usePortfolio } from "../context/PortfolioContext";
 import { useTypewriter } from "../hooks/useTypewriter";
 
@@ -10,7 +11,7 @@ export default function Hero() {
         id="inicio"
         className="max-w-7xl mx-auto px-6 md:px-10 pt-10 md:pt-16 pb-16 md:pb-24 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center text-center lg:text-left"
       >
-        <div className="order-2 lg:order-1">
+        <div className="order-2 lg:order-1 hero-copy">
           <p
             className="text-accentBlue tracking-widest text-sm font-semibold mb-2"
             data-lang="header_sub"
@@ -78,42 +79,8 @@ export default function Hero() {
             </div>
           </div>
         </div>
-        <div className="order-1 lg:order-2 relative flex justify-center items-center w-full min-h-[350px] md:min-h-[450px]">
-          <div className="relative flex justify-center items-center transform scale-[0.70] sm:scale-90 md:scale-100 origin-center">
-            <div className="absolute inset-0 flex items-center justify-center opacity-40 dark:opacity-30 -z-10">
-              <div className="absolute w-[450px] h-[450px] border-[1px] border-blue-400 dark:border-white/30 rounded-full animate-spin-slow"></div>
-              <div className="absolute w-[350px] h-[350px] border-[1px] border-accentBlue/40 dark:border-accentLight/30 rounded-full animate-spin-medium"></div>
-            </div>
-            <div className="absolute w-[450px] h-[450px] flex items-center justify-center animate-spin-slow -z-10">
-              <div className="absolute -top-4 text-3xl text-accentBlue dark:text-accentLight font-bold animate-counter-spin-slow">
-                {"∑"}
-              </div>
-              <div className="absolute bottom-6 -right-2 text-2xl text-slate-600 dark:text-white font-mono animate-counter-spin-slow">
-                {"∫"}
-              </div>
-              <div className="absolute -left-4 top-[35%] text-2xl text-accentBlue animate-counter-spin-slow">
-                <i className="fa-solid fa-code"></i>
-              </div>
-              <div className="absolute -bottom-4 left-[30%] text-3xl text-slate-500 dark:text-gray-300 animate-counter-spin-slow">
-                <i className="fa-solid fa-microchip"></i>
-              </div>
-              <div className="absolute top-12 -right-4 text-2xl text-accentBlue dark:text-accentLight animate-counter-spin-slow">
-                <i className="fa-solid fa-network-wired"></i>
-              </div>
-            </div>
-            <div className="relative w-80 h-80 rounded-full overflow-hidden border-[12px] border-lightBg dark:border-darkBg shadow-2xl z-10 flex-shrink-0 bg-slate-200 dark:bg-gray-800 transition-colors duration-500">
-              <img
-                src="/assets/img/perfil.jpg"
-                alt="Martín Jara"
-                className="object-cover w-full h-full scale-105"
-              />
-            </div>
-            <div className="absolute top-10 left-10 w-8 h-8 bg-gradient-to-br from-blue-400 dark:from-gray-700 to-blue-800 dark:to-black rounded-full shadow-lg float-anim z-0"></div>
-            <div
-              className="absolute bottom-10 right-10 w-12 h-12 bg-gradient-to-br from-accentBlue to-blue-900 dark:to-black rounded-full shadow-lg float-anim z-0"
-              style={{ animationDelay: "1s" }}
-            ></div>
-          </div>
+        <div className="order-1 lg:order-2 hero-orbit-column">
+          <HeroOrbit />
         </div>
       </header>
     </>

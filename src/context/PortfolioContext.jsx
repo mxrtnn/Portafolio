@@ -1,4 +1,5 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { flushSync } from "react-dom";
 import { translations } from "../data/content";
 
 const PortfolioContext = createContext(null);
@@ -20,6 +21,7 @@ export function PortfolioProvider({ children }) {
   const [language, setLanguage] = useState("es");
   const [dark, setDark] = useState(true);
   const [activeModal, setActiveModal] = useState(null);
+  const themeTransitionRef = useRef(null);
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", dark);
@@ -47,6 +49,27 @@ export function PortfolioProvider({ children }) {
     });
   }
 
+  function toggleTheme() {
+    const reduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    if (!document.startViewTransition || reduced) {
+      setDark((current) => !current);
+      return;
+    }
+    themeTransitionRef.current?.skipTransition();
+    const transition = document.startViewTransition(() => {
+      flushSync(() => setDark((current) => !current));
+    });
+    themeTransitionRef.current = transition;
+    transition.finished
+      .catch(() => {})
+      .finally(() => {
+        if (themeTransitionRef.current === transition)
+          themeTransitionRef.current = null;
+      });
+  }
+
   const value = {
     language,
     dark,
@@ -54,7 +77,7 @@ export function PortfolioProvider({ children }) {
     openModal,
     toggleLanguage: () =>
       setLanguage((current) => (current === "es" ? "en" : "es")),
-    toggleTheme: () => setDark((current) => !current),
+    toggleTheme,
     closeModal: () => setActiveModal(null),
     translate: (key, fallback) =>
       language === "es" || !translations.en[key]

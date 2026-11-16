@@ -1,0 +1,186 @@
+.hero-orbit-column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+.hero-orbit {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  width: min(100%, 540px);
+  aspect-ratio: 1;
+  touch-action: pan-y;
+}
+.hero-orbit-aura {
+  position: absolute;
+  inset: 9%;
+  z-index: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at 30% 40%, #238dc31a, transparent 60%),
+    radial-gradient(ellipse at 75% 65%, #8c53d520, transparent 65%);
+  filter: blur(20px);
+  pointer-events: none;
+}
+.hero-orbit-field {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  transform: perspective(1000px) rotateX(var(--orbit-x, 0deg))
+    rotateY(var(--orbit-y, 0deg));
+  transform-origin: center;
+  will-change: transform;
+  pointer-events: none;
+}
+.hero-orbit-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.hero-orbit-crosshair {
+  opacity: 0.4;
+}
+.hero-orbit-node {
+  filter: drop-shadow(0 0 5px #579af144);
+}
+.hero-orbit-portrait {
+  position: relative;
+  z-index: 2;
+  width: 59%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  padding: 9px;
+  background: linear-gradient(145deg, #45cfff75, #6186ff18 48%, #b28cff75);
+  box-shadow:
+    0 0 26px #487dee1c,
+    0 18px 45px #0002;
+}
+.hero-orbit-portrait::before {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border: 1px solid #aec8ff40;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.hero-orbit-portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 40%;
+  border: 5px solid #e5eefb;
+  border-radius: 50%;
+
+}
+.dark .hero-orbit-portrait img {
+  border-color: #0a142b;
+}
+.hero-orbit-label {
+  position: absolute;
+  z-index: 3;
+  color: #5d7eb5;
+  font:
+    8px "Consolas",
+    monospace;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  pointer-events: none;
+}
+.dark .hero-orbit-label {
+  color: #8ba4cb;
+}
+.orbit-label-top {
+  top: 6%;
+  right: 8%;
+}
+.orbit-label-top > span {
+  display: block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #69d7df;
+  box-shadow: 0 0 7px #69d7df77;
+}
+.orbit-label-bottom {
+  bottom: 7%;
+  left: 9%;
+  font-size: 7px;
+  letter-spacing: 2.7px;
+}
+.hero-orbit-motion {
+  position: absolute;
+  z-index: 4;
+  right: 8%;
+  bottom: 7%;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid #7b9cd34d;
+  border-radius: 50%;
+  background: #a6c9ff10;
+  color: #6599c6;
+  font-size: 9px;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+}
+.dark .hero-orbit-motion {
+  background: #101b30b3;
+  color: #a9c2e5;
+}
+.hero-orbit-motion:hover {
+  border-color: #8cbdff;
+  background: #7c9cd52b;
+}
+.hero-orbit-motion:focus-visible {
+  outline: 2px solid #a8bdff;
+  outline-offset: 4px;
+}
+@media (max-width: 1023px) {
+  .hero-orbit {
+    width: min(100%, 470px);
+  }
+}
+@media (max-width: 600px) {
+  .hero-orbit {
+    width: min(100%, 360px);
+  }
+  .hero-orbit-portrait {
+    padding: 6px;
+  }
+  .hero-orbit-portrait img {
+    border-width: 3px;
+  }
+  .hero-orbit-label {
+    font-size: 6px;
+    letter-spacing: 1px;
+  }
+  .orbit-label-bottom {
+    font-size: 5px;
+    letter-spacing: 1.5px;
+  }
+  .hero-orbit-motion {
+    width: 23px;
+    height: 23px;
+    font-size: 8px;
+    right: 7%;
+    bottom: 5%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-orbit-field {
+    will-change: auto;
+    transform: none;
+  }
+  .hero-orbit-motion {
+    transition: none;
+  }
+}
+

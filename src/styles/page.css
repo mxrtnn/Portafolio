@@ -14,7 +14,12 @@
     #eaf1ff 100%
   );
 }
-.dark .portfolio-page {
+.portfolio-page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
   background: linear-gradient(
     180deg,
     #060e22 0%,
@@ -26,6 +31,11 @@
     #112b43 85%,
     #070f23 100%
   );
+  opacity: 0;
+  transition: opacity 480ms ease;
+}
+.dark .portfolio-page::after {
+  opacity: 1;
 }
 .portfolio-page::before {
   content: "";
